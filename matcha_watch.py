@@ -435,18 +435,29 @@ def probe_authenticated(session: requests.Session, product_url: str, *,
 
 def login(session: requests.Session, user: str, password: str, *, verbose: bool = False) -> None:
     """Connexion WooCommerce, formulaire analyse dynamiquement (nonce inclus)."""
-    page = polite_get(session, ACCOUNT_URL, verbose=verbose)
-    soup = BeautifulSoup(page, "html.parser")
+    def fetch_form():
+        soup = BeautifulSoup(polite_get(session, ACCOUNT_URL, verbose=verbose), "html.parser")
+        for candidate in soup.find_all("form"):
+            if candidate.find("input", attrs={"type": "password"}):
+                return candidate
+        return None
 
-    form = None
-    for candidate in soup.find_all("form"):
-        if candidate.find("input", attrs={"type": "password"}):
-            form = candidate
-            break
+    form = fetch_form()
+
+    # Une session perimee ou corrompue fait souvent disparaitre le formulaire :
+    # le site croit reconnaitre un utilisateur et n'affiche plus la connexion,
+    # alors que les fiches produit restent en mode invite. On repart a zero.
+    if form is None and len(session.cookies) > 0:
+        if verbose:
+            print("[info] formulaire absent avec les cookies existants — session purgee, nouvel essai")
+        session.cookies.clear()
+        form = fetch_form()
+
     if form is None:
         raise NotAuthenticated(
-            "Formulaire de connexion introuvable sur " + ACCOUNT_URL +
-            ". Enregistrez cette page et inspectez-la avec --parse-file."
+            "Formulaire de connexion introuvable sur " + ACCOUNT_URL + ".\n"
+            "Enregistrez cette page depuis le navigateur et inspectez-la, ou passez "
+            "par l'export de cookies."
         )
 
     payload: dict[str, str] = {}
