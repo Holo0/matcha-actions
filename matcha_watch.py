@@ -1042,8 +1042,21 @@ def run(args, dmin: float, dmax: float) -> tuple[int, str]:
             products.append(p)
             if not args.quiet:
                 dispo = [v.label for v in p.variants if v.in_stock]
+                rupture = [v.label for v in p.variants if v.in_stock is False]
+                inconnu = [v.label for v in p.variants if v.in_stock is None]
                 etat = ("DISPO : " + ", ".join(dispo)) if dispo else "rupture"
-                print(f"  [{i:>2}/{len(targets)}] {p.name:<46} {etat}")
+                print(f"  [{i:>2}/{len(targets)}] {p.name:<46} "
+                      f"{etat}  ({len(dispo)}/{len(p.variants)} dispo)")
+                # Detail par taille. Sans lui, une rupture totale et un produit
+                # dont aucune taille n'a ete parsee s'affichent exactement pareil
+                # ("rupture" tout court) : le compteur et les libelles rendent la
+                # difference visible dans le resume de l'Action.
+                if rupture:
+                    print(f"{'':9}rupture     : {', '.join(rupture)}")
+                if inconnu:
+                    # Ces tailles sont ECARTEES du push en base (availability_payload) :
+                    # les pousser en `false` provoquerait une fausse alerte de restock.
+                    print(f"{'':9}indetermine : {', '.join(inconnu)}  (non pousse en base)")
             if i < len(targets):
                 time.sleep(random.uniform(dmin, dmax))
 
