@@ -66,7 +66,39 @@ difficile à deviner : n'importe qui connaissant l'URL reçoit vos alertes.
 
 Un webhook Slack ou Discord fonctionne aussi, le script détecte le format tout seul.
 
-## 6. Premier lancement, en mode diagnostic
+## 6. Alimenter la base MatchAlert (facultatif)
+
+Le relevé peut être écrit dans Firestore via l'API MatchAlert, en plus des alertes.
+Deux secrets suffisent :
+
+| Nom | Valeur |
+|---|---|
+| `MATCHALERT_API_URL` | l'URL publique du backend, ex. `https://api.matchalert.fr` |
+| `SCRAPPER_API_KEY` | exactement la même valeur que côté backend |
+
+Si l'un des deux manque, le script n'écrit rien et se comporte comme avant : cette
+intégration ne peut pas faire échouer un relevé.
+
+Ce qui part à chaque exécution :
+
+- `POST /api/matcha-availability/push-batch` — l'état de **toutes** les tailles relevées.
+  Le backend relit la dernière valeur connue pour chaque `(nom, size)` et n'écrit que si
+  la disponibilité a changé ; envoyer l'état complet toutes les heures ne gonfle donc pas
+  la collection.
+- `POST /api/scrapper/log` — une ligne `SUCCESS` ou `ERROR` avec le résumé du run, dans la
+  collection `logs`. Y compris quand le relevé échoue : c'est là que se verront une session
+  expirée ou un blocage anti-bot, sans avoir à ouvrir l'onglet Actions.
+
+**Les libellés doivent correspondre.** La clé côté base est le couple `(nom, size)`. Le
+script envoie le `data-product_title` du site (`Wako`, `Low Caffeine Matcha`) et la taille
+telle quelle (`20g can`). Si les documents `matcha` déjà en base utilisent d'autres
+libellés, l'application affichera deux produits distincts au lieu d'un. À vérifier avant
+le premier run réel.
+
+**Tester sans rien écrire** : bouton *Run workflow* → cochez **no_push**. Le relevé tourne,
+les alertes partent, la base n'est pas touchée.
+
+## 7. Premier lancement, en mode diagnostic
 
 Onglet **Actions** → *Veille matcha Marukyu-Koyamaen* → **Run workflow** → cochez
 **verbose** → **Run workflow**.
@@ -79,12 +111,12 @@ automatique. Ouvrez le run, dépliez *Relever le stock*, et lisez.
 | `4 fiches à relever` puis une ligne par produit | tout fonctionne |
 | `Session non connectée` | secrets absents ou mal orthographiés |
 | `Connexion refusée : …` | identifiants incorrects — le message vient du site |
-| `Page de vérification anti-bot` | l'IP GitHub est filtrée → voir section 9 |
+| `Page de vérification anti-bot` | l'IP GitHub est filtrée → voir section 10 |
 
 Le premier run n'émet jamais d'alerte : il enregistre l'état de référence. C'est voulu.
 À partir du deuxième, seules les transitions rupture → disponible remontent.
 
-## 7. C'est fini
+## 8. C'est fini
 
 Le workflow tourne ensuite tout seul, à la minute 13 de chaque heure. Rien à maintenir.
 
@@ -95,7 +127,7 @@ quelle heure, à quel prix.
 
 ---
 
-## 8. Quota et coût
+## 9. Quota et coût
 
 Gratuit, mais pas illimité sur un dépôt privé : **2 000 minutes par mois**.
 
@@ -112,7 +144,7 @@ Si vous voulez tout le catalogue ou une fréquence plus élevée, passez le dép
 secrets ne sont jamais exposés, y compris aux forks. En revanche l'historique des
 relevés et les issues de restock deviennent visibles de tous.
 
-## 9. Les limites à connaître
+## 10. Les limites à connaître
 
 **L'horaire dérive.** GitHub met les crons en file d'attente : un run prévu à 13 peut
 partir à 25 ou 35, surtout aux heures chargées. Comptez 5 à 20 minutes de retard. Sur un
@@ -120,7 +152,7 @@ produit qui s'épuise en 12 minutes, ça se paie. La minute 13 plutôt que 0 lim
 parce que la file est saturée en début d'heure.
 
 **L'IP peut être filtrée.** Les runners GitHub sortent par des plages datacenter connues.
-Le site peut les traiter différemment de votre connexion personnelle. Si le run 6 échoue
+Le site peut les traiter différemment de votre connexion personnelle. Si le run 7 échoue
 sur une page de vérification, GitHub Actions n'est pas jouable pour ce site : il faut une
 IP résidentielle, donc un Raspberry Pi chez vous ou un petit VPS. Le script est le même,
 seul l'hébergement change — dites-le-moi et je vous prépare l'unité systemd.
@@ -129,7 +161,7 @@ seul l'hébergement change — dites-le-moi et je vous prépare l'unité systemd
 activité sur le dépôt. Ici les commits d'état à chaque relevé maintiennent l'activité,
 donc le problème ne devrait pas se poser. Vous recevez un email si ça arrive.
 
-## 10. Arrêter ou modifier
+## 11. Arrêter ou modifier
 
 - **Suspendre** : onglet Actions → le workflow → `...` → *Disable workflow*.
 - **Changer la fréquence** : éditez la ligne `cron` du workflow.

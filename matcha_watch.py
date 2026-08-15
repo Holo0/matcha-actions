@@ -33,6 +33,10 @@ Usage rapide
 Il ne contourne aucune protection anti-bot : s'il detecte une page de
 verification, il s'arrete proprement et vous le dit.
 
+Peut aussi ecrire le releve dans la base MatchAlert (Firestore, via le backend
+Spring) : definissez MATCHALERT_API_URL et SCRAPPER_API_KEY. Sans elles, rien
+n'est envoye et le comportement est inchange. --no-push desactive l'envoi.
+
 Codes de sortie : 0 = rien de neuf | 2 = restock detecte | 1 = erreur.
 """
 
@@ -49,7 +53,7 @@ import smtplib
 import sys
 import time
 from dataclasses import dataclass, field, asdict
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from email.message import EmailMessage
 from pathlib import Path
 from typing import Any, Iterable
@@ -596,6 +600,160 @@ def notify(events: list[Event], *, verbose: bool = False) -> None:
 
 
 # --------------------------------------------------------------------------- #
+# MatchAlert — push vers le backend Spring / Firestore
+# --------------------------------------------------------------------------- #
+#
+# Deux endpoints, tous deux proteges par le seul header X-API-KEY :
+#
+#   POST /api/matcha-availability/push-batch
+#        corps : [ {nom, size, time, isAvailable}, ... ]  -> collection matchaAvailability
+#        Le backend deduplique lui-meme : il relit la derniere entree (nom,size)
+#        et n'ecrit que si isAvailable a change. On envoie donc l'etat complet
+#        a chaque run, sans se soucier du diff.
+#
+#   POST /api/scrapper/log
+#        corps : {status, description, time}              -> collection logs
+#
+# Actif seulement si MATCHALERT_API_URL et SCRAPPER_API_KEY sont definis.
+
+MATCHALERT_TIMEOUT = 20
+MATCHALERT_ATTEMPTS = 3
+LOG_DESCRIPTION_MAX = 1500
+
+
+def api_timestamp(moment: datetime | None = None) -> str:
+    """Horodatage au format attendu par le backend.
+
+    Firestore trie ce champ avec orderBy("time", DESCENDING) sur une CHAINE :
+    le tri est lexicographique, pas chronologique. Un ISO avec offset
+    ("2026-08-14T10:13:00+02:00") melange a l'ISO local que le backend genere
+    par defaut ("2026-08-14T10:13:00") casserait cet ordre — donc la detection
+    de changement, donc les alertes. On envoie toujours le meme format que
+    LocalDateTime.toString() cote Java : ISO local, sans offset, en UTC.
+    """
+    moment = moment or datetime.now(timezone.utc)
+    if moment.tzinfo is None:
+        moment = moment.replace(tzinfo=timezone.utc)
+    return moment.astimezone(timezone.utc).replace(tzinfo=None).isoformat(timespec="seconds")
+
+
+def matchalert_config() -> tuple[str, str] | None:
+    """(url de base, cle API) si les deux sont definis, sinon None."""
+    base = os.environ.get("MATCHALERT_API_URL", "").strip().rstrip("/")
+    key = os.environ.get("SCRAPPER_API_KEY", "").strip()
+    if not base or not key:
+        return None
+    # Les chemins ci-dessous incluent deja /api : on tolere une URL de base
+    # renseignee avec ou sans, plutot que de produire un /api/api/... muet.
+    if base.endswith("/api"):
+        base = base[:-4]
+    return base, key
+
+
+def push_enabled(args) -> bool:
+    return not args.no_push and matchalert_config() is not None
+
+
+def availability_payload(products: Iterable[Product], stamp: str) -> list[dict[str, Any]]:
+    """Aplati le releve en documents matchaAvailability.
+
+    Les tailles dont l'etat est indeterminable (in_stock is None) sont
+    ECARTEES. Les pousser en `false` ferait croire au backend a une rupture,
+    puis a un restock au run suivant : une alerte mensongere envoyee a tous
+    les abonnes. Une donnee absente vaut mieux qu'une donnee fausse.
+
+    Doublon (nom, size) dans un meme lot : on ne garde que le dernier. Le
+    backend compare chaque element a l'etat DEJA en base, pas aux precedents
+    du lot — deux entrees identiques passeraient donc toutes les deux.
+    """
+    items: dict[tuple[str, str], dict[str, Any]] = {}
+    for p in products:
+        for v in p.variants:
+            if v.in_stock is None:
+                continue
+            items[(p.name, v.label)] = {
+                "nom": p.name,
+                "size": v.label,
+                "time": stamp,
+                "isAvailable": bool(v.in_stock),
+            }
+    return list(items.values())
+
+
+def _matchalert_post(path: str, payload: Any, *, verbose: bool = False) -> tuple[bool, str]:
+    cfg = matchalert_config()
+    if cfg is None:
+        return False, "MatchAlert non configure"
+    base, key = cfg
+
+    url = f"{base}{path}"
+    headers = {"X-API-KEY": key, "Content-Type": "application/json"}
+    detail = "aucune tentative"
+
+    for attempt in range(1, MATCHALERT_ATTEMPTS + 1):
+        try:
+            resp = requests.post(url, json=payload, headers=headers, timeout=MATCHALERT_TIMEOUT)
+        except requests.RequestException as exc:
+            detail = f"{type(exc).__name__} : {exc}"
+        else:
+            if resp.status_code < 300:
+                return True, resp.text[:300]
+            detail = f"HTTP {resp.status_code} — {resp.text[:200]}"
+            # Cle refusee ou corps invalide : reessayer ne changera rien.
+            if resp.status_code in (400, 401, 403):
+                break
+        if verbose:
+            print(f"[warn] {path} essai {attempt}/{MATCHALERT_ATTEMPTS} : {detail}", file=sys.stderr)
+        if attempt < MATCHALERT_ATTEMPTS:
+            time.sleep(2 * attempt)
+
+    return False, detail
+
+
+def push_availabilities(products: list[Product], args) -> str:
+    """Envoie l'etat de toutes les tailles. Retourne une note pour le log.
+
+    N'echoue jamais le run : la base est une destination secondaire, l'alerte
+    reste la fonction principale du script.
+    """
+    items = availability_payload(products, api_timestamp())
+    if not items:
+        return " ; base : rien a envoyer (aucune taille exploitable)"
+
+    ok, detail = _matchalert_post("/api/matcha-availability/push-batch", items,
+                                  verbose=args.verbose)
+    if not ok:
+        print(f"[warn] push MatchAlert echoue : {detail}", file=sys.stderr)
+        return f" ; base : ECHEC ({detail[:200]})"
+
+    saved = None
+    try:
+        saved = json.loads(detail).get("saved")
+    except (json.JSONDecodeError, AttributeError):
+        pass
+    note = (f"{saved} ecriture(s) sur {len(items)} envoyee(s)"
+            if saved is not None else f"{len(items)} envoyee(s)")
+    if not args.quiet:
+        print(f"[info] MatchAlert : {note}")
+    return f" ; base : {note}"
+
+
+def push_log(status: str, description: str, *, verbose: bool = False) -> bool:
+    """Trace le run dans la collection `logs`. Best effort, jamais bloquant."""
+    payload = {
+        "status": status,
+        "description": description[:LOG_DESCRIPTION_MAX],
+        "time": api_timestamp(),
+    }
+    ok, detail = _matchalert_post("/api/scrapper/log", payload, verbose=verbose)
+    if not ok:
+        print(f"[warn] log MatchAlert echoue : {detail}", file=sys.stderr)
+    elif verbose:
+        print(f"[info] log MatchAlert enregistre ({status})")
+    return ok
+
+
+# --------------------------------------------------------------------------- #
 # Sorties
 # --------------------------------------------------------------------------- #
 
@@ -776,6 +934,46 @@ def self_test() -> int:
           "repli sur la liste complete si le catalogue n'expose pas de libelles",
           "un catalogue sans libelles produirait une surveillance vide")
 
+    # --- Push MatchAlert -------------------------------------------------- #
+
+    ts = api_timestamp(datetime(2026, 8, 14, 10, 13, 0, tzinfo=timezone.utc))
+    check(ts == "2026-08-14T10:13:00",
+          "horodatage API sans offset (format LocalDateTime cote Java)",
+          f"format inattendu : {ts!r}")
+
+    # Firestore trie `time` comme une CHAINE : deux horodatages ecrits depuis
+    # des fuseaux differents doivent rester dans l'ordre chronologique.
+    tot = api_timestamp(datetime(2026, 8, 14, 2, 30, tzinfo=timezone(timedelta(hours=2))))
+    tard = api_timestamp(datetime(2026, 8, 14, 1, 0, tzinfo=timezone.utc))
+    check(tot < tard,
+          "tri lexicographique = tri chronologique, quel que soit le fuseau",
+          f"ordre casse : {tot!r} devrait preceder {tard!r}")
+
+    payload = availability_payload([p2], "2026-08-14T10:13:00")
+    check(len(payload) == 2 and {d["size"] for d in payload} == {"20g can", "40g can"},
+          "chaque taille devient un document matchaAvailability",
+          f"payload inattendu : {payload}")
+    check(all(set(d) == {"nom", "size", "time", "isAvailable"} for d in payload),
+          "champs exactement conformes au modele MatchaAvailability du backend",
+          f"champs inattendus : {[sorted(d) for d in payload]}")
+    check(next(d for d in payload if d["size"] == "20g can")["isAvailable"] is True,
+          "isAvailable envoye en booleen JSON (pas 'true'/'yes')",
+          "isAvailable mal type")
+
+    inconnu = Product("Test", "http://x/9", [
+        Variant("20g can", None), Variant("40g can", True)])
+    payload2 = availability_payload([inconnu], "2026-08-14T10:13:00")
+    check(len(payload2) == 1 and payload2[0]["size"] == "40g can",
+          "taille indeterminable ecartee (jamais poussee comme rupture)",
+          f"une taille inconnue a ete poussee : {payload2}")
+
+    doublon = Product("Test", "http://x/9", [
+        Variant("20g can", False), Variant("20g can", True)])
+    payload3 = availability_payload([doublon], "2026-08-14T10:13:00")
+    check(len(payload3) == 1 and payload3[0]["isAvailable"] is True,
+          "doublon (nom, size) reduit au dernier etat dans un meme lot",
+          f"doublon non reduit : {payload3}")
+
     print("\n" + ("TOUS LES TESTS PASSENT" if failures == 0 else f"{failures} ECHEC(S)"))
     return 0 if failures == 0 else 1
 
@@ -783,6 +981,120 @@ def self_test() -> int:
 # --------------------------------------------------------------------------- #
 # main
 # --------------------------------------------------------------------------- #
+
+def run(args, dmin: float, dmax: float) -> tuple[int, str]:
+    """Le releve proprement dit. Retourne (code de sortie, resume pour le log).
+
+    Le resume est la description envoyee a /api/scrapper/log : il doit tenir en
+    une ligne lisible dans la collection `logs`, sans stack trace.
+    """
+    session = build_session(args.cookies)
+
+    try:
+        found = discover_products(session, verbose=args.verbose)
+        if not found:
+            msg = "Aucune fiche produit trouvee dans le catalogue."
+            print(msg, file=sys.stderr)
+            return 1, msg
+
+        wanted = [w.strip().lower() for w in args.only.split(",") if w.strip()]
+        urls = select_targets(found, wanted, verbose=args.verbose)
+
+        if not args.no_login:
+            if not probe_authenticated(session, urls[0], verbose=args.verbose):
+                user, pwd = os.environ.get("MKY_USER"), os.environ.get("MKY_PASS")
+                if not (user and pwd):
+                    print(
+                        "Session non connectee, et MKY_USER / MKY_PASS ne sont pas definis.\n"
+                        "Sans connexion le site n'affiche pas le detail des tailles.\n"
+                        "Definissez les variables d'environnement, ou exportez vos cookies\n"
+                        f"de navigateur vers {args.cookies}. Pour un releve degrade : --no-login",
+                        file=sys.stderr)
+                    return 1, "Session non connectee et identifiants absents (MKY_USER / MKY_PASS)."
+                login(session, user, pwd, verbose=args.verbose)
+                if not probe_authenticated(session, urls[0], verbose=args.verbose):
+                    print("Connexion effectuee mais les fiches restent en mode invite.\n"
+                          "Verifiez les identifiants, ou passez par l'export de cookies.",
+                          file=sys.stderr)
+                    return 1, "Connexion acceptee mais les fiches restent en mode invite."
+            elif args.verbose:
+                print("[info] session deja authentifiee (cookies reutilises)")
+
+        if not args.quiet:
+            print(f"{len(found)} fiches au catalogue, {len(urls)} a relever"
+                  + (f" (filtre : {', '.join(wanted)})" if wanted else ""))
+
+        targets = urls
+        products: list[Product] = []
+        for i, url in enumerate(targets, 1):
+            slug = url.rstrip("/").rsplit("/", 1)[-1]
+            try:
+                p = parse_product(polite_get(session, url, verbose=args.verbose), url)
+            except NotAuthenticated as exc:
+                print(f"\n{exc}", file=sys.stderr)
+                return 1, f"Session perdue en cours de releve : {exc}"
+
+            if wanted and not any(w in p.name.lower() or w in slug.lower() for w in wanted):
+                if i < len(targets):
+                    time.sleep(random.uniform(dmin, dmax) * 0.3)
+                continue
+
+            products.append(p)
+            if not args.quiet:
+                dispo = [v.label for v in p.variants if v.in_stock]
+                etat = ("DISPO : " + ", ".join(dispo)) if dispo else "rupture"
+                print(f"  [{i:>2}/{len(targets)}] {p.name:<46} {etat}")
+            if i < len(targets):
+                time.sleep(random.uniform(dmin, dmax))
+
+        save_cookies(session)
+
+    except ChallengeDetected as exc:
+        print(f"\n{exc}", file=sys.stderr)
+        return 1, f"Page de verification anti-bot : {exc}"
+    except (NotAuthenticated, RuntimeError) as exc:
+        print(f"\nErreur : {exc}", file=sys.stderr)
+        return 1, f"{type(exc).__name__} : {exc}"
+
+    stamp = datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
+    if args.json:
+        write_json(args.json, products, stamp)
+    if args.csv:
+        write_csv(args.csv, products, stamp)
+
+    current = snapshot(products)
+    previous: dict[str, Any] = {}
+    if args.state.exists():
+        try:
+            previous = json.loads(args.state.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            print("[warn] etat precedent illisible, il sera reecrit", file=sys.stderr)
+
+    events = diff(previous, current, report_sold_out=args.sold_out_too)
+    args.state.write_text(json.dumps(current, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # Le push precede la notification : si la base tombe, on veut quand meme
+    # que l'alerte parte. L'inverse ferait rater le restock, qui est l'objet
+    # meme du script.
+    db_note = push_availabilities(products, args) if push_enabled(args) else ""
+
+    n_sizes = sum(len(p.variants) for p in products)
+    summary = f"{len(products)} produit(s), {n_sizes} taille(s) relevee(s)"
+
+    if events:
+        print("\n" + "=" * 64)
+        for e in events:
+            print(e.line())
+        print("=" * 64)
+        notify(events, verbose=args.verbose)
+        detail = " ; ".join(f"{e.kind} {e.product} {e.variant}" for e in events)
+        summary = f"{summary} ; {len(events)} changement(s) : {detail}{db_note}"
+        return (2 if any(e.kind == "RESTOCK" for e in events) else 0), summary
+
+    if not args.quiet:
+        print(f"\nAucun changement ({stamp})")
+    return 0, f"{summary} ; aucun changement{db_note}"
+
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(
@@ -798,6 +1110,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--sold-out-too", action="store_true")
     ap.add_argument("--no-login", action="store_true",
                     help="ne pas se connecter (releve degrade, tailles inconnues)")
+    ap.add_argument("--no-push", action="store_true",
+                    help="ne rien envoyer a MatchAlert, meme si l'API est configuree")
     ap.add_argument("--quiet", action="store_true")
     ap.add_argument("--verbose", action="store_true")
     ap.add_argument("--self-test", action="store_true", help="teste le parsing hors ligne puis quitte")
@@ -829,101 +1143,17 @@ def main(argv: list[str] | None = None) -> int:
     except ValueError:
         ap.error("--delay attend 'N' ou 'MIN-MAX'")
 
-    session = build_session(args.cookies)
+    if args.verbose and not push_enabled(args):
+        print("[info] MatchAlert desactive : "
+              + ("--no-push" if args.no_push else
+                 "MATCHALERT_API_URL / SCRAPPER_API_KEY non definis"))
 
-    try:
-        found = discover_products(session, verbose=args.verbose)
-        if not found:
-            print("Aucune fiche produit trouvee dans le catalogue.", file=sys.stderr)
-            return 1
+    code, summary = run(args, dmin, dmax)
 
-        wanted = [w.strip().lower() for w in args.only.split(",") if w.strip()]
-        urls = select_targets(found, wanted, verbose=args.verbose)
+    if push_enabled(args):
+        push_log("SUCCESS" if code in (0, 2) else "ERROR", summary, verbose=args.verbose)
 
-        if not args.no_login:
-            if not probe_authenticated(session, urls[0], verbose=args.verbose):
-                user, pwd = os.environ.get("MKY_USER"), os.environ.get("MKY_PASS")
-                if not (user and pwd):
-                    print(
-                        "Session non connectee, et MKY_USER / MKY_PASS ne sont pas definis.\n"
-                        "Sans connexion le site n'affiche pas le detail des tailles.\n"
-                        "Definissez les variables d'environnement, ou exportez vos cookies\n"
-                        f"de navigateur vers {args.cookies}. Pour un releve degrade : --no-login",
-                        file=sys.stderr)
-                    return 1
-                login(session, user, pwd, verbose=args.verbose)
-                if not probe_authenticated(session, urls[0], verbose=args.verbose):
-                    print("Connexion effectuee mais les fiches restent en mode invite.\n"
-                          "Verifiez les identifiants, ou passez par l'export de cookies.",
-                          file=sys.stderr)
-                    return 1
-            elif args.verbose:
-                print("[info] session deja authentifiee (cookies reutilises)")
-
-        if not args.quiet:
-            print(f"{len(found)} fiches au catalogue, {len(urls)} a relever"
-                  + (f" (filtre : {', '.join(wanted)})" if wanted else ""))
-
-        targets = urls
-        products: list[Product] = []
-        for i, url in enumerate(targets, 1):
-            slug = url.rstrip("/").rsplit("/", 1)[-1]
-            try:
-                p = parse_product(polite_get(session, url, verbose=args.verbose), url)
-            except NotAuthenticated as exc:
-                print(f"\n{exc}", file=sys.stderr)
-                return 1
-
-            if wanted and not any(w in p.name.lower() or w in slug.lower() for w in wanted):
-                if i < len(targets):
-                    time.sleep(random.uniform(dmin, dmax) * 0.3)
-                continue
-
-            products.append(p)
-            if not args.quiet:
-                dispo = [v.label for v in p.variants if v.in_stock]
-                etat = ("DISPO : " + ", ".join(dispo)) if dispo else "rupture"
-                print(f"  [{i:>2}/{len(targets)}] {p.name:<46} {etat}")
-            if i < len(targets):
-                time.sleep(random.uniform(dmin, dmax))
-
-        save_cookies(session)
-
-    except ChallengeDetected as exc:
-        print(f"\n{exc}", file=sys.stderr)
-        return 1
-    except (NotAuthenticated, RuntimeError) as exc:
-        print(f"\nErreur : {exc}", file=sys.stderr)
-        return 1
-
-    stamp = datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
-    if args.json:
-        write_json(args.json, products, stamp)
-    if args.csv:
-        write_csv(args.csv, products, stamp)
-
-    current = snapshot(products)
-    previous: dict[str, Any] = {}
-    if args.state.exists():
-        try:
-            previous = json.loads(args.state.read_text(encoding="utf-8"))
-        except json.JSONDecodeError:
-            print("[warn] etat precedent illisible, il sera reecrit", file=sys.stderr)
-
-    events = diff(previous, current, report_sold_out=args.sold_out_too)
-    args.state.write_text(json.dumps(current, ensure_ascii=False, indent=2), encoding="utf-8")
-
-    if events:
-        print("\n" + "=" * 64)
-        for e in events:
-            print(e.line())
-        print("=" * 64)
-        notify(events, verbose=args.verbose)
-        return 2 if any(e.kind == "RESTOCK" for e in events) else 0
-
-    if not args.quiet:
-        print(f"\nAucun changement ({stamp})")
-    return 0
+    return code
 
 
 if __name__ == "__main__":

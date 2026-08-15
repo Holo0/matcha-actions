@@ -157,7 +157,44 @@ export MATCHA_WEBHOOK_URL='https://ntfy.sh/un-nom-secret-a-vous'
 
 ---
 
-## 7. Planification horaire
+## 7. Écrire dans la base MatchAlert
+
+Optionnel, et inactif tant que les deux variables ne sont pas définies :
+
+| Variable | Effet |
+|---|---|
+| `MATCHALERT_API_URL` | URL du backend, ex. `https://api.matchalert.fr` |
+| `SCRAPPER_API_KEY` | clé attendue dans le header `X-API-KEY`, identique au backend |
+
+Le script appelle alors deux endpoints, tous deux protégés par cette seule clé :
+
+`POST /api/matcha-availability/push-batch` reçoit l'état de chaque taille sous la forme
+`{nom, size, time, isAvailable}`. Le dédoublonnage est fait **côté backend** : il relit la
+dernière entrée `(nom, size)` et n'écrit que si la disponibilité a changé. Le script envoie
+donc l'état complet à chaque run plutôt que son propre diff — une seule source de vérité,
+et un état perdu (push refusé, cache vidé) se rattrape tout seul au run suivant.
+
+`POST /api/scrapper/log` reçoit `{status, description, time}` : une ligne `SUCCESS` ou
+`ERROR` par exécution, résumé compris. Elle part **aussi** quand le relevé échoue, ce qui
+en fait le seul endroit où voir une session expirée sans ouvrir l'onglet Actions.
+
+Deux détails qui ont dicté l'implémentation :
+
+- **Les tailles indéterminables ne sont jamais poussées.** Quand ni `p.stock` ni le bouton
+  ne permettent de trancher, `in_stock` vaut `None`. L'envoyer en `false` ferait croire à
+  une rupture, puis à un restock au run suivant : une alerte mensongère à tous les abonnés.
+  Ces tailles sont écartées du lot — mieux vaut une donnée absente qu'une donnée fausse.
+- **Le champ `time` part sans fuseau.** Firestore trie `time` avec `orderBy(DESCENDING)` sur
+  une *chaîne* : le tri est lexicographique. Un `2026-08-14T10:13:00+02:00` mélangé au
+  `2026-08-14T10:13:00` que le backend génère par défaut casserait l'ordre, donc la
+  détection de changement. Le script convertit en UTC et supprime l'offset, dans le même
+  format que `LocalDateTime.toString()` côté Java. Les exports CSV et JSON, eux, gardent
+  l'heure locale avec offset : ils sont faits pour être lus, pas triés par Firestore.
+
+`--no-push` désactive les deux appels sans toucher aux variables — pratique pour un run de
+test qui ne doit rien écrire.
+
+## 8. Planification horaire
 
 > **Installation retenue : GitHub Actions.** La procédure complète est dans
 > **[SETUP.md](SETUP.md)** — dépôt privé, secrets, premier run de diagnostic.
@@ -179,7 +216,7 @@ action `python.exe`, arguments `C:\chemin\matcha_watch.py --quiet`,
 
 ---
 
-## 8. Ce que le script ne fait pas
+## 9. Ce que le script ne fait pas
 
 Il **ne contourne aucune protection anti-bot**. Face à une page de vérification
 (Cloudflare, captcha) il s'arrête, le dit, et n'insiste pas. Par défaut : `User-Agent`
@@ -192,7 +229,7 @@ Quatre produits toutes les heures ≈ 100 requêtes/jour, négligeable. Tout le 
 
 ---
 
-## 9. État de validation
+## 10. État de validation
 
 | Cas | Statut |
 |---|---|
@@ -203,6 +240,10 @@ Quatre produits toutes les heures ≈ 100 requêtes/jour, négligeable. Tout le 
 | Page visiteur non connecté | validé |
 | Produit entièrement en rupture | validé |
 | Diff rupture → disponible | validé |
+| Mapping vers `matchaAvailability` (champs, types) | validé par `--self-test` |
+| Taille indéterminable écartée du push | validé par `--self-test` |
+| Format `time` compatible avec le tri Firestore | validé par `--self-test` |
+| **Appels HTTP réels vers le backend** | **non validé** — testés sur un serveur factice uniquement |
 | **Connexion automatique** | **non validé** — voir ci-dessous |
 
 La seule pièce non éprouvée est le POST de connexion : je n'ai jamais vu la page
@@ -220,7 +261,7 @@ cookies décrit en section 4, qui contourne entièrement le problème.
 
 ---
 
-## 10. Dépannage
+## 11. Dépannage
 
 | Symptôme | Cause probable |
 |---|---|
@@ -229,6 +270,10 @@ cookies décrit en section 4, qui contourne entièrement le problème.
 | `Page de vérification anti-bot` | trop de requêtes → augmentez `--delay`, attendez |
 | `structure de page non reconnue` | le thème a changé → `--parse-file` sur la page en cause |
 | toutes les tailles en `?` | ni `p.stock` ni bouton trouvés dans la ligne → envoyez-moi la page |
+| `push MatchAlert echoue : HTTP 401` | `SCRAPPER_API_KEY` différente de celle du backend |
+| `push MatchAlert echoue : HTTP 500` | côté backend, `SCRAPPER_API_KEY` non défini au démarrage |
+| `push MatchAlert echoue : ConnectionError` | backend injoignable depuis les runners GitHub (URL, pare-feu) |
+| relevé correct mais rien en base | disponibilités inchangées : le backend n'écrit que sur transition |
 
 Le formulaire de connexion est analysé **dynamiquement** (tous les champs cachés, nonce
 compris) : un renommage de champ côté site ne cassera pas le script.
