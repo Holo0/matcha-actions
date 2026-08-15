@@ -32,8 +32,8 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: write   # committer l'etat et les exports
-  issues: write     # ouvrir une issue en cas de restock (canal d'alerte de secours)
+  contents: write # committer l'etat et les exports
+  issues: write # ouvrir une issue en cas de restock (canal d'alerte de secours)
 
 jobs:
   check:
@@ -83,6 +83,8 @@ jobs:
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
           MAIL_TO: ${{ secrets.MAIL_TO }}
           MAIL_FROM: ${{ secrets.MAIL_FROM }}
+          MATCHALERT_API_URL: ${{ secrets.MATCHALERT_API_URL }}
+          SCRAPPER_API_KEY: ${{ secrets.SCRAPPER_API_KEY }}
           ONLY: ${{ github.event.inputs.only || vars.MATCHA_ONLY || 'wako,yugen,isuzu,aoarashi' }}
           VERBOSE: ${{ github.event.inputs.verbose == 'true' && '--verbose' || '' }}
         run: |
