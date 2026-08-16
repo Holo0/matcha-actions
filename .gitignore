@@ -1,0 +1,22 @@
+# Cache de bytecode Python. Regenere a la volee, versionne par version de
+# l'interpreteur, et jamais lu par le workflow (checkout neuf a chaque run).
+__pycache__/
+*.py[cod]
+
+# Session Marukyu-Koyamaen : cookies d'authentification du compte MKY_USER.
+# Ne doit JAMAIS entrer dans l'historique git. En CI elle vit dans le cache
+# actions/cache, restaure et sauvegarde par le workflow.
+matcha_cookies.txt
+
+# Sorties d'execution, deja reprises dans le resume du job Actions.
+run.log
+issue.md
+
+# Environnement local
+.env
+.env.*
+.venv/
+venv/
+
+# Brouillons
+_tmp/

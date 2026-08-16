@@ -68,6 +68,19 @@ jobs:
           restore-keys: |
             matcha-cookies-
 
+      - name: Reveiller le backend MatchAlert
+        env:
+          MATCHALERT_API_URL: ${{ secrets.MATCHALERT_API_URL }}
+        run: |
+          if [ -z "$MATCHALERT_API_URL" ]; then
+            echo "MATCHALERT_API_URL absent : pas de push en base, rien a reveiller."
+            exit 0
+          fi
+          base="${MATCHALERT_API_URL%/}"
+          base="${base%/api}"
+          nohup curl -sS -o /dev/null -m 150 "$base/api/matchas" >/dev/null 2>&1 &
+          echo "Reveil de $base lance en arriere-plan."
+
       - name: Verifier le parsing avant tout appel reseau
         run: python3 matcha_watch.py --self-test
 

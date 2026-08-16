@@ -616,7 +616,7 @@ def notify(events: list[Event], *, verbose: bool = False) -> None:
 #
 # Actif seulement si MATCHALERT_API_URL et SCRAPPER_API_KEY sont definis.
 
-MATCHALERT_TIMEOUT = 20
+MATCHALERT_TIMEOUT = 60
 MATCHALERT_ATTEMPTS = 3
 LOG_DESCRIPTION_MAX = 1500
 
