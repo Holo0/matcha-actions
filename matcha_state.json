@@ -11,10 +11,10 @@
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1#1161040c1": {
     "product": "Wako",
     "variant": "40g can",
-    "in_stock": false,
+    "in_stock": true,
     "price": "¥4,520",
     "price_eur": "€24.49",
-    "limit": null,
+    "limit": "Limit one per person",
     "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1"
   },
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1#1161100c1": {
@@ -65,10 +65,10 @@
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1#1171100c1": {
     "product": "Yugen",
     "variant": "100g can",
-    "in_stock": false,
+    "in_stock": true,
     "price": "¥8,650",
     "price_eur": "€46.86",
-    "limit": null,
+    "limit": "Limit one per person",
     "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1"
   },
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1#1171100c6": {
@@ -92,7 +92,7 @@
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1#1191040c1": {
     "product": "Isuzu",
     "variant": "40g can",
-    "in_stock": false,
+    "in_stock": true,
     "price": "¥2,520",
     "price_eur": "€13.65",
     "limit": null,
@@ -110,7 +110,7 @@
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1#1f43100c6": {
     "product": "Isuzu",
     "variant": "100g bag",
-    "in_stock": false,
+    "in_stock": true,
     "price": "¥5,340",
     "price_eur": "€28.93",
     "limit": null,
@@ -128,7 +128,7 @@
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1#11a1040c1": {
     "product": "Aoarashi",
     "variant": "40g can",
-    "in_stock": false,
+    "in_stock": true,
     "price": "¥2,120",
     "price_eur": "€11.48",
     "limit": null,
@@ -146,7 +146,7 @@
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1#1f23100c6": {
     "product": "Aoarashi",
     "variant": "100g bag",
-    "in_stock": false,
+    "in_stock": true,
     "price": "¥4,340",
     "price_eur": "€23.51",
     "limit": null,
