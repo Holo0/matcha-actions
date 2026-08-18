@@ -95,7 +95,7 @@
     "in_stock": true,
     "price": "¥2,520",
     "price_eur": "€13.65",
-    "limit": null,
+    "limit": "quantite figee a 1",
     "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1"
   },
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1#1191100c1": {
@@ -128,7 +128,7 @@
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1#11a1040c1": {
     "product": "Aoarashi",
     "variant": "40g can",
-    "in_stock": true,
+    "in_stock": false,
     "price": "¥2,120",
     "price_eur": "€11.48",
     "limit": null,
