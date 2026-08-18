@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-18T03:55:37+00:00",
+  "checked_at": "2026-08-18T04:48:56+00:00",
   "products": [
     {
       "name": "Wako",
@@ -16,12 +16,12 @@
         },
         {
           "label": "40g can",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": "¥4,520",
           "price_eur": "€24.49",
           "sku": "1161040C1",
           "variation_id": "16929",
-          "limit": "Limit one per person"
+          "limit": null
         },
         {
           "label": "100g can",
@@ -77,12 +77,12 @@
         },
         {
           "label": "100g can",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": "¥8,650",
           "price_eur": "€46.86",
           "sku": "1171100C1",
           "variation_id": "16935",
-          "limit": "Limit one per person"
+          "limit": null
         },
         {
           "label": "100g bag",
@@ -111,12 +111,12 @@
       "variants": [
         {
           "label": "40g can",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": "¥2,520",
           "price_eur": "€13.65",
           "sku": "1191040C1",
           "variation_id": "16943",
-          "limit": "quantite figee a 1"
+          "limit": null
         },
         {
           "label": "100g can",
@@ -129,7 +129,7 @@
         },
         {
           "label": "100g bag",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": "¥5,340",
           "price_eur": "€28.93",
           "sku": "1F43100C6",
@@ -172,7 +172,7 @@
         },
         {
           "label": "100g bag",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": "¥4,340",
           "price_eur": "€23.51",
           "sku": "1F23100C6",
