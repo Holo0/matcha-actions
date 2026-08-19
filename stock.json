@@ -1,49 +1,6 @@
 {
-  "checked_at": "2026-08-19T07:51:24+00:00",
+  "checked_at": "2026-08-19T08:52:42+00:00",
   "products": [
-    {
-      "name": "Aoarashi",
-      "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1",
-      "variants": [
-        {
-          "label": "40g can",
-          "in_stock": true,
-          "price_jpy": "¥2,120",
-          "price_eur": "€11.47",
-          "sku": "11A1040C1",
-          "variation_id": "16947",
-          "limit": null
-        },
-        {
-          "label": "100g can",
-          "in_stock": false,
-          "price_jpy": "¥4,650",
-          "price_eur": "€25.17",
-          "sku": "11A1100C1",
-          "variation_id": "16948",
-          "limit": null
-        },
-        {
-          "label": "100g bag",
-          "in_stock": true,
-          "price_jpy": "¥4,340",
-          "price_eur": "€23.49",
-          "sku": "1F23100C6",
-          "variation_id": "16949",
-          "limit": null
-        },
-        {
-          "label": "200g can",
-          "in_stock": false,
-          "price_jpy": "¥8,700",
-          "price_eur": "€47.09",
-          "sku": "1F23200C1",
-          "variation_id": "16950",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
     {
       "name": "Wako",
       "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1",
@@ -186,6 +143,49 @@
           "price_eur": "€57.91",
           "sku": "1191200C1",
           "variation_id": "16946",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Aoarashi",
+      "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1",
+      "variants": [
+        {
+          "label": "40g can",
+          "in_stock": false,
+          "price_jpy": "¥2,120",
+          "price_eur": "€11.47",
+          "sku": "11A1040C1",
+          "variation_id": "16947",
+          "limit": null
+        },
+        {
+          "label": "100g can",
+          "in_stock": false,
+          "price_jpy": "¥4,650",
+          "price_eur": "€25.17",
+          "sku": "11A1100C1",
+          "variation_id": "16948",
+          "limit": null
+        },
+        {
+          "label": "100g bag",
+          "in_stock": false,
+          "price_jpy": "¥4,340",
+          "price_eur": "€23.49",
+          "sku": "1F23100C6",
+          "variation_id": "16949",
+          "limit": null
+        },
+        {
+          "label": "200g can",
+          "in_stock": false,
+          "price_jpy": "¥8,700",
+          "price_eur": "€47.09",
+          "sku": "1F23200C1",
+          "variation_id": "16950",
           "limit": null
         }
       ],
