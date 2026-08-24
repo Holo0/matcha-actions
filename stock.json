@@ -1,49 +1,6 @@
 {
-  "checked_at": "2026-08-24T09:01:52+00:00",
+  "checked_at": "2026-08-24T10:00:52+00:00",
   "products": [
-    {
-      "name": "Isuzu",
-      "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1",
-      "variants": [
-        {
-          "label": "40g can",
-          "in_stock": true,
-          "price_jpy": "¥2,520",
-          "price_eur": "€13.57",
-          "sku": "1191040C1",
-          "variation_id": "16943",
-          "limit": null
-        },
-        {
-          "label": "100g can",
-          "in_stock": false,
-          "price_jpy": "¥5,650",
-          "price_eur": "€30.42",
-          "sku": "1191100C1",
-          "variation_id": "16944",
-          "limit": null
-        },
-        {
-          "label": "100g bag",
-          "in_stock": true,
-          "price_jpy": "¥5,340",
-          "price_eur": "€28.75",
-          "sku": "1F43100C6",
-          "variation_id": "16945",
-          "limit": null
-        },
-        {
-          "label": "200g can",
-          "in_stock": false,
-          "price_jpy": "¥10,700",
-          "price_eur": "€57.60",
-          "sku": "1191200C1",
-          "variation_id": "16946",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
     {
       "name": "Aoarashi",
       "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1",
@@ -55,7 +12,7 @@
           "price_eur": "€11.41",
           "sku": "11A1040C1",
           "variation_id": "16947",
-          "limit": null
+          "limit": "quantite figee a 1"
         },
         {
           "label": "100g can",
@@ -68,7 +25,7 @@
         },
         {
           "label": "100g bag",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": "¥4,340",
           "price_eur": "€23.36",
           "sku": "1F23100C6",
@@ -186,6 +143,49 @@
           "price_eur": "€89.90",
           "sku": "1171200C1",
           "variation_id": "16937",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Isuzu",
+      "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1",
+      "variants": [
+        {
+          "label": "40g can",
+          "in_stock": false,
+          "price_jpy": "¥2,520",
+          "price_eur": "€13.57",
+          "sku": "1191040C1",
+          "variation_id": "16943",
+          "limit": null
+        },
+        {
+          "label": "100g can",
+          "in_stock": false,
+          "price_jpy": "¥5,650",
+          "price_eur": "€30.42",
+          "sku": "1191100C1",
+          "variation_id": "16944",
+          "limit": null
+        },
+        {
+          "label": "100g bag",
+          "in_stock": false,
+          "price_jpy": "¥5,340",
+          "price_eur": "€28.75",
+          "sku": "1F43100C6",
+          "variation_id": "16945",
+          "limit": null
+        },
+        {
+          "label": "200g can",
+          "in_stock": false,
+          "price_jpy": "¥10,700",
+          "price_eur": "€57.60",
+          "sku": "1191200C1",
+          "variation_id": "16946",
           "limit": null
         }
       ],
