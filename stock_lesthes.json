@@ -1,0 +1,101 @@
+{
+  "checked_at": "2026-08-26T10:55:00+00:00",
+  "products": [
+    {
+      "name": "Matcha Latte Premium",
+      "url": "https://www.lesthes-surterre.com/product-page/matcha-premium-latte",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": "À partir de 30,00 €",
+          "sku": "matcha-premium-latte",
+          "variation_id": null,
+          "limit": null
+        }
+      ],
+      "note": "plusieurs variantes : disponibilite au niveau du produit, pas par taille"
+    },
+    {
+      "name": "Matcha premium - Kagoshima, Japon",
+      "url": "https://www.lesthes-surterre.com/product-page/matcha-japon-kagoshima",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": "34,90 €",
+          "sku": "matcha-japon-kagoshima",
+          "variation_id": null,
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Thé Matcha Chiran - Kagoshima, Japon",
+      "url": "https://www.lesthes-surterre.com/product-page/the-matcha-chiran-japon",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": "38,90 €",
+          "sku": "the-matcha-chiran-japon",
+          "variation_id": null,
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Thé Matcha haut de gamme - Yame, Japon",
+      "url": "https://www.lesthes-surterre.com/product-page/matcha-haut-de-gamme-japonais",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": "42,50 €",
+          "sku": "matcha-haut-de-gamme-japonais",
+          "variation_id": null,
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Hojicha en poudre - Fukuoka, Japon",
+      "url": "https://www.lesthes-surterre.com/product-page/hojicha-en-poudre",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": "À partir de 16,90 €",
+          "sku": "hojicha-en-poudre",
+          "variation_id": null,
+          "limit": null
+        }
+      ],
+      "note": "plusieurs variantes : disponibilite au niveau du produit, pas par taille"
+    },
+    {
+      "name": "Coffret Matcha Premium",
+      "url": "https://www.lesthes-surterre.com/product-page/coffret-ceremonie-matcha",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": "À partir de 57,90 €",
+          "sku": "coffret-ceremonie-matcha",
+          "variation_id": null,
+          "limit": null
+        }
+      ],
+      "note": "plusieurs variantes : disponibilite au niveau du produit, pas par taille"
+    }
+  ]
+}
