@@ -620,6 +620,13 @@ MATCHALERT_TIMEOUT = 60
 MATCHALERT_ATTEMPTS = 3
 LOG_DESCRIPTION_MAX = 1500
 
+# Identifiant du magasin cote backend (table `magasin`, seme par V2). Il etait
+# jusqu'ici implicite : le backend repliait toute ligne sans magasin sur '1'.
+# Il devient explicite parce que le push de catalogue en a besoin, et parce
+# qu'un repli implicite est un mauvais defaut maintenant que trois magasins
+# coexistent.
+MAGASIN_ID = "1"
+
 
 def api_timestamp(moment: datetime | None = None) -> str:
     """Horodatage au format attendu par le backend.
@@ -680,6 +687,29 @@ def availability_payload(products: Iterable[Product], stamp: str) -> list[dict[s
     return list(items.values())
 
 
+def catalog_payload(products: Iterable[Product]) -> list[dict[str, Any]]:
+    """Aplati le releve en lignes de catalogue (table matcha cote backend).
+
+    Le couple (nom, size) est construit depuis les MEMES objets que
+    availability_payload : c'est ce qui garantit que le backend retrouve le
+    produit pour composer le lien d'achat de l'alerte de restock.
+
+    Contrairement aux disponibilites, une taille indeterminable est CONSERVEE
+    ici : elle n'affirme aucun etat de stock, elle rend juste le produit
+    visible dans l'application.
+    """
+    items: dict[tuple[str, str], dict[str, Any]] = {}
+    for p in products:
+        for v in p.variants:
+            items[(p.name, v.label)] = {
+                "magasin": MAGASIN_ID,
+                "nom": p.name,
+                "size": v.label,
+                "url": p.url,
+            }
+    return list(items.values())
+
+
 def _matchalert_post(path: str, payload: Any, *, verbose: bool = False) -> tuple[bool, str]:
     cfg = matchalert_config()
     if cfg is None:
@@ -736,6 +766,25 @@ def push_availabilities(products: list[Product], args) -> str:
     if not args.quiet:
         print(f"[info] MatchAlert : {note}")
     return f" ; base : {note}"
+
+
+def push_catalog(products: list[Product], args) -> None:
+    """Tient a jour le catalogue produit du magasin cote backend.
+
+    Best effort : le seed initial ne couvrait que 18 lignes alors que le
+    releve porte desormais sur tout le catalogue, donc les produits hors seed
+    n'avaient aucun lien d'achat. Un echec est journalise mais ne fait jamais
+    echouer le run : l'alerte reste la fonction principale du script.
+    """
+    items = catalog_payload(products)
+    if not items:
+        return
+
+    ok, detail = _matchalert_post("/api/matchas/push-catalog", items, verbose=args.verbose)
+    if not ok:
+        print(f"[warn] push catalogue echoue : {detail}", file=sys.stderr)
+    elif args.verbose:
+        print(f"[info] catalogue : {detail[:200]}")
 
 
 def push_log(status: str, description: str, *, verbose: bool = False) -> bool:
@@ -974,6 +1023,28 @@ def self_test() -> int:
           "doublon (nom, size) reduit au dernier etat dans un meme lot",
           f"doublon non reduit : {payload3}")
 
+    # --- Push du catalogue ------------------------------------------------ #
+
+    catalog = catalog_payload([p2])
+    check(all(set(d) == {"magasin", "nom", "size", "url"} for d in catalog),
+          "payload catalogue conforme au modele Matcha du backend",
+          f"champs inattendus : {[sorted(d) for d in catalog]}")
+    check(all(d["magasin"] == MAGASIN_ID for d in catalog),
+          "magasin Marukyu envoye explicitement (plus de repli implicite cote serveur)",
+          "magasin manquant ou incorrect")
+    # Invariant critique : sans une correspondance exacte, le backend ne
+    # retrouve pas le produit et l'alerte de restock repart sur l'URL de repli.
+    check({(d["nom"], d["size"]) for d in catalog}
+          >= {(d["nom"], d["size"]) for d in payload},
+          "catalogue et disponibilites partagent exactement les memes (nom, size)",
+          "divergence (nom, size) entre catalogue et disponibilites")
+    # Une taille indeterminable est ecartee des disponibilites mais conservee
+    # au catalogue : elle n'affirme aucun stock, elle rend le produit visible.
+    catalog2 = catalog_payload([inconnu])
+    check(len(catalog2) == 2 and len(payload2) == 1,
+          "taille indeterminable conservee au catalogue mais absente des disponibilites",
+          f"catalogue={len(catalog2)} disponibilites={len(payload2)}")
+
     print("\n" + ("TOUS LES TESTS PASSENT" if failures == 0 else f"{failures} ECHEC(S)"))
     return 0 if failures == 0 else 1
 
@@ -1089,6 +1160,11 @@ def run(args, dmin: float, dmax: float) -> tuple[int, str]:
     # Le push precede la notification : si la base tombe, on veut quand meme
     # que l'alerte parte. L'inverse ferait rater le restock, qui est l'objet
     # meme du script.
+    if push_enabled(args):
+        # Le catalogue precede les disponibilites : sans lui, un produit
+        # nouvellement apparu n'aurait pas de ligne matcha, donc pas de lien
+        # d'achat dans l'alerte qui suit immediatement.
+        push_catalog(products, args)
     db_note = push_availabilities(products, args) if push_enabled(args) else ""
 
     n_sizes = sum(len(p.variants) for p in products)

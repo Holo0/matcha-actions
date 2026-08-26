@@ -100,6 +100,11 @@ Ce qui part à chaque exécution :
   Le backend relit la dernière valeur connue pour chaque `(nom, size)` et n'écrit que si
   la disponibilité a changé ; envoyer l'état complet toutes les heures ne gonfle donc pas
   la collection.
+- `POST /api/matchas/push-catalog` — le catalogue du magasin (`magasin`, `nom`, `size`,
+  `url`). Sans lui, un produit reçoit bien ses disponibilités mais n'apparaît nulle part
+  dans l'application, et son alerte de restock retombe sur l'URL de repli de la boutique
+  au lieu du lien produit. Le backend fait un upsert sur `(magasin, nom, size)` en
+  réutilisant l'identifiant existant, donc rien n'est dupliqué d'un run à l'autre.
 - `POST /api/scrapper/log` — une ligne `SUCCESS` ou `ERROR` avec le résumé du run, dans la
   collection `logs`. Y compris quand le relevé échoue : c'est là que se verront une session
   expirée ou un blocage anti-bot, sans avoir à ouvrir l'onglet Actions.
