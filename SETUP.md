@@ -2,6 +2,13 @@
 
 À la fin, le relevé tourne toutes les heures dans le cloud. Vous ne lancez plus rien.
 
+> Ce guide couvre le relevé **Marukyu-Koyamaen** (`matcha_watch.py`), le seul des trois
+> qui exige une connexion. Les deux autres marchands sont nettement plus simples (aucun
+> identifiant à créer) et réutilisent les secrets configurés ici :
+>
+> - **Nakamura Tokichi** → **[SETUP-TOKICHI.md](SETUP-TOKICHI.md)**
+> - **Les Thés sur Terre** → **[SETUP-LESTHES.md](SETUP-LESTHES.md)**
+
 ---
 
 ## 1. Créer un dépôt **privé** (ou public si vous activez le palier Premium)

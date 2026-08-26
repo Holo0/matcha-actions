@@ -114,8 +114,11 @@ jobs:
 
           base="${MATCHALERT_API_URL%/}"
           base="${base%/api}"
+          # magasin=1 : ce workflow ne densifie que les produits Marukyu suivis
+          # par un abonne actif. Sans ce scope, il densifierait aussi les noms
+          # suivis chez les autres marchands, qu'il ne sait pas relever.
           products=$(curl -sS -m 30 -H "X-API-KEY: $SCRAPPER_API_KEY" \
-            "$base/api/matcha-availability/premium-watched" | jq -r 'join(",")')
+            "$base/api/matcha-availability/premium-watched?magasin=1" | jq -r 'join(",")')
 
           if [ -z "$products" ]; then
             echo "Aucun produit suivi par un abonne Premium actuellement : cron dense ignore."
