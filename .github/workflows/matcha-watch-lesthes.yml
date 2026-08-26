@@ -120,13 +120,28 @@ jobs:
 
       - name: Resume lisible dans l'onglet Actions
         if: always()
+        env:
+          SKIPPED: ${{ steps.targets.outputs.skip }}
         run: |
           {
             echo "### Releve Les Thes sur Terre $(date -u '+%Y-%m-%d %H:%M UTC')"
             echo
-            echo '```'
-            cat run_lesthes.log 2>/dev/null || echo "(aucune sortie)"
-            echo '```'
+            if [ "$SKIPPED" = "true" ]; then
+              # Le cron dense Premium se declenche toutes les 15 min et se
+              # saute lui-meme quand personne d'eligible ne suit de produit
+              # ici. Sans ce message le resume affichait « (aucune sortie) »,
+              # ce qui ressemblait a une panne.
+              echo "Run dense **Premium ignore** : aucun abonne actif ne suit de produit de cette boutique."
+              echo
+              echo "Ce n'est pas une erreur. Le releve horaire gratuit, lui, tourne normalement."
+            elif [ -s run_lesthes.log ]; then
+              echo '```'
+              cat run_lesthes.log
+              echo '```'
+            else
+              echo "::warning::Le relevé n'a produit aucune sortie alors qu'il devait tourner."
+              echo "Aucune sortie alors que le releve devait tourner — voir les logs de l'etape."
+            fi
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Ouvrir une issue en cas de restock
