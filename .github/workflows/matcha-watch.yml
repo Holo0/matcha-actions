@@ -3,21 +3,23 @@ name: Veille matcha Marukyu-Koyamaen
 on:
   # GitHub evalue les crons en UTC. Minute 13 volontairement : les jobs planifies
   # a la minute 0 sont massivement retardes (parfois 20 min) par la file d'attente.
+  # Palier gratuit : tout le catalogue par defaut (voir ONLY plus bas).
   schedule:
     - cron: "13 * * * *"
 
-    # Creneaux de restock observes (lundi / mercredi / vendredi, heure de Paris) :
-    #   ~03h-04h  ->  01:00-02:00 UTC
-    #   ~08h-10h  ->  06:00-08:00 UTC
-    # Decommentez pour densifier a 20 min pendant ces fenetres.
-    # Cout : ~150 executions/mois en plus (voir la note de quota dans SETUP.md).
-    # - cron: "6,26,46 1,2,6,7,8 * * 1,3,5"
+    # Palier Premium : scan dense, mais uniquement des produits suivis par au
+    # moins un abonne avec un abonnement actif (voir l'etape "Determiner les
+    # produits a surveiller", qui interroge le backend et saute purement et
+    # simplement ce run si personne de Premium ne suit rien). Necessite un
+    # depot public pour ne pas exploser le quota de minutes prive (voir
+    # SETUP.md, section Quota et cout).
+    - cron: "*/15 * * * *"
 
   # Bouton "Run workflow" dans l'onglet Actions, pour tester quand vous voulez.
   workflow_dispatch:
     inputs:
       only:
-        description: "Produits a surveiller (vide = valeur par defaut du depot)"
+        description: "Produits a surveiller (vide = tout le catalogue, ou MATCHA_ONLY si defini)"
         required: false
         default: ""
       verbose:
@@ -38,7 +40,9 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # 47 fiches x delai 10-20s (scan complet) approchent les 20 min d'origine ;
+    # marge portee a 30 pour ne pas couper un run en cours.
+    timeout-minutes: 30
 
     steps:
       - name: Recuperer le depot
@@ -81,11 +85,56 @@ jobs:
           nohup curl -sS -o /dev/null -m 150 "$base/api/matchas" >/dev/null 2>&1 &
           echo "Reveil de $base lance en arriere-plan."
 
+      # Sur le cron dense (palier Premium), n'interroge le backend et ne scanne
+      # que les produits suivis par au moins un abonne actif — jamais tout le
+      # catalogue. Sur le cron horaire et sur un run manuel, palier gratuit :
+      # tout le catalogue par defaut (voir la chaine de repli ONLY plus bas),
+      # jouable en minutes illimitees sur un depot public. Le delai est aussi
+      # differencie : plus genereux sur un scan complet (moins de requetes/min,
+      # cf. SETUP.md section 9-10), plus court sur le cron dense qui ne porte
+      # generalement que sur quelques produits.
+      - name: Determiner les produits a surveiller
+        id: targets
+        env:
+          MATCHALERT_API_URL: ${{ secrets.MATCHALERT_API_URL }}
+          SCRAPPER_API_KEY: ${{ secrets.SCRAPPER_API_KEY }}
+          IS_DENSE: ${{ github.event.schedule == '*/15 * * * *' }}
+        run: |
+          if [ "$IS_DENSE" != "true" ]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "delay=10-20" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ -z "$MATCHALERT_API_URL" ] || [ -z "$SCRAPPER_API_KEY" ]; then
+            echo "::warning::MATCHALERT_API_URL ou SCRAPPER_API_KEY absent : cron dense ignore."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          base="${MATCHALERT_API_URL%/}"
+          base="${base%/api}"
+          products=$(curl -sS -m 30 -H "X-API-KEY: $SCRAPPER_API_KEY" \
+            "$base/api/matcha-availability/premium-watched" | jq -r 'join(",")')
+
+          if [ -z "$products" ]; then
+            echo "Aucun produit suivi par un abonne Premium actuellement : cron dense ignore."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "Produits Premium a scanner : $products"
+          echo "only=$products" >> "$GITHUB_OUTPUT"
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+          echo "delay=6-12" >> "$GITHUB_OUTPUT"
+
       - name: Verifier le parsing avant tout appel reseau
+        if: steps.targets.outputs.skip != 'true'
         run: python3 matcha_watch.py --self-test
 
       - name: Relever le stock
         id: releve
+        if: steps.targets.outputs.skip != 'true'
         env:
           MKY_USER: ${{ secrets.MKY_USER }}
           MKY_PASS: ${{ secrets.MKY_PASS }}
@@ -98,13 +147,20 @@ jobs:
           MAIL_FROM: ${{ secrets.MAIL_FROM }}
           MATCHALERT_API_URL: ${{ secrets.MATCHALERT_API_URL }}
           SCRAPPER_API_KEY: ${{ secrets.SCRAPPER_API_KEY }}
-          ONLY: ${{ github.event.inputs.only || vars.MATCHA_ONLY || 'wako,yugen,isuzu,aoarashi' }}
+          # Repli vide = tout le catalogue (select_targets() dans matcha_watch.py
+          # scanne tout quand --only ne filtre rien). Auparavant limite a 4
+          # produits pour tenir dans le quota d'un depot prive ; le depot etant
+          # desormais public (minutes illimitees), le catalogue complet est le
+          # comportement par defaut. Definissez la variable de depot MATCHA_ONLY
+          # pour revenir a une liste restreinte si besoin.
+          ONLY: ${{ steps.targets.outputs.only || github.event.inputs.only || vars.MATCHA_ONLY || '' }}
+          DELAY: ${{ steps.targets.outputs.delay || '10-20' }}
           VERBOSE: ${{ github.event.inputs.verbose == 'true' && '--verbose' || '' }}
         run: |
           set +e
           python3 matcha_watch.py \
             --only "$ONLY" \
-            --delay 6-12 \
+            --delay "$DELAY" \
             --csv stock.csv \
             --json stock.json \
             $VERBOSE 2>&1 | tee run.log
@@ -114,7 +170,7 @@ jobs:
           exit 0
 
       - name: Conserver la session pour la prochaine execution
-        if: always() && hashFiles('matcha_cookies.txt') != ''
+        if: always() && steps.targets.outputs.skip != 'true' && hashFiles('matcha_cookies.txt') != ''
         uses: actions/cache/save@v4
         with:
           path: matcha_cookies.txt

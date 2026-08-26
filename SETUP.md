@@ -4,13 +4,19 @@
 
 ---
 
-## 1. Créer un dépôt **privé**
+## 1. Créer un dépôt **privé** (ou public si vous activez le palier Premium)
 
 Sur github.com → **New repository** → nom au choix → cochez **Private** → Create.
 
 Privé, parce que le dépôt va contenir l'historique de vos relevés. Vos identifiants,
 eux, ne sont jamais dans le dépôt : ils vivent dans les *secrets* GitHub, chiffrés et
 invisibles même pour vous une fois enregistrés.
+
+**Sauf si vous utilisez le cron dense Premium** (section 8bis) : celui-ci a besoin de
+minutes GitHub Actions illimitées, ce qui suppose un dépôt **public**. Aucun identifiant
+n'y est exposé (toujours des secrets), seul l'historique des relevés et les issues de
+restock deviennent visibles. Rien ne vous empêche de démarrer en privé et de basculer en
+public plus tard, depuis Settings → Danger Zone → Change visibility.
 
 ## 2. Pousser les fichiers
 
@@ -39,15 +45,17 @@ il faut créer le fichier à la main via **Add file → Create new file** en tap
 
 ## 4. Choisir les produits (facultatif)
 
-Même écran, onglet **Variables** → New repository variable :
+**Par défaut, sans rien configurer, tout le catalogue est surveillé** (~47 fiches) sur le
+cron horaire — comportement pensé pour un dépôt **public** (minutes illimitées, voir
+section 1 et section 9). Pour restreindre à une liste précise : même écran, onglet
+**Variables** → New repository variable :
 
 | Nom | Valeur |
 |---|---|
 | `MATCHA_ONLY` | `wako,yugen,isuzu,aoarashi` |
 
-Sans cette variable, ces quatre-là sont surveillés par défaut. Mettez `all` ou supprimez
-la variable et modifiez le workflow pour tout suivre — mais lisez d'abord la section
-quota plus bas.
+Utile si vous êtes resté sur un dépôt **privé** (quota de minutes limité, voir section 9)
+ou si vous ne suivez de toute façon qu'une poignée de références.
 
 ## 5. Choisir comment être prévenu
 
@@ -108,7 +116,7 @@ automatique. Ouvrez le run, dépliez *Relever le stock*, et lisez.
 
 | Ce que vous voyez | Signification |
 |---|---|
-| `4 fiches à relever` puis une ligne par produit | tout fonctionne |
+| `N fiches à relever` (N ≈ 47 par défaut, ou moins si `MATCHA_ONLY` est défini) puis une ligne par produit | tout fonctionne |
 | `Session non connectée` | secrets absents ou mal orthographiés |
 | `Connexion refusée : …` | identifiants incorrects — le message vient du site |
 | `Page de vérification anti-bot` | l'IP GitHub est filtrée → voir section 10 |
@@ -125,24 +133,50 @@ chaque taille), et commite `matcha_state.json`, `stock.csv` et `stock.json`. Vou
 récupérez donc gratuitement l'historique complet : quand chaque produit est revenu, à
 quelle heure, à quel prix.
 
+## 8bis. Palier Premium : scan dense pour les abonnés actifs
+
+Le workflow contient un second cron (`*/15 * * * *`, toutes les 15 minutes) qui ne scanne
+que les produits suivis par au moins un utilisateur avec un abonnement MatchAlert actif —
+jamais tout le catalogue. Avant chaque run dense, une étape interroge
+`GET /api/matcha-availability/premium-watched` (mêmes secrets `MATCHALERT_API_URL` /
+`SCRAPPER_API_KEY` que la section 6) ; si personne de Premium ne suit rien, le run entier
+est sauté sans consommer de minutes utiles.
+
+Prérequis : ce cron a besoin de minutes GitHub Actions illimitées, donc d'un **dépôt
+public** (section 1). Rien à faire côté script — seul le fichier workflow gère la
+bascule entre le palier gratuit (cron horaire, comportement inchangé) et le palier
+Premium (cron dense).
+
 ---
 
 ## 9. Quota et coût
 
-Gratuit, mais pas illimité sur un dépôt privé : **2 000 minutes par mois**.
+Gratuit, mais pas illimité sur un dépôt privé : **2 000 minutes par mois**. Le
+comportement par défaut du workflow (catalogue complet, cron dense Premium) suppose un
+dépôt **public** — voir ci-dessous si vous êtes resté en privé.
 
 | Configuration | Consommation estimée |
 |---|---|
-| 4 produits, toutes les heures | ~1 400 min/mois — **tient** |
+| `MATCHA_ONLY` limité à 4 produits, toutes les heures, dépôt privé | ~1 400 min/mois — **tient** |
 | 4 produits + créneaux denses (lignes commentées du workflow) | ~1 700 min/mois — tient, mais serré |
-| Tout le catalogue (47 fiches), toutes les heures | très au-delà — **ne tient pas** |
+| Tout le catalogue (47 fiches) et/ou cron dense Premium actif, dépôt encore privé | **ne tient pas** — passez en public |
+| Tout le catalogue et cron dense Premium, dépôt public | illimité — **tient toujours** |
 
 GitHub facture à la minute entamée, d'où l'écart avec le temps réel d'exécution.
 
-Si vous voulez tout le catalogue ou une fréquence plus élevée, passez le dépôt en
-**public** : les minutes deviennent illimitées. Vos identifiants restent protégés — les
-secrets ne sont jamais exposés, y compris aux forks. En revanche l'historique des
-relevés et les issues de restock deviennent visibles de tous.
+**Si vous êtes resté sur un dépôt privé**, définissez la variable `MATCHA_ONLY` (section
+4) pour revenir à une poignée de produits, sinon le scan par défaut du catalogue complet
+dépassera le quota gratuit. Si vous voulez le catalogue complet et/ou le cron dense
+Premium, passez le dépôt en **public** : les minutes deviennent illimitées. Vos
+identifiants restent protégés — les secrets ne sont jamais exposés, y compris aux forks.
+En revanche l'historique des relevés et les issues de restock deviennent visibles de
+tous.
+
+**Anti-bot.** Un scan complet envoie ~1 100 requêtes/jour au lieu de ~100 pour 4
+produits (voir README, section "Ce que le script ne fait pas") — le workflow utilise
+donc un délai plus généreux (`--delay 10-20`, au lieu de `6-12`) sur un scan complet.
+Si des `429`/pages de vérification apparaissent malgré tout, resserrez avec
+`MATCHA_ONLY`.
 
 ## 10. Les limites à connaître
 
