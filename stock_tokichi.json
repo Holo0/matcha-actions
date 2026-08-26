@@ -1,0 +1,325 @@
+{
+  "checked_at": "2026-08-26T11:44:57+00:00",
+  "products": [
+    {
+      "name": "Matcha Premium Hatsu-Mukashi “No.1”",
+      "url": "https://global.tokichi.jp/products/bessei-hatsumukashi-matcha-uji-yi",
+      "variants": [
+        {
+          "label": "20g Can",
+          "in_stock": true,
+          "price_jpy": "¥556",
+          "price_eur": null,
+          "sku": "MC17",
+          "variation_id": "47270508593404",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Premium Hatsu-Mukashi “No.2”",
+      "url": "https://global.tokichi.jp/products/bessei-hatsumukashi-matcha-uji-er",
+      "variants": [
+        {
+          "label": "20g Can",
+          "in_stock": true,
+          "price_jpy": "¥417",
+          "price_eur": null,
+          "sku": "MC18",
+          "variation_id": "47270508855548",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Premium Hatsu-Mukashi “No.3”",
+      "url": "https://global.tokichi.jp/products/bessei-hatsumukashi-matcha-uji-can",
+      "variants": [
+        {
+          "label": "20g Can",
+          "in_stock": true,
+          "price_jpy": "¥278",
+          "price_eur": null,
+          "sku": "MC19",
+          "variation_id": "47270508921084",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Starter",
+      "url": "https://global.tokichi.jp/products/as400",
+      "variants": [
+        {
+          "label": "Matcha Starter 100g Bag 2-bag set",
+          "in_stock": true,
+          "price_jpy": "¥114",
+          "price_eur": null,
+          "sku": "AS400",
+          "variation_id": "49131381489916",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Premium",
+      "url": "https://global.tokichi.jp/products/m100-prm",
+      "variants": [
+        {
+          "label": "100g Bag",
+          "in_stock": true,
+          "price_jpy": "¥210",
+          "price_eur": null,
+          "sku": "m100-prm",
+          "variation_id": "47148766363900",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Standard",
+      "url": "https://global.tokichi.jp/products/m100-std",
+      "variants": [
+        {
+          "label": "100g Bag",
+          "in_stock": true,
+          "price_jpy": "¥120",
+          "price_eur": null,
+          "sku": "m100-std",
+          "variation_id": "47148766331132",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Starter",
+      "url": "https://global.tokichi.jp/products/m100-str",
+      "variants": [
+        {
+          "label": "100g Bag",
+          "in_stock": true,
+          "price_jpy": "¥60",
+          "price_eur": null,
+          "sku": "m100-str",
+          "variation_id": "47148766298364",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Fuji-no-Shiro",
+      "url": "https://global.tokichi.jp/products/mc2",
+      "variants": [
+        {
+          "label": "30g Can",
+          "in_stock": true,
+          "price_jpy": "¥20",
+          "price_eur": null,
+          "sku": "MC2",
+          "variation_id": "44231891747068",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Ukishima-no-Shiro",
+      "url": "https://global.tokichi.jp/products/mc1",
+      "variants": [
+        {
+          "label": "30g Can",
+          "in_stock": true,
+          "price_jpy": "¥15",
+          "price_eur": null,
+          "sku": "MC1",
+          "variation_id": "44231891583228",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Sho-no-Mukashi",
+      "url": "https://global.tokichi.jp/products/mc6",
+      "variants": [
+        {
+          "label": "30g Can",
+          "in_stock": true,
+          "price_jpy": "¥37",
+          "price_eur": null,
+          "sku": "MC6",
+          "variation_id": "44231891878140",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Hiroha-no-Shiro",
+      "url": "https://global.tokichi.jp/products/mc4",
+      "variants": [
+        {
+          "label": "30g Can",
+          "in_stock": true,
+          "price_jpy": "¥27",
+          "price_eur": null,
+          "sku": "MC4",
+          "variation_id": "44231891812604",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Seikan-no-Shiro",
+      "url": "https://global.tokichi.jp/products/mc5",
+      "variants": [
+        {
+          "label": "30g Can",
+          "in_stock": true,
+          "price_jpy": "¥27",
+          "price_eur": null,
+          "sku": "MC5",
+          "variation_id": "44231891845372",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Senun-no-Shiro",
+      "url": "https://global.tokichi.jp/products/mc3",
+      "variants": [
+        {
+          "label": "30g Can",
+          "in_stock": true,
+          "price_jpy": "¥27",
+          "price_eur": null,
+          "sku": "MC3",
+          "variation_id": "44231891779836",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Uji-no-Mukashi",
+      "url": "https://global.tokichi.jp/products/mc10",
+      "variants": [
+        {
+          "label": "30g Can",
+          "in_stock": true,
+          "price_jpy": "¥90",
+          "price_eur": null,
+          "sku": "MC10",
+          "variation_id": "44231891615996",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Hatsu-no-Mukashi",
+      "url": "https://global.tokichi.jp/products/mc7",
+      "variants": [
+        {
+          "label": "30g Can",
+          "in_stock": true,
+          "price_jpy": "¥60",
+          "price_eur": null,
+          "sku": "MC7",
+          "variation_id": "44231891910908",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Jingai-no-Mukashi",
+      "url": "https://global.tokichi.jp/products/mc8",
+      "variants": [
+        {
+          "label": "30g Can",
+          "in_stock": true,
+          "price_jpy": "¥60",
+          "price_eur": null,
+          "sku": "MC8",
+          "variation_id": "44231891943676",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Seiko-no-Mukashi",
+      "url": "https://global.tokichi.jp/products/mc9",
+      "variants": [
+        {
+          "label": "30g Can",
+          "in_stock": true,
+          "price_jpy": "¥60",
+          "price_eur": null,
+          "sku": "MC9",
+          "variation_id": "44231891976444",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Asagiri-no-Mukashi",
+      "url": "https://global.tokichi.jp/products/mc20",
+      "variants": [
+        {
+          "label": "30g Can",
+          "in_stock": true,
+          "price_jpy": "¥60",
+          "price_eur": null,
+          "sku": "MC20",
+          "variation_id": "46649410224380",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Ato-Mukashi",
+      "url": "https://global.tokichi.jp/products/mc11",
+      "variants": [
+        {
+          "label": "30g Can",
+          "in_stock": true,
+          "price_jpy": "¥120",
+          "price_eur": null,
+          "sku": "MC11",
+          "variation_id": "44231891681532",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Hatsu-Mukashi",
+      "url": "https://global.tokichi.jp/products/mc12",
+      "variants": [
+        {
+          "label": "30g Can",
+          "in_stock": true,
+          "price_jpy": "¥150",
+          "price_eur": null,
+          "sku": "MC12",
+          "variation_id": "44231891714300",
+          "limit": null
+        }
+      ],
+      "note": ""
+    }
+  ]
+}
