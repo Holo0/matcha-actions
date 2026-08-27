@@ -1,5 +1,8 @@
 name: Veille matcha Les Thes sur Terre
 
+# Le corps du relevé vit dans matcha-watch-shared.yml, partage par les trois
+# boutiques. Ce fichier ne porte que ce qui est propre a Les Thes sur Terre.
+
 on:
   # 13 = Marukyu, 17 = Tokichi, 23 = ici : on etale les crons plutot que de
   # les concentrer au meme instant dans la file d'attente GitHub.
@@ -8,8 +11,7 @@ on:
     - cron: "23 * * * *"
 
     # Palier Premium : ne releve que les produits de cette boutique suivis par
-    # au moins un abonne actif, et saute le run si personne n'en suit (voir
-    # l'etape "Determiner les produits a surveiller").
+    # au moins un abonne actif, et saute le run si personne n'en suit.
     - cron: "*/15 * * * *"
 
   workflow_dispatch:
@@ -27,180 +29,23 @@ concurrency:
   group: matcha-watch-lesthes
   cancel-in-progress: false
 
-permissions:
-  contents: write # committer l'etat
-  issues: write # ouvrir une issue en cas de restock (canal d'alerte de secours)
-
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-
-    steps:
-      - name: Recuperer le depot
-        uses: actions/checkout@v4
-
-      - name: Installer Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      # beautifulsoup4 en plus de requests : contrairement a Tokichi (API JSON),
-      # ce site demande de parser la page categorie.
-      - name: Installer les dependances
-        run: pip install --quiet requests beautifulsoup4
-
-      # Sur le cron dense (palier Premium), ne relever que les produits de cette
-      # boutique suivis par un abonne actif. Sur le cron horaire et sur un run
-      # manuel, comportement inchange (tous les consommables).
-      - name: Determiner les produits a surveiller
-        id: targets
-        env:
-          MATCHALERT_API_URL: ${{ secrets.MATCHALERT_API_URL }}
-          SCRAPPER_API_KEY: ${{ secrets.SCRAPPER_API_KEY }}
-          IS_DENSE: ${{ github.event.schedule == '*/15 * * * *' }}
-        run: |
-          if [ "$IS_DENSE" != "true" ]; then
-            echo "skip=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          if [ -z "$MATCHALERT_API_URL" ] || [ -z "$SCRAPPER_API_KEY" ]; then
-            echo "::warning::MATCHALERT_API_URL ou SCRAPPER_API_KEY absent : cron dense ignore."
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          base="${MATCHALERT_API_URL%/}"
-          base="${base%/api}"
-          # magasin=3 : Les Thes sur Terre (table magasin, V9__magasin_lesthes.sql).
-          products=$(curl -sS -m 30 -H "X-API-KEY: $SCRAPPER_API_KEY" \
-            "$base/api/matcha-availability/premium-watched?magasin=3" | jq -r 'join(",")')
-
-          if [ -z "$products" ]; then
-            echo "Aucun produit de cette boutique suivi par un abonne Premium : cron dense ignore."
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          echo "Produits Premium a scanner : $products"
-          echo "only=$products" >> "$GITHUB_OUTPUT"
-          echo "skip=false" >> "$GITHUB_OUTPUT"
-
-      - name: Verifier le parsing avant tout appel reseau
-        if: steps.targets.outputs.skip != 'true'
-        run: python3 matcha_watch_lesthes.py --self-test
-
-      - name: Relever le stock
-        id: releve
-        if: steps.targets.outputs.skip != 'true'
-        env:
-          MATCHA_WEBHOOK_URL: ${{ secrets.MATCHA_WEBHOOK_URL }}
-          SMTP_HOST: ${{ secrets.SMTP_HOST }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
-          SMTP_USER: ${{ secrets.SMTP_USER }}
-          SMTP_PASS: ${{ secrets.SMTP_PASS }}
-          MAIL_TO: ${{ secrets.MAIL_TO }}
-          MAIL_FROM: ${{ secrets.MAIL_FROM }}
-          MATCHALERT_API_URL: ${{ secrets.MATCHALERT_API_URL }}
-          SCRAPPER_API_KEY: ${{ secrets.SCRAPPER_API_KEY }}
-          ONLY: ${{ steps.targets.outputs.only || github.event.inputs.only }}
-          VERBOSE: ${{ github.event.inputs.verbose == 'true' && '--verbose' || '' }}
-        run: |
-          set +e
-          python3 matcha_watch_lesthes.py \
-            --only "$ONLY" \
-            --csv stock_lesthes.csv \
-            --json stock_lesthes.json \
-            $VERBOSE 2>&1 | tee run_lesthes.log
-          code=${PIPESTATUS[0]}
-          echo "code=$code" >> "$GITHUB_OUTPUT"
-          echo "Code de sortie du script : $code"
-          exit 0
-
-      - name: Resume lisible dans l'onglet Actions
-        if: always()
-        env:
-          SKIPPED: ${{ steps.targets.outputs.skip }}
-        run: |
-          {
-            echo "### Releve Les Thes sur Terre $(date -u '+%Y-%m-%d %H:%M UTC')"
-            echo
-            if [ "$SKIPPED" = "true" ]; then
-              # Le cron dense Premium se declenche toutes les 15 min et se
-              # saute lui-meme quand personne d'eligible ne suit de produit
-              # ici. Sans ce message le resume affichait « (aucune sortie) »,
-              # ce qui ressemblait a une panne.
-              echo "Run dense **Premium ignore** : aucun abonne actif ne suit de produit de cette boutique."
-              echo
-              echo "Ce n'est pas une erreur. Le releve horaire gratuit, lui, tourne normalement."
-            elif [ -s run_lesthes.log ]; then
-              echo '```'
-              cat run_lesthes.log
-              echo '```'
-            else
-              echo "::warning::Le relevé n'a produit aucune sortie alors qu'il devait tourner."
-              echo "Aucune sortie alors que le releve devait tourner — voir les logs de l'etape."
-            fi
-          } >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Ouvrir une issue en cas de restock
-        if: steps.releve.outputs.code == '2'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          {
-            echo "Un ou plusieurs produits Les Thes sur Terre viennent de repasser en stock."
-            echo
-            echo '```'
-            cat run_lesthes.log
-            echo '```'
-          } > issue_lesthes.md
-          gh issue create \
-            --title "Restock Les Thes sur Terre — $(date -u '+%d/%m %H:%M UTC')" \
-            --body-file issue_lesthes.md \
-            --label restock 2>/dev/null \
-          || gh issue create \
-            --title "Restock Les Thes sur Terre — $(date -u '+%d/%m %H:%M UTC')" \
-            --body-file issue_lesthes.md
-
-      - name: Enregistrer l'etat pour la prochaine execution
-        if: steps.releve.outputs.code == '0' || steps.releve.outputs.code == '2'
-        run: |
-          git config user.name  "matcha-watch"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          for f in lesthes_state.json stock_lesthes.csv stock_lesthes.json; do
-            if [ -f "$f" ]; then git add -- "$f"; fi
-          done
-
-          if git diff --quiet --cached; then
-            echo "Aucun changement d'etat a enregistrer."
-            exit 0
-          fi
-
-          git commit -m "releve lesthes $(date -u '+%Y-%m-%d %H:%M UTC') [skip ci]"
-
-          pushed=0
-          for attempt in 1 2 3; do
-            if git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push; then
-              pushed=1
-              break
-            fi
-            echo "Push refuse (essai ${attempt}/3), nouvelle tentative dans 5 s..."
-            sleep 5
-          done
-
-          if [ "$pushed" -ne 1 ]; then
-            echo "::warning::Etat non pousse. La prochaine execution repartira de l'etat precedent."
-          fi
-
-      # Code 1 = erreur reseau OU structure de page meconnaissable (refonte du
-      # site, slugs renommes). Dans les deux cas rien n'est pousse en base :
-      # mieux vaut un run en echec visible qu'un faux « tout en rupture ».
-      - name: Signaler les erreurs
-        if: steps.releve.outputs.code == '1'
-        run: |
-          echo "::error::Le releve Les Thes sur Terre a echoue (reseau ou structure de page)."
-          tail -n 30 run_lesthes.log
-          exit 1
+  releve:
+    uses: ./.github/workflows/matcha-watch-shared.yml
+    secrets: inherit
+    with:
+      shop_name: Les Thes sur Terre
+      script: matcha_watch_lesthes.py
+      magasin: "3"
+      state_files: "lesthes_state.json stock_lesthes.csv stock_lesthes.json"
+      csv_file: stock_lesthes.csv
+      json_file: stock_lesthes.json
+      log_file: run_lesthes.log
+      # beautifulsoup4 : contrairement a Tokichi (API JSON), ce site demande de
+      # parser la page categorie.
+      pip_packages: "requests beautifulsoup4"
+      # La categorie melange thes et accessoires ; seuls les consommables sont
+      # surveilles (voir CONSUMABLE_SLUGS dans le script).
+      catalog_label: consommables
+      only_override: ${{ github.event.inputs.only || '' }}
+      verbose: ${{ github.event.inputs.verbose == 'true' }}

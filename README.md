@@ -200,6 +200,10 @@ test qui ne doit rien écrire.
 > **[SETUP.md](SETUP.md)** — dépôt privé, secrets, premier run de diagnostic.
 > Rien à installer, aucune machine à laisser allumée. Les recettes ci-dessous
 > ne servent que si vous rapatriez un jour le relevé sur une machine à vous.
+>
+> Voir aussi **[SETUP-KEEP-WARM.md](SETUP-KEEP-WARM.md)** — le ping qui empêche
+> le backend Render de s'endormir, et le quota d'heures d'instance à surveiller
+> avant de le laisser tourner.
 
 **Linux / macOS — cron** (`crontab -e`) :
 
@@ -215,6 +219,34 @@ action `python.exe`, arguments `C:\chemin\matcha_watch.py --quiet`,
 `MKY_USER` / `MKY_PASS` dans les variables d'environnement utilisateur.
 
 ---
+
+## 8bis. Organisation du code
+
+Trois boutiques, trois façons d'exposer leur stock — session authentifiée et HTML
+rendu côté serveur chez Marukyu-Koyamaen, catalogue JSON Shopify chez Nakamura
+Tokichi, page catégorie à parser chez Les Thés sur Terre. Tout ce qui suit le
+relevé, en revanche, est identique.
+
+| Fichier | Rôle | Lignes |
+|---|---|---|
+| `matcha_common.py` | modèle, état et diff, exports, push, notification, options de CLI communes | ~545 |
+| `matcha_watch.py` | Marukyu : session, connexion, anti-bot, parsing des variantes | ~897 |
+| `matcha_watch_lesthes.py` | Les Thés : parsing de la page catégorie Wix | ~519 |
+| `matcha_watch_tokichi.py` | Tokichi : lecture du catalogue Shopify | ~329 |
+
+La frontière est **« une fois les produits connus »** : au-dessus, chaque boutique
+fait à sa manière ; en dessous, tout passe par `matcha_common`. C'est ce qui permet
+à `finish_run()` de porter les quarante dernières lignes des trois relevés —
+exports, comparaison à l'état précédent, envoi en base, notification, code de
+sortie.
+
+Rien dans `matcha_common` ne connaît de boutique en particulier : `magasin` et
+`shop_name` sont toujours des paramètres. Un défaut implicite attribuerait un
+relevé à la mauvaise boutique, ce que le backend refuse maintenant en 400.
+
+Ajouter une quatrième boutique demande donc : un script de parsing, un
+`MAGASIN_ID`, un `SHOP_NAME`, une migration côté backend, et une quarantaine de
+lignes de workflow appelant `matcha-watch-shared.yml`.
 
 ## 9. Ce que le script ne fait pas
 

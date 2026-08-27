@@ -1,0 +1,347 @@
+name: Relevé de stock (workflow réutilisable)
+
+# Corps commun aux trois veilles. Les workflows appelants
+# (matcha-watch.yml, -tokichi.yml, -lesthes.yml) ne portent plus que leurs crons
+# et leurs parametres : environ 40 lignes chacun au lieu de 200 quasi
+# identiques.
+#
+# Ce qui etait recopie trois fois et devait donc etre corrige trois fois :
+# la bascule palier gratuit / palier Premium (l'appel a premium-watched et le
+# saut du run quand personne d'eligible ne suit rien), le resume dans l'onglet
+# Actions, l'ouverture d'une issue en cas de restock, le commit de l'etat avec
+# ses trois tentatives de push, et le rapport d'erreur.
+#
+# Les crons restent chez les appelants : `workflow_call` ne peut pas en declarer,
+# et de toute facon chaque boutique a sa propre minute pour etaler la charge sur
+# la file de GitHub.
+
+on:
+  workflow_call:
+    inputs:
+      shop_name:
+        description: "Nom de la boutique, affiche dans les resumes et les issues"
+        required: true
+        type: string
+      script:
+        description: "Script de relevé a executer"
+        required: true
+        type: string
+      magasin:
+        description: "Identifiant du magasin cote backend (table magasin)"
+        required: true
+        type: string
+      state_files:
+        description: "Fichiers d'etat a committer, separes par des espaces"
+        required: true
+        type: string
+      csv_file:
+        required: true
+        type: string
+      json_file:
+        required: true
+        type: string
+      log_file:
+        description: "Nom du journal du run, propre a la boutique pour eviter les collisions"
+        required: true
+        type: string
+      pip_packages:
+        description: "Dependances Python. beautifulsoup4 seulement si la boutique demande de parser du HTML."
+        default: "requests"
+        type: string
+      timeout_minutes:
+        default: 10
+        type: number
+      dense_cron:
+        description: "Cron du palier Premium, compare a github.event.schedule pour detecter le run dense"
+        default: "*/15 * * * *"
+        type: string
+      needs_session:
+        description: "Boutique exigeant une session authentifiee (cookies en cache, reveil du backend, delai entre fiches)"
+        default: false
+        type: boolean
+      delay_full:
+        description: "Pause entre deux fiches sur un scan complet (needs_session seulement)"
+        default: "10-20"
+        type: string
+      delay_dense:
+        description: "Pause entre deux fiches sur le cron dense (needs_session seulement)"
+        default: "6-12"
+        type: string
+      only_fallback:
+        description: "Liste --only par defaut. Vide = tout le catalogue."
+        default: ""
+        type: string
+      only_override:
+        description: "Liste --only saisie dans un run manuel (github.event.inputs.only chez l'appelant)"
+        default: ""
+        type: string
+      verbose:
+        description: "Mode bavard, saisi dans un run manuel"
+        default: false
+        type: boolean
+      catalog_label:
+        description: "Mot employe pour ce qui est surveille : « consommables », « catalogue »..."
+        default: "catalogue"
+        type: string
+
+permissions:
+  contents: write # committer l'etat
+  issues: write # ouvrir une issue en cas de restock (canal d'alerte de secours)
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: ${{ inputs.timeout_minutes }}
+
+    steps:
+      - name: Recuperer le depot
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les dependances
+        run: pip install --quiet ${{ inputs.pip_packages }}
+
+      # Les cookies de session ne doivent PAS finir dans l'historique git.
+      # Le cache les garde d'une execution a l'autre : une connexion tous les
+      # quelques jours au lieu d'une par heure (24 connexions/jour depuis une IP
+      # datacenter, c'est le genre de motif qui declenche un blocage).
+      #
+      # restore + save separes, plutot que l'action combinee : on veut enregistrer
+      # la session meme quand le job finit en echec, sinon un incident reseau
+      # ferait perdre la session et forcerait une reconnexion.
+      - name: Restaurer la session
+        if: inputs.needs_session
+        uses: actions/cache/restore@v4
+        with:
+          path: matcha_cookies.txt
+          key: matcha-cookies-${{ github.run_id }}
+          restore-keys: |
+            matcha-cookies-
+
+      # Filet : keep-warm.yml maintient normalement le backend eveille.
+      - name: Reveiller le backend MatchAlert
+        if: inputs.needs_session
+        env:
+          MATCHALERT_API_URL: ${{ secrets.MATCHALERT_API_URL }}
+        run: |
+          if [ -z "$MATCHALERT_API_URL" ]; then
+            echo "MATCHALERT_API_URL absent : pas de push en base, rien a reveiller."
+            exit 0
+          fi
+          base="${MATCHALERT_API_URL%/}"
+          base="${base%/api}"
+          nohup curl -sS -o /dev/null -m 150 "$base/api/health" >/dev/null 2>&1 &
+          echo "Reveil de $base lance en arriere-plan."
+
+      # Sur le cron dense (palier Premium), ne relever que les produits de cette
+      # boutique suivis par au moins un abonne actif, et sauter le run si
+      # personne n'en suit. Sur le cron horaire et sur un run manuel, palier
+      # gratuit : tout ce qui est surveille par defaut.
+      - name: Determiner les produits a surveiller
+        id: targets
+        env:
+          MATCHALERT_API_URL: ${{ secrets.MATCHALERT_API_URL }}
+          SCRAPPER_API_KEY: ${{ secrets.SCRAPPER_API_KEY }}
+          IS_DENSE: ${{ github.event.schedule == inputs.dense_cron }}
+          MAGASIN: ${{ inputs.magasin }}
+          DELAY_FULL: ${{ inputs.delay_full }}
+          DELAY_DENSE: ${{ inputs.delay_dense }}
+        run: |
+          if [ "$IS_DENSE" != "true" ]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "delay=$DELAY_FULL" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ -z "$MATCHALERT_API_URL" ] || [ -z "$SCRAPPER_API_KEY" ]; then
+            echo "::warning::MATCHALERT_API_URL ou SCRAPPER_API_KEY absent : cron dense ignore."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          base="${MATCHALERT_API_URL%/}"
+          base="${base%/api}"
+          # Le scope par magasin est indispensable : sans lui, ce workflow
+          # densifierait aussi les noms suivis chez les autres marchands, qu'il
+          # ne sait pas relever.
+          products=$(curl -sS -m 30 -H "X-API-KEY: $SCRAPPER_API_KEY" \
+            "$base/api/matcha-availability/premium-watched?magasin=$MAGASIN" | jq -r 'join(",")')
+
+          if [ -z "$products" ]; then
+            echo "Aucun produit de cette boutique suivi par un abonne Premium : cron dense ignore."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "Produits Premium a scanner : $products"
+          echo "only=$products" >> "$GITHUB_OUTPUT"
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+          echo "delay=$DELAY_DENSE" >> "$GITHUB_OUTPUT"
+
+      - name: Verifier le parsing avant tout appel reseau
+        if: steps.targets.outputs.skip != 'true'
+        run: python3 ${{ inputs.script }} --self-test
+
+      - name: Relever le stock
+        id: releve
+        if: steps.targets.outputs.skip != 'true'
+        env:
+          MKY_USER: ${{ secrets.MKY_USER }}
+          MKY_PASS: ${{ secrets.MKY_PASS }}
+          MATCHA_WEBHOOK_URL: ${{ secrets.MATCHA_WEBHOOK_URL }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM }}
+          MATCHALERT_API_URL: ${{ secrets.MATCHALERT_API_URL }}
+          SCRAPPER_API_KEY: ${{ secrets.SCRAPPER_API_KEY }}
+          SCRIPT: ${{ inputs.script }}
+          CSV_FILE: ${{ inputs.csv_file }}
+          JSON_FILE: ${{ inputs.json_file }}
+          LOG_FILE: ${{ inputs.log_file }}
+          # Priorite : liste imposee par le cron dense, puis saisie d'un run
+          # manuel, puis repli de la boutique. Le cron dense doit gagner : il ne
+          # sert qu'a densifier les produits reellement suivis.
+          ONLY: ${{ steps.targets.outputs.only || inputs.only_override || inputs.only_fallback }}
+          NEEDS_SESSION: ${{ inputs.needs_session }}
+          DELAY: ${{ steps.targets.outputs.delay }}
+          VERBOSE: ${{ inputs.verbose && '--verbose' || '' }}
+        run: |
+          set +e
+          # --delay n'existe que sur la boutique a session : elle telecharge une
+          # fiche par produit, les autres lisent tout en une requete.
+          delay_arg=""
+          if [ "$NEEDS_SESSION" = "true" ] && [ -n "$DELAY" ]; then
+            delay_arg="--delay $DELAY"
+          fi
+
+          python3 "$SCRIPT" \
+            --only "$ONLY" \
+            $delay_arg \
+            --csv "$CSV_FILE" \
+            --json "$JSON_FILE" \
+            $VERBOSE 2>&1 | tee "$LOG_FILE"
+          code=${PIPESTATUS[0]}
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          echo "Code de sortie du script : $code"
+          exit 0
+
+      - name: Conserver la session pour la prochaine execution
+        if: always() && inputs.needs_session && steps.targets.outputs.skip != 'true' && hashFiles('matcha_cookies.txt') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: matcha_cookies.txt
+          key: matcha-cookies-${{ github.run_id }}
+
+      - name: Resume lisible dans l'onglet Actions
+        if: always()
+        env:
+          SKIPPED: ${{ steps.targets.outputs.skip }}
+          SHOP: ${{ inputs.shop_name }}
+          LOG_FILE: ${{ inputs.log_file }}
+          CATALOG_LABEL: ${{ inputs.catalog_label }}
+        run: |
+          {
+            echo "### Releve $SHOP $(date -u '+%Y-%m-%d %H:%M UTC')"
+            echo
+            if [ "$SKIPPED" = "true" ]; then
+              # Le cron dense Premium se declenche toutes les 15 min et se
+              # saute lui-meme quand personne d'eligible ne suit de produit
+              # ici. Sans ce message le resume affichait « (aucune sortie) »,
+              # ce qui ressemblait a une panne.
+              echo "Run dense **Premium ignore** : aucun abonne actif ne suit de produit de cette boutique."
+              echo
+              echo "Ce n'est pas une erreur. Le releve horaire gratuit ($CATALOG_LABEL), lui, tourne normalement."
+            elif [ -s "$LOG_FILE" ]; then
+              echo '```'
+              cat "$LOG_FILE"
+              echo '```'
+            else
+              echo "::warning::Le relevé n'a produit aucune sortie alors qu'il devait tourner."
+              echo "Aucune sortie alors que le releve devait tourner — voir les logs de l'etape."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # Alerte GitHub native : l'issue declenche une notification par email
+      # si vous surveillez le depot. Zero configuration, en complement du
+      # webhook ntfy/Slack si vous en avez defini un.
+      - name: Ouvrir une issue en cas de restock
+        if: steps.releve.outputs.code == '2'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHOP: ${{ inputs.shop_name }}
+          LOG_FILE: ${{ inputs.log_file }}
+        run: |
+          {
+            echo "Un ou plusieurs produits $SHOP viennent de repasser en stock."
+            echo
+            echo '```'
+            cat "$LOG_FILE"
+            echo '```'
+            echo
+            echo "Ces stocks partent parfois en moins de 15 minutes."
+          } > issue_body.md
+
+          titre="Restock $SHOP — $(date -u '+%d/%m %H:%M UTC')"
+          # Le label `restock` peut ne pas exister sur un depot neuf : on
+          # retente sans lui plutot que de perdre l'alerte.
+          gh issue create --title "$titre" --body-file issue_body.md --label restock 2>/dev/null \
+            || gh issue create --title "$titre" --body-file issue_body.md
+
+      - name: Enregistrer l'etat pour la prochaine execution
+        if: steps.releve.outputs.code == '0' || steps.releve.outputs.code == '2'
+        # set -e est actif par defaut dans les steps GitHub : chaque commande
+        # susceptible d'echouer legitimement est neutralisee explicitement.
+        env:
+          STATE_FILES: ${{ inputs.state_files }}
+          SHOP: ${{ inputs.shop_name }}
+        run: |
+          git config user.name  "matcha-watch"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          for f in $STATE_FILES; do
+            if [ -f "$f" ]; then git add -- "$f"; fi
+          done
+
+          if git diff --quiet --cached; then
+            echo "Aucun changement d'etat a enregistrer."
+            exit 0
+          fi
+
+          git commit -m "releve $SHOP $(date -u '+%Y-%m-%d %H:%M UTC') [skip ci]"
+
+          pushed=0
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push; then
+              pushed=1
+              break
+            fi
+            echo "Push refuse (essai ${attempt}/3), nouvelle tentative dans 5 s..."
+            sleep 5
+          done
+
+          if [ "$pushed" -ne 1 ]; then
+            echo "::warning::Etat non pousse. La prochaine execution repartira de l'etat precedent :"
+            echo "::warning::au pire une alerte en double, jamais une alerte manquee."
+          fi
+
+      # Code 1 = erreur reseau OU structure de page meconnaissable (refonte du
+      # site, slugs renommes). Dans les deux cas rien n'est pousse en base :
+      # mieux vaut un run en echec visible qu'un faux « tout en rupture ».
+      #
+      # Le job echoue seulement sur une vraie erreur, jamais sur un restock.
+      - name: Signaler les erreurs
+        if: steps.releve.outputs.code == '1'
+        env:
+          SHOP: ${{ inputs.shop_name }}
+          LOG_FILE: ${{ inputs.log_file }}
+        run: |
+          echo "::error::Le releve $SHOP a echoue (reseau ou structure de page)."
+          tail -n 30 "$LOG_FILE"
+          exit 1

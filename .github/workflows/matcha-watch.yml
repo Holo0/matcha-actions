@@ -1,18 +1,22 @@
 name: Veille matcha Marukyu-Koyamaen
 
+# Le corps du relevé vit dans matcha-watch-shared.yml, partage par les trois
+# boutiques. Ce fichier ne porte que ce qui est propre a Marukyu : ses crons,
+# ses fichiers, et le fait que cette boutique exige une session authentifiee.
+
 on:
   # GitHub evalue les crons en UTC. Minute 13 volontairement : les jobs planifies
   # a la minute 0 sont massivement retardes (parfois 20 min) par la file d'attente.
-  # Palier gratuit : tout le catalogue par defaut (voir ONLY plus bas).
+  # Palier gratuit : tout le catalogue par defaut.
   schedule:
     - cron: "13 * * * *"
 
     # Palier Premium : scan dense, mais uniquement des produits suivis par au
     # moins un abonne avec un abonnement actif (voir l'etape "Determiner les
-    # produits a surveiller", qui interroge le backend et saute purement et
-    # simplement ce run si personne de Premium ne suit rien). Necessite un
-    # depot public pour ne pas exploser le quota de minutes prive (voir
-    # SETUP.md, section Quota et cout).
+    # produits a surveiller" du workflow partage, qui interroge le backend et
+    # saute purement et simplement ce run si personne de Premium ne suit rien).
+    # Necessite un depot public pour ne pas exploser le quota de minutes prive
+    # (voir SETUP.md, section Quota et cout).
     - cron: "*/15 * * * *"
 
   # Bouton "Run workflow" dans l'onglet Actions, pour tester quand vous voulez.
@@ -33,243 +37,36 @@ concurrency:
   group: matcha-watch
   cancel-in-progress: false
 
-permissions:
-  contents: write # committer l'etat et les exports
-  issues: write # ouvrir une issue en cas de restock (canal d'alerte de secours)
-
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    # 47 fiches x delai 10-20s (scan complet) approchent les 20 min d'origine ;
-    # marge portee a 30 pour ne pas couper un run en cours.
-    timeout-minutes: 30
-
-    steps:
-      - name: Recuperer le depot
-        uses: actions/checkout@v4
-
-      - name: Installer Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Installer les dependances
-        run: pip install --quiet requests beautifulsoup4
-
-      # Les cookies de session ne doivent PAS finir dans l'historique git.
-      # Le cache les garde d'une execution a l'autre : une connexion tous les
-      # quelques jours au lieu d'une par heure (24 connexions/jour depuis une IP
-      # datacenter, c'est le genre de motif qui declenche un blocage).
-      #
-      # restore + save separes, plutot que l'action combinee : on veut enregistrer
-      # la session meme quand le job finit en echec, sinon un incident reseau
-      # ferait perdre la session et forcerait une reconnexion.
-      - name: Restaurer la session
-        uses: actions/cache/restore@v4
-        with:
-          path: matcha_cookies.txt
-          key: matcha-cookies-${{ github.run_id }}
-          restore-keys: |
-            matcha-cookies-
-
-      - name: Reveiller le backend MatchAlert
-        env:
-          MATCHALERT_API_URL: ${{ secrets.MATCHALERT_API_URL }}
-        run: |
-          if [ -z "$MATCHALERT_API_URL" ]; then
-            echo "MATCHALERT_API_URL absent : pas de push en base, rien a reveiller."
-            exit 0
-          fi
-          base="${MATCHALERT_API_URL%/}"
-          base="${base%/api}"
-          nohup curl -sS -o /dev/null -m 150 "$base/api/matchas" >/dev/null 2>&1 &
-          echo "Reveil de $base lance en arriere-plan."
-
-      # Sur le cron dense (palier Premium), n'interroge le backend et ne scanne
-      # que les produits suivis par au moins un abonne actif — jamais tout le
-      # catalogue. Sur le cron horaire et sur un run manuel, palier gratuit :
-      # tout le catalogue par defaut (voir la chaine de repli ONLY plus bas),
-      # jouable en minutes illimitees sur un depot public. Le delai est aussi
-      # differencie : plus genereux sur un scan complet (moins de requetes/min,
-      # cf. SETUP.md section 9-10), plus court sur le cron dense qui ne porte
-      # generalement que sur quelques produits.
-      - name: Determiner les produits a surveiller
-        id: targets
-        env:
-          MATCHALERT_API_URL: ${{ secrets.MATCHALERT_API_URL }}
-          SCRAPPER_API_KEY: ${{ secrets.SCRAPPER_API_KEY }}
-          IS_DENSE: ${{ github.event.schedule == '*/15 * * * *' }}
-        run: |
-          if [ "$IS_DENSE" != "true" ]; then
-            echo "skip=false" >> "$GITHUB_OUTPUT"
-            echo "delay=10-20" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          if [ -z "$MATCHALERT_API_URL" ] || [ -z "$SCRAPPER_API_KEY" ]; then
-            echo "::warning::MATCHALERT_API_URL ou SCRAPPER_API_KEY absent : cron dense ignore."
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          base="${MATCHALERT_API_URL%/}"
-          base="${base%/api}"
-          # magasin=1 : ce workflow ne densifie que les produits Marukyu suivis
-          # par un abonne actif. Sans ce scope, il densifierait aussi les noms
-          # suivis chez les autres marchands, qu'il ne sait pas relever.
-          products=$(curl -sS -m 30 -H "X-API-KEY: $SCRAPPER_API_KEY" \
-            "$base/api/matcha-availability/premium-watched?magasin=1" | jq -r 'join(",")')
-
-          if [ -z "$products" ]; then
-            echo "Aucun produit suivi par un abonne Premium actuellement : cron dense ignore."
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          echo "Produits Premium a scanner : $products"
-          echo "only=$products" >> "$GITHUB_OUTPUT"
-          echo "skip=false" >> "$GITHUB_OUTPUT"
-          echo "delay=6-12" >> "$GITHUB_OUTPUT"
-
-      - name: Verifier le parsing avant tout appel reseau
-        if: steps.targets.outputs.skip != 'true'
-        run: python3 matcha_watch.py --self-test
-
-      - name: Relever le stock
-        id: releve
-        if: steps.targets.outputs.skip != 'true'
-        env:
-          MKY_USER: ${{ secrets.MKY_USER }}
-          MKY_PASS: ${{ secrets.MKY_PASS }}
-          MATCHA_WEBHOOK_URL: ${{ secrets.MATCHA_WEBHOOK_URL }}
-          SMTP_HOST: ${{ secrets.SMTP_HOST }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
-          SMTP_USER: ${{ secrets.SMTP_USER }}
-          SMTP_PASS: ${{ secrets.SMTP_PASS }}
-          MAIL_TO: ${{ secrets.MAIL_TO }}
-          MAIL_FROM: ${{ secrets.MAIL_FROM }}
-          MATCHALERT_API_URL: ${{ secrets.MATCHALERT_API_URL }}
-          SCRAPPER_API_KEY: ${{ secrets.SCRAPPER_API_KEY }}
-          # Repli vide = tout le catalogue (select_targets() dans matcha_watch.py
-          # scanne tout quand --only ne filtre rien). Auparavant limite a 4
-          # produits pour tenir dans le quota d'un depot prive ; le depot etant
-          # desormais public (minutes illimitees), le catalogue complet est le
-          # comportement par defaut. Definissez la variable de depot MATCHA_ONLY
-          # pour revenir a une liste restreinte si besoin.
-          ONLY: ${{ steps.targets.outputs.only || github.event.inputs.only || vars.MATCHA_ONLY || '' }}
-          DELAY: ${{ steps.targets.outputs.delay || '10-20' }}
-          VERBOSE: ${{ github.event.inputs.verbose == 'true' && '--verbose' || '' }}
-        run: |
-          set +e
-          python3 matcha_watch.py \
-            --only "$ONLY" \
-            --delay "$DELAY" \
-            --csv stock.csv \
-            --json stock.json \
-            $VERBOSE 2>&1 | tee run.log
-          code=${PIPESTATUS[0]}
-          echo "code=$code" >> "$GITHUB_OUTPUT"
-          echo "Code de sortie du script : $code"
-          exit 0
-
-      - name: Conserver la session pour la prochaine execution
-        if: always() && steps.targets.outputs.skip != 'true' && hashFiles('matcha_cookies.txt') != ''
-        uses: actions/cache/save@v4
-        with:
-          path: matcha_cookies.txt
-          key: matcha-cookies-${{ github.run_id }}
-
-      - name: Resume lisible dans l'onglet Actions
-        if: always()
-        env:
-          SKIPPED: ${{ steps.targets.outputs.skip }}
-        run: |
-          {
-            echo "### Releve Marukyu-Koyamaen $(date -u '+%Y-%m-%d %H:%M UTC')"
-            echo
-            if [ "$SKIPPED" = "true" ]; then
-              # Le cron dense Premium se declenche toutes les 15 min et se
-              # saute lui-meme quand personne d'eligible ne suit de produit
-              # ici. Sans ce message le resume affichait « (aucune sortie) »,
-              # ce qui ressemblait a une panne.
-              echo "Run dense **Premium ignore** : aucun abonne actif ne suit de produit de cette boutique."
-              echo
-              echo "Ce n'est pas une erreur. Le releve horaire gratuit, lui, tourne normalement."
-            elif [ -s run.log ]; then
-              echo '```'
-              cat run.log
-              echo '```'
-            else
-              echo "::warning::Le relevé n'a produit aucune sortie alors qu'il devait tourner."
-              echo "Aucune sortie alors que le releve devait tourner — voir les logs de l'etape."
-            fi
-          } >> "$GITHUB_STEP_SUMMARY"
-
-      # Alerte GitHub native : l'issue declenche une notification par email
-      # si vous surveillez le depot. Zero configuration, en complement du
-      # webhook ntfy/Slack si vous en avez defini un.
-      - name: Ouvrir une issue en cas de restock
-        if: steps.releve.outputs.code == '2'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          {
-            echo "Un ou plusieurs produits suivis viennent de repasser en stock."
-            echo
-            echo '```'
-            cat run.log
-            echo '```'
-            echo
-            echo "Ces stocks partent parfois en moins de 15 minutes."
-          } > issue.md
-          gh issue create \
-            --title "Restock matcha — $(date -u '+%d/%m %H:%M UTC')" \
-            --body-file issue.md \
-            --label restock 2>/dev/null \
-          || gh issue create \
-            --title "Restock matcha — $(date -u '+%d/%m %H:%M UTC')" \
-            --body-file issue.md
-
-      - name: Enregistrer l'etat pour la prochaine execution
-        if: steps.releve.outputs.code == '0' || steps.releve.outputs.code == '2'
-        # set -e est actif par defaut dans les steps GitHub : chaque commande
-        # susceptible d'echouer legitimement est neutralisee explicitement.
-        run: |
-          git config user.name  "matcha-watch"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          for f in matcha_state.json stock.csv stock.json; do
-            if [ -f "$f" ]; then git add -- "$f"; fi
-          done
-
-          if git diff --quiet --cached; then
-            echo "Aucun changement d'etat a enregistrer."
-            exit 0
-          fi
-
-          git commit -m "releve $(date -u '+%Y-%m-%d %H:%M UTC') [skip ci]"
-
-          pushed=0
-          for attempt in 1 2 3; do
-            if git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push; then
-              pushed=1
-              break
-            fi
-            echo "Push refuse (essai ${attempt}/3), nouvelle tentative dans 5 s..."
-            sleep 5
-          done
-
-          if [ "$pushed" -ne 1 ]; then
-            echo "::warning::Etat non pousse. La prochaine execution repartira de l'etat precedent :"
-            echo "::warning::au pire une alerte en double, jamais une alerte manquee."
-          fi
-
-      # Le job echoue seulement sur une vraie erreur, jamais sur un restock.
-      # GitHub vous envoie un email a la premiere execution en echec.
-      - name: Signaler les erreurs
-        if: steps.releve.outputs.code == '1'
-        run: |
-          echo "::error::Le releve a echoue. Causes frequentes : identifiants invalides,"
-          echo "::error::session expiree, ou blocage de l'IP GitHub par le site."
-          tail -n 30 run.log
-          exit 1
+  releve:
+    uses: ./.github/workflows/matcha-watch-shared.yml
+    # Les secrets ne traversent pas `uses` d'eux-memes : sans cette ligne, le
+    # workflow partage n'aurait ni identifiants de connexion ni cle d'API.
+    secrets: inherit
+    with:
+      shop_name: Marukyu-Koyamaen
+      script: matcha_watch.py
+      magasin: "1"
+      state_files: "matcha_state.json stock.csv stock.json"
+      csv_file: stock.csv
+      json_file: stock.json
+      log_file: run.log
+      # beautifulsoup4 en plus : le theme rend chaque variante en dur, il faut
+      # parser la fiche produit.
+      pip_packages: "requests beautifulsoup4"
+      # 47 fiches x delai 10-20s (scan complet) approchent les 20 min ; marge
+      # portee a 30 pour ne pas couper un run en cours.
+      timeout_minutes: 30
+      # Seule boutique a exiger une connexion : d'ou les cookies mis en cache,
+      # le reveil du backend et le delai entre deux fiches.
+      needs_session: true
+      delay_full: "10-20"
+      delay_dense: "6-12"
+      only_override: ${{ github.event.inputs.only || '' }}
+      verbose: ${{ github.event.inputs.verbose == 'true' }}
+      # Repli vide = tout le catalogue. Auparavant limite a 4 produits pour
+      # tenir dans le quota d'un depot prive ; le depot etant desormais public
+      # (minutes illimitees), le catalogue complet est le comportement par
+      # defaut. Definissez la variable de depot MATCHA_ONLY pour revenir a une
+      # liste restreinte si besoin.
+      only_fallback: ${{ vars.MATCHA_ONLY || '' }}

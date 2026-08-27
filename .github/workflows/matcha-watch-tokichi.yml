@@ -1,5 +1,8 @@
 name: Veille matcha Nakamura Tokichi
 
+# Le corps du relevé vit dans matcha-watch-shared.yml, partage par les trois
+# boutiques. Ce fichier ne porte que ce qui est propre a Tokichi.
+
 on:
   # Minute differente de celle du workflow Marukyu (13) pour etaler la charge
   # sur la file de crons GitHub plutot que de la concentrer au meme instant.
@@ -8,8 +11,7 @@ on:
     - cron: "17 * * * *"
 
     # Palier Premium : ne releve que les produits Tokichi suivis par au moins
-    # un abonne actif, et saute le run si personne n'en suit (voir l'etape
-    # "Determiner les produits a surveiller").
+    # un abonne actif, et saute le run si personne n'en suit.
     - cron: "*/15 * * * *"
 
   workflow_dispatch:
@@ -27,175 +29,20 @@ concurrency:
   group: matcha-watch-tokichi
   cancel-in-progress: false
 
-permissions:
-  contents: write # committer l'etat
-  issues: write # ouvrir une issue en cas de restock (canal d'alerte de secours)
-
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-
-    steps:
-      - name: Recuperer le depot
-        uses: actions/checkout@v4
-
-      - name: Installer Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Installer les dependances
-        run: pip install --quiet requests
-
-      # Sur le cron dense (palier Premium), ne relever que les produits Tokichi
-      # suivis par un abonne actif. Sur le cron horaire et sur un run manuel,
-      # comportement inchange (tout le catalogue).
-      - name: Determiner les produits a surveiller
-        id: targets
-        env:
-          MATCHALERT_API_URL: ${{ secrets.MATCHALERT_API_URL }}
-          SCRAPPER_API_KEY: ${{ secrets.SCRAPPER_API_KEY }}
-          IS_DENSE: ${{ github.event.schedule == '*/15 * * * *' }}
-        run: |
-          if [ "$IS_DENSE" != "true" ]; then
-            echo "skip=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          if [ -z "$MATCHALERT_API_URL" ] || [ -z "$SCRAPPER_API_KEY" ]; then
-            echo "::warning::MATCHALERT_API_URL ou SCRAPPER_API_KEY absent : cron dense ignore."
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          base="${MATCHALERT_API_URL%/}"
-          base="${base%/api}"
-          # magasin=2 : Nakamura Tokichi (table magasin, V8__magasin_tokichi.sql).
-          products=$(curl -sS -m 30 -H "X-API-KEY: $SCRAPPER_API_KEY" \
-            "$base/api/matcha-availability/premium-watched?magasin=2" | jq -r 'join(",")')
-
-          if [ -z "$products" ]; then
-            echo "Aucun produit Tokichi suivi par un abonne Premium : cron dense ignore."
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          echo "Produits Premium a scanner : $products"
-          echo "only=$products" >> "$GITHUB_OUTPUT"
-          echo "skip=false" >> "$GITHUB_OUTPUT"
-
-      - name: Verifier le parsing avant tout appel reseau
-        if: steps.targets.outputs.skip != 'true'
-        run: python3 matcha_watch_tokichi.py --self-test
-
-      - name: Relever le stock
-        id: releve
-        if: steps.targets.outputs.skip != 'true'
-        env:
-          MATCHA_WEBHOOK_URL: ${{ secrets.MATCHA_WEBHOOK_URL }}
-          SMTP_HOST: ${{ secrets.SMTP_HOST }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
-          SMTP_USER: ${{ secrets.SMTP_USER }}
-          SMTP_PASS: ${{ secrets.SMTP_PASS }}
-          MAIL_TO: ${{ secrets.MAIL_TO }}
-          MAIL_FROM: ${{ secrets.MAIL_FROM }}
-          MATCHALERT_API_URL: ${{ secrets.MATCHALERT_API_URL }}
-          SCRAPPER_API_KEY: ${{ secrets.SCRAPPER_API_KEY }}
-          ONLY: ${{ steps.targets.outputs.only || github.event.inputs.only }}
-          VERBOSE: ${{ github.event.inputs.verbose == 'true' && '--verbose' || '' }}
-        run: |
-          set +e
-          python3 matcha_watch_tokichi.py \
-            --only "$ONLY" \
-            --csv stock_tokichi.csv \
-            --json stock_tokichi.json \
-            $VERBOSE 2>&1 | tee run_tokichi.log
-          code=${PIPESTATUS[0]}
-          echo "code=$code" >> "$GITHUB_OUTPUT"
-          echo "Code de sortie du script : $code"
-          exit 0
-
-      - name: Resume lisible dans l'onglet Actions
-        if: always()
-        env:
-          SKIPPED: ${{ steps.targets.outputs.skip }}
-        run: |
-          {
-            echo "### Releve Nakamura Tokichi $(date -u '+%Y-%m-%d %H:%M UTC')"
-            echo
-            if [ "$SKIPPED" = "true" ]; then
-              # Le cron dense Premium se declenche toutes les 15 min et se
-              # saute lui-meme quand personne d'eligible ne suit de produit
-              # ici. Sans ce message le resume affichait « (aucune sortie) »,
-              # ce qui ressemblait a une panne.
-              echo "Run dense **Premium ignore** : aucun abonne actif ne suit de produit de cette boutique."
-              echo
-              echo "Ce n'est pas une erreur. Le releve horaire gratuit, lui, tourne normalement."
-            elif [ -s run_tokichi.log ]; then
-              echo '```'
-              cat run_tokichi.log
-              echo '```'
-            else
-              echo "::warning::Le relevé n'a produit aucune sortie alors qu'il devait tourner."
-              echo "Aucune sortie alors que le releve devait tourner — voir les logs de l'etape."
-            fi
-          } >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Ouvrir une issue en cas de restock
-        if: steps.releve.outputs.code == '2'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          {
-            echo "Un ou plusieurs produits Nakamura Tokichi suivis viennent de repasser en stock."
-            echo
-            echo '```'
-            cat run_tokichi.log
-            echo '```'
-          } > issue_tokichi.md
-          gh issue create \
-            --title "Restock Tokichi — $(date -u '+%d/%m %H:%M UTC')" \
-            --body-file issue_tokichi.md \
-            --label restock 2>/dev/null \
-          || gh issue create \
-            --title "Restock Tokichi — $(date -u '+%d/%m %H:%M UTC')" \
-            --body-file issue_tokichi.md
-
-      - name: Enregistrer l'etat pour la prochaine execution
-        if: steps.releve.outputs.code == '0' || steps.releve.outputs.code == '2'
-        run: |
-          git config user.name  "matcha-watch"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          for f in tokichi_state.json stock_tokichi.csv stock_tokichi.json; do
-            if [ -f "$f" ]; then git add -- "$f"; fi
-          done
-
-          if git diff --quiet --cached; then
-            echo "Aucun changement d'etat a enregistrer."
-            exit 0
-          fi
-
-          git commit -m "releve tokichi $(date -u '+%Y-%m-%d %H:%M UTC') [skip ci]"
-
-          pushed=0
-          for attempt in 1 2 3; do
-            if git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push; then
-              pushed=1
-              break
-            fi
-            echo "Push refuse (essai ${attempt}/3), nouvelle tentative dans 5 s..."
-            sleep 5
-          done
-
-          if [ "$pushed" -ne 1 ]; then
-            echo "::warning::Etat non pousse. La prochaine execution repartira de l'etat precedent."
-          fi
-
-      - name: Signaler les erreurs
-        if: steps.releve.outputs.code == '1'
-        run: |
-          echo "::error::Le releve Tokichi a echoue."
-          tail -n 30 run_tokichi.log
-          exit 1
+  releve:
+    uses: ./.github/workflows/matcha-watch-shared.yml
+    secrets: inherit
+    with:
+      shop_name: Nakamura Tokichi
+      script: matcha_watch_tokichi.py
+      magasin: "2"
+      state_files: "tokichi_state.json stock_tokichi.csv stock_tokichi.json"
+      csv_file: stock_tokichi.csv
+      json_file: stock_tokichi.json
+      log_file: run_tokichi.log
+      # Pas de beautifulsoup4 : Shopify expose un catalogue JSON public, aucune
+      # page a parser.
+      pip_packages: "requests"
+      only_override: ${{ github.event.inputs.only || '' }}
+      verbose: ${{ github.event.inputs.verbose == 'true' }}

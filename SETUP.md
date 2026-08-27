@@ -38,8 +38,21 @@ git push
 
 Ou glissez-déposez les fichiers via **Add file → Upload files** sur l'interface web.
 Attention dans ce cas : GitHub n'accepte pas le dossier `.github/` par glisser-déposer,
-il faut créer le fichier à la main via **Add file → Create new file** en tapant le chemin
-`.github/workflows/matcha-watch.yml`.
+il faut créer les fichiers à la main via **Add file → Create new file** en tapant leur
+chemin.
+
+> **Organisation des fichiers.** Chaque boutique a son script
+> (`matcha_watch.py`, `matcha_watch_tokichi.py`, `matcha_watch_lesthes.py`) et son
+> workflow (`matcha-watch*.yml`), mais tous les trois s'appuient sur deux fichiers
+> partagés qu'il faut aussi copier :
+>
+> | Fichier | Rôle |
+> |---|---|
+> | `matcha_common.py` | modèle, comparaison à l'état précédent, exports, envoi vers le backend, notification |
+> | `.github/workflows/matcha-watch-shared.yml` | corps du relevé : palier Premium, résumé, issue de restock, commit de l'état |
+>
+> Les workflows par boutique ne portent plus que leurs crons et leurs paramètres,
+> d'où leur brièveté. Un script sans `matcha_common.py` à côté ne démarre pas.
 
 ## 3. Enregistrer les identifiants
 
