@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-08-26T23:41:45+00:00",
+  "checked_at": "2026-08-27T09:56:54+00:00",
   "products": [
     {
       "name": "Matcha Latte Premium",
@@ -27,6 +27,22 @@
           "price_jpy": null,
           "price_eur": "34,90 €",
           "sku": "matcha-japon-kagoshima",
+          "variation_id": null,
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Thé Matcha Chiran - Kagoshima, Japon",
+      "url": "https://www.lesthes-surterre.com/product-page/the-matcha-chiran-japon",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": "38,90 €",
+          "sku": "the-matcha-chiran-japon",
           "variation_id": null,
           "limit": null
         }
