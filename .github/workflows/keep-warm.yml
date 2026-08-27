@@ -1,0 +1,105 @@
+name: Maintenir le backend MatchAlert eveille
+
+# Render met un service du plan gratuit en veille apres 15 minutes sans trafic,
+# et le reveil prend une cinquantaine de secondes. Sans ce ping, le premier
+# visiteur d'une periode calme attend devant une page blanche — c'est-a-dire
+# presque tous les visiteurs, un site de veille de stock n'ayant pas de trafic
+# continu.
+#
+# 10 minutes et non 14 : les crons GitHub sont declenches au mieux et
+# frequemment retardes de plusieurs minutes. Viser 10 laisse de la marge sous le
+# seuil de 15, sans la garantir — un retard exceptionnel de plus de 5 minutes
+# laissera passer une mise en veille, donc un reveil lent. C'est une reduction
+# du probleme, pas une suppression : un moniteur externe (UptimeRobot, 5 min,
+# gratuit) tient un rythme plus regulier. Voir SETUP-KEEP-WARM.md.
+#
+# Ce workflow vit dans matcha-actions, qui est PUBLIC : les minutes Actions y
+# sont illimitees. Le placer dans matchalert-backend, qui est prive, couterait
+# environ 4 300 minutes facturees par mois (GitHub arrondit chaque job a la
+# minute entiere) pour un quota gratuit de 2 000.
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+
+  workflow_dispatch:
+
+# Un ping en retard ne doit pas s'empiler avec le suivant. cancel-in-progress :
+# si un run est encore en train d'attendre un reveil quand le suivant arrive,
+# c'est le plus recent qui compte.
+concurrency:
+  group: keep-warm
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Pinguer le backend
+        env:
+          MATCHALERT_API_URL: ${{ secrets.MATCHALERT_API_URL }}
+        run: |
+          if [ -z "$MATCHALERT_API_URL" ]; then
+            echo "::warning::MATCHALERT_API_URL absent : rien a pinguer."
+            exit 0
+          fi
+
+          base="${MATCHALERT_API_URL%/}"
+          base="${base%/api}"
+          url="$base/api/health"
+
+          # Fichier neuf a chaque appel : sans ca, un ping en echec afficherait
+          # le corps du precedent et laisserait croire que le service repond.
+          reponse="${RUNNER_TEMP:-/tmp}/health.json"
+          rm -f "$reponse"
+
+          # -m 120 : un service en veille met une cinquantaine de secondes a
+          # repondre, et c'est precisement le cas ou il ne faut pas abandonner.
+          # --retry couvre une coupure reseau du runner et un 5xx de
+          # redeploiement, pas la lenteur du reveil (deja couverte par -m).
+          #
+          # `tail -n1` n'est pas cosmetique : avec --retry, curl ecrit son
+          # %{http_code} UNE FOIS PAR TENTATIVE. Sans ce filtre, trois echecs de
+          # connexion donnent la chaine "000000000", que toutes les comparaisons
+          # qui suivent traitent comme un code inconnu — y compris quand la
+          # derniere tentative a reussi.
+          debut=$(date +%s)
+          code=$(curl -sS -o "$reponse" -w '%{http_code}\n' \
+            -m 120 --retry 2 --retry-delay 5 --retry-connrefused \
+            "$url" | tail -n1)
+          duree=$(( $(date +%s) - debut ))
+          code="${code:-000}"
+
+          echo "HTTP $code en ${duree}s"
+          [ -s "$reponse" ] && echo "Reponse : $(cat "$reponse")"
+
+          {
+            echo "### Ping $(date -u '+%Y-%m-%d %H:%M UTC')"
+            echo
+            if [ "$code" = "200" ]; then
+              # Au-dela d'une quinzaine de secondes, le service etait endormi :
+              # le ping a paye le reveil a la place d'un visiteur. C'est le
+              # signal que l'intervalle est trop espace, ou que les crons
+              # GitHub sont retardes.
+              if [ "$duree" -ge 15 ]; then
+                echo "Reveil a froid en ${duree}s — le service s'etait endormi."
+                echo
+                echo "Un visiteur arrive entre-temps a attendu autant."
+              else
+                echo "Service deja eveille (${duree}s)."
+              fi
+            else
+              echo "::warning::Le backend n'a pas repondu 200 (code $code)."
+              echo "Le backend n'a pas repondu 200 : code **$code** apres ${duree}s."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          # Un ping en echec ne fait pas echouer le job : le service peut etre
+          # en cours de redeploiement, et un mail d'echec toutes les dix minutes
+          # apprendrait surtout a ignorer les mails de ce depot. Le resume et
+          # l'avertissement suffisent a le voir dans l'onglet Actions.
+          exit 0
