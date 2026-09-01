@@ -47,6 +47,7 @@ import argparse
 import copy
 import re
 import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -117,6 +118,17 @@ DEFAULT_STATE = Path("lesthes_state.json")
 # signe que la page est peut-etre tronquee et qu'il faudrait paginer.
 SUSPICIOUS_COUNTS = {20, 24, 25, 50, 100}
 
+# Hook du bloc produit. Source unique : le selecteur du parsing et le test de
+# presence brut ci-dessous doivent designer la meme chose.
+PRODUCT_ROOT_HOOK = "product-item-root"
+
+# Une page totalement depourvue de bloc produit n'est pas forcement une refonte.
+# Les runners GitHub sortent par des IP de datacenter, que Wix sert parfois
+# autrement qu'un poste ordinaire, et le rendu peut aussi arriver incomplet. Ces
+# deux cas passent au deuxieme essai ; une refonte, non.
+CATALOG_ATTEMPTS = 3
+CATALOG_RETRY_DELAY = 5
+
 
 # --------------------------------------------------------------------------- #
 # Parsing de la page categorie
@@ -134,11 +146,11 @@ def parse_catalog(html: str, *, verbose: bool = False) -> list[Product]:
     rupture », puis une vague de fausses alertes de restock au retour.
     """
     soup = BeautifulSoup(html, "html.parser")
-    roots = soup.select('[data-hook="product-item-root"]')
+    roots = soup.select(f'[data-hook="{PRODUCT_ROOT_HOOK}"]')
 
     if not roots:
         raise ScrapeError(
-            "aucun bloc produit (data-hook=\"product-item-root\") dans la page : "
+            f"aucun bloc produit (data-hook=\"{PRODUCT_ROOT_HOOK}\") dans la page : "
             "structure du site probablement modifiee, releve abandonne")
 
     if len(roots) in SUSPICIOUS_COUNTS:
@@ -218,12 +230,50 @@ def parse_catalog(html: str, *, verbose: bool = False) -> list[Product]:
     return products
 
 
+def describe_page(resp: requests.Response) -> str:
+    """Ce que la page contenait vraiment, en une ligne.
+
+    Sans ces reperes, « le site a ete refondu » et « le runner s'est fait servir
+    une page de blocage » produisent exactement le meme message d'erreur. Le
+    second est indiagnosticable apres coup : la reponse n'existe plus nulle
+    part, et la page se reaffiche normalement depuis n'importe quel navigateur.
+    """
+    texte = resp.text
+    reperes = {mot: texte.count(mot) for mot in
+               ("data-hook", "product-item", "captcha", "Access Denied", "unusual traffic")}
+    return (f"HTTP {resp.status_code}, {len(texte)} caracteres, "
+            f"type {resp.headers.get('Content-Type', '?')}, reperes {reperes}")
+
+
 def fetch_catalog(session: requests.Session, *, verbose: bool = False) -> list[Product]:
-    resp = session.get(CATEGORY_URL, timeout=45)
-    resp.raise_for_status()
-    if verbose:
-        print(f"[info] page categorie recuperee ({len(resp.text)} caracteres)")
-    return parse_catalog(resp.text, verbose=verbose)
+    """Recupere la page categorie et en extrait les produits.
+
+    Reessaye tant que la page ne contient aucun bloc produit — signature d'un
+    blocage ou d'un rendu incomplet. Un slug qui a change, lui, ne se repare pas
+    en reessayant : ce cas tombe directement dans parse_catalog, qui sait dire
+    quels slugs il a vus.
+    """
+    for tentative in range(1, CATALOG_ATTEMPTS + 1):
+        resp = session.get(CATEGORY_URL, timeout=45)
+        resp.raise_for_status()
+        if verbose:
+            print(f"[info] page categorie recuperee ({len(resp.text)} caracteres)")
+
+        if f'data-hook="{PRODUCT_ROOT_HOOK}"' not in resp.text and tentative < CATALOG_ATTEMPTS:
+            print(f"[warn] aucun bloc produit (tentative {tentative}/{CATALOG_ATTEMPTS}), "
+                  f"nouvel essai dans {CATALOG_RETRY_DELAY}s — {describe_page(resp)}",
+                  file=sys.stderr)
+            time.sleep(CATALOG_RETRY_DELAY)
+            continue
+
+        try:
+            return parse_catalog(resp.text, verbose=verbose)
+        except ScrapeError as exc:
+            # La description remonte telle quelle dans scrapper_log : c'est la
+            # seule trace qui survivra au run.
+            raise ScrapeError(f"{exc} [{describe_page(resp)}]") from exc
+
+    raise AssertionError("boucle de tentatives sortie sans retour ni exception")
 
 
 # --------------------------------------------------------------------------- #
