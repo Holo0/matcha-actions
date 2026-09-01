@@ -512,7 +512,7 @@ def main(argv: list[str] | None = None) -> int:
             print(f"  {etat:<8} {p.name:<44} {v.price_eur or '':<22} {p.note}")
         return 0
 
-    return run_cli(args, lambda: run(args))
+    return run_cli(args, lambda: run(args), magasin=MAGASIN_ID)
 
 
 if __name__ == "__main__":

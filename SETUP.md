@@ -118,9 +118,11 @@ Ce qui part à chaque exécution :
   dans l'application, et son alerte de restock retombe sur l'URL de repli de la boutique
   au lieu du lien produit. Le backend fait un upsert sur `(magasin, nom, size)` en
   réutilisant l'identifiant existant, donc rien n'est dupliqué d'un run à l'autre.
-- `POST /api/scrapper/log` — une ligne `SUCCESS` ou `ERROR` avec le résumé du run, dans la
-  collection `logs`. Y compris quand le relevé échoue : c'est là que se verront une session
-  expirée ou un blocage anti-bot, sans avoir à ouvrir l'onglet Actions.
+- `POST /api/scrapper/log` — une ligne `SUCCESS` ou `ERROR` avec le résumé du run et
+  l'identifiant de la boutique. Y compris quand le relevé échoue proprement : c'est là que
+  se verront une session expirée ou un blocage anti-bot, sans avoir à ouvrir l'onglet
+  Actions. Un script qui plante avant d'avoir rendu la main, lui, n'écrit rien — la
+  supervision côté backend surveille donc l'absence de succès récent, pas les erreurs.
 
 **Les libellés doivent correspondre.** La clé côté base est le couple `(nom, size)`. Le
 script envoie le `data-product_title` du site (`Wako`, `Low Caffeine Matcha`) et la taille

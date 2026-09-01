@@ -174,9 +174,18 @@ dernière entrée `(nom, size)` et n'écrit que si la disponibilité a changé. 
 donc l'état complet à chaque run plutôt que son propre diff — une seule source de vérité,
 et un état perdu (push refusé, cache vidé) se rattrape tout seul au run suivant.
 
-`POST /api/scrapper/log` reçoit `{status, description, time}` : une ligne `SUCCESS` ou
-`ERROR` par exécution, résumé compris. Elle part **aussi** quand le relevé échoue, ce qui
-en fait le seul endroit où voir une session expirée sans ouvrir l'onglet Actions.
+`POST /api/scrapper/log` reçoit `{status, description, time, magasin}` : une ligne
+`SUCCESS` ou `ERROR` par exécution, résumé compris. `magasin` est obligatoire côté script —
+sans lui les trois scrapers écrivent des lignes indiscernables, et la supervision ne peut
+pas voir qu'une boutique en particulier s'est tue.
+
+Elle part aussi quand le relevé échoue **proprement**, c'est-à-dire quand `run()` rend la
+main avec un code d'erreur : c'est là que se voit une session expirée. En revanche, un
+script qui lève, un site injoignable ou un cron qui ne se déclenche pas n'écrivent
+**rien du tout** — `push_log` n'est appelé qu'après le retour de `run()`. C'est pour cette
+raison que la supervision côté backend (`ScrapperHealthService`) se fonde sur l'absence de
+succès récent et non sur la présence de lignes `ERROR` : chercher des erreurs ne verrait
+jamais ces cas-là, qui sont pourtant les plus probables.
 
 Deux détails qui ont dicté l'implémentation :
 

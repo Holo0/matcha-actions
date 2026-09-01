@@ -890,7 +890,7 @@ def main(argv: list[str] | None = None) -> int:
     except ValueError:
         ap.error("--delay attend 'N' ou 'MIN-MAX'")
 
-    return run_cli(args, lambda: run(args, dmin, dmax))
+    return run_cli(args, lambda: run(args, dmin, dmax), magasin=MAGASIN_ID)
 
 
 if __name__ == "__main__":

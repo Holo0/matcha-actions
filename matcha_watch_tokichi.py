@@ -322,7 +322,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.self_test:
         return self_test()
 
-    return run_cli(args, lambda: run(args))
+    return run_cli(args, lambda: run(args), magasin=MAGASIN_ID)
 
 
 if __name__ == "__main__":

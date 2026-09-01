@@ -415,12 +415,20 @@ def push_catalog(products: list[Product], args, magasin: str) -> None:
         print(f"[info] catalogue : {detail[:200]}")
 
 
-def push_log(status: str, description: str, *, verbose: bool = False) -> bool:
-    """Trace le run dans la table scrapper_log. Best effort, jamais bloquant."""
+def push_log(status: str, description: str, *, magasin: str,
+             verbose: bool = False) -> bool:
+    """Trace le run dans la table scrapper_log. Best effort, jamais bloquant.
+
+    `magasin` est obligatoire : sans lui, les trois scrapers ecrivent des lignes
+    indiscernables et le backend ne peut pas voir qu'une boutique en particulier
+    s'est tue. C'est exactement la panne que la supervision doit attraper, donc
+    l'oubli ne doit pas etre possible.
+    """
     payload = {
         "status": status,
         "description": description[:LOG_DESCRIPTION_MAX],
         "time": api_timestamp(),
+        "magasin": magasin,
     }
     ok, detail = matchalert_post("/api/scrapper/log", payload, verbose=verbose)
     if not ok:
@@ -527,10 +535,17 @@ def wanted_from(args) -> list[str]:
     return [w.strip().lower() for w in args.only.split(",") if w.strip()]
 
 
-def run_cli(args, run_fn) -> int:
+def run_cli(args, run_fn, *, magasin: str) -> int:
     """Enchainement final de main() : relevé, puis journalisation du run.
 
     `run_fn` est appele sans argument et doit retourner (code, resume).
+
+    ATTENTION : la journalisation n'a lieu qu'apres le retour de `run_fn`. Un
+    script qui leve, un site injoignable ou un cron qui ne part pas n'ecrivent
+    donc AUCUNE ligne — pas meme une ligne ERROR. C'est pourquoi la supervision
+    cote backend (ScrapperHealthService) se fonde sur l'absence de succes
+    recent et non sur la presence d'erreurs : chercher des lignes ERROR ne
+    verrait jamais ces cas-la, qui sont les plus probables.
     """
     if args.verbose and not push_enabled(args):
         print("[info] MatchAlert desactive : "
@@ -540,6 +555,7 @@ def run_cli(args, run_fn) -> int:
     code, summary = run_fn()
 
     if push_enabled(args):
-        push_log("SUCCESS" if code in (0, 2) else "ERROR", summary, verbose=args.verbose)
+        push_log("SUCCESS" if code in (0, 2) else "ERROR", summary,
+                 magasin=magasin, verbose=args.verbose)
 
     return code
