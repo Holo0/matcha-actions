@@ -39,6 +39,12 @@ concurrency:
 
 jobs:
   releve:
+    # Voir matcha-watch-lesthes.yml : un workflow reutilisable ne peut que
+    # restreindre les permissions de son appelant. A garder aligne sur le bloc
+    # permissions de matcha-watch-shared.yml.
+    permissions:
+      contents: write # committer l'etat du releve
+      issues: write # ouvrir une issue en cas de restock
     uses: ./.github/workflows/matcha-watch-shared.yml
     # Les secrets ne traversent pas `uses` d'eux-memes : sans cette ligne, le
     # workflow partage n'aurait ni identifiants de connexion ni cle d'API.
