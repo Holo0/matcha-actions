@@ -103,10 +103,17 @@ USER_AGENT = (
 # "Bol a the vert matcha" contient "matcha" sans etre du matcha. Le revers est
 # qu'un nouveau the ajoute par la boutique doit etre ajoute ici — le script
 # affiche donc les slugs ignores en mode --verbose pour le rendre visible.
+#
+# Un slug qui disparait de la boutique est laisse en place : il n'est alors
+# jamais trouve, ce qui ne coute rien, et le retirer perdrait l'alerte si le
+# produit revenait au catalogue. C'est le cas de the-matcha-chiran-japon,
+# absent du site au 01/09/2026.
 CONSUMABLE_SLUGS = {
     "matcha-premium-latte",
     "matcha-japon-kagoshima",
     "the-matcha-chiran-japon",
+    # Accent dans le slug : c'est bien ce que sert la boutique, pas une coquille.
+    "thé-matcha-nk-2026-kagoshima-japon",
     "matcha-haut-de-gamme-japonais",
     "hojicha-en-poudre",
     "coffret-ceremonie-matcha",
