@@ -19,7 +19,7 @@ Privé, parce que le dépôt va contenir l'historique de vos relevés. Vos ident
 eux, ne sont jamais dans le dépôt : ils vivent dans les *secrets* GitHub, chiffrés et
 invisibles même pour vous une fois enregistrés.
 
-**Sauf si vous utilisez le cron dense Premium** (section 8bis) : celui-ci a besoin de
+**Sauf si vous utilisez le scan dense Premium** (section 8bis) : celui-ci a besoin de
 minutes GitHub Actions illimitées, ce qui suppose un dépôt **public**. Aucun identifiant
 n'y est exposé (toujours des secrets), seul l'historique des relevés et les issues de
 restock deviennent visibles. Rien ne vous empêche de démarrer en privé et de basculer en
@@ -162,38 +162,47 @@ quelle heure, à quel prix.
 
 ## 8bis. Palier Premium : scan dense pour les abonnés actifs
 
-Le workflow contient un second cron (`*/15 * * * *`, toutes les 15 minutes) qui ne scanne
-que les produits suivis par au moins un utilisateur avec un abonnement MatchAlert actif —
-jamais tout le catalogue. Avant chaque run dense, une étape interroge
-`GET /api/matcha-availability/premium-watched` (mêmes secrets `MATCHALERT_API_URL` /
-`SCRAPPER_API_KEY` que la section 6) ; si personne de Premium ne suit rien, le run entier
-est sauté sans consommer de minutes utiles.
+Le scan dense ne relève que les produits suivis par au moins un utilisateur avec un
+abonnement MatchAlert actif — jamais tout le catalogue. Avant chaque run dense, une étape
+interroge `GET /api/matcha-availability/premium-watched` (mêmes secrets
+`MATCHALERT_API_URL` / `SCRAPPER_API_KEY` que la section 6) ; si personne de Premium ne
+suit rien, le run entier est sauté sans consommer de minutes utiles.
 
-Prérequis : ce cron a besoin de minutes GitHub Actions illimitées, donc d'un **dépôt
-public** (section 1). Rien à faire côté script — seul le fichier workflow gère la
-bascule entre le palier gratuit (cron horaire, comportement inchangé) et le palier
-Premium (cron dense).
+**Ce n'est plus un cron GitHub.** Il l'a été (`*/15 * * * *`), et ça ne marchait pas :
+GitHub déclenche les workflows planifiés au mieux, et mesuré sur ce dépôt un cron demandé
+toutes les 10 minutes partait en réalité toutes les 2 à 12 heures. Un palier annoncé à 15
+minutes ne peut pas reposer là-dessus. C'est désormais le backend MatchAlert qui déclenche
+par `workflow_dispatch`, à l'heure exacte — **voir
+[SETUP-DECLENCHEUR-BACKEND.md](SETUP-DECLENCHEUR-BACKEND.md)**, qui liste les deux
+variables à poser côté Render et le moniteur externe indispensable.
+
+Le palier d'un run est porté par l'entrée `mode` (`gratuit` / `premium`) du
+`workflow_dispatch`, transmise au workflow partagé sous le nom `dense`. Le bouton « Run
+workflow » de l'onglet Actions permet donc de déclencher les deux paliers à la main.
+
+Prérequis inchangé : le scan dense a besoin de minutes GitHub Actions illimitées, donc
+d'un **dépôt public** (section 1).
 
 ---
 
 ## 9. Quota et coût
 
 Gratuit, mais pas illimité sur un dépôt privé : **2 000 minutes par mois**. Le
-comportement par défaut du workflow (catalogue complet, cron dense Premium) suppose un
+comportement par défaut du workflow (catalogue complet, scan dense Premium) suppose un
 dépôt **public** — voir ci-dessous si vous êtes resté en privé.
 
 | Configuration | Consommation estimée |
 |---|---|
 | `MATCHA_ONLY` limité à 4 produits, toutes les heures, dépôt privé | ~1 400 min/mois — **tient** |
 | 4 produits + créneaux denses (lignes commentées du workflow) | ~1 700 min/mois — tient, mais serré |
-| Tout le catalogue (47 fiches) et/ou cron dense Premium actif, dépôt encore privé | **ne tient pas** — passez en public |
-| Tout le catalogue et cron dense Premium, dépôt public | illimité — **tient toujours** |
+| Tout le catalogue (47 fiches) et/ou scan dense Premium actif, dépôt encore privé | **ne tient pas** — passez en public |
+| Tout le catalogue et scan dense Premium, dépôt public | illimité — **tient toujours** |
 
 GitHub facture à la minute entamée, d'où l'écart avec le temps réel d'exécution.
 
 **Si vous êtes resté sur un dépôt privé**, définissez la variable `MATCHA_ONLY` (section
 4) pour revenir à une poignée de produits, sinon le scan par défaut du catalogue complet
-dépassera le quota gratuit. Si vous voulez le catalogue complet et/ou le cron dense
+dépassera le quota gratuit. Si vous voulez le catalogue complet et/ou le scan dense
 Premium, passez le dépôt en **public** : les minutes deviennent illimitées. Vos
 identifiants restent protégés — les secrets ne sont jamais exposés, y compris aux forks.
 En revanche l'historique des relevés et les issues de restock deviennent visibles de
@@ -207,10 +216,17 @@ Si des `429`/pages de vérification apparaissent malgré tout, resserrez avec
 
 ## 10. Les limites à connaître
 
-**L'horaire dérive.** GitHub met les crons en file d'attente : un run prévu à 13 peut
-partir à 25 ou 35, surtout aux heures chargées. Comptez 5 à 20 minutes de retard. Sur un
-produit qui s'épuise en 12 minutes, ça se paie. La minute 13 plutôt que 0 limite la casse,
-parce que la file est saturée en début d'heure.
+**L'horaire ne dérive pas : il est abandonné.** GitHub déclenche les workflows planifiés
+au mieux. La formulation habituelle — « comptez 5 à 20 minutes de retard » — sous-estime
+largement ce qui se passe réellement : mesuré sur ce dépôt fin août 2026, un cron demandé
+toutes les 10 minutes partait toutes les 2 à 12 heures, soit environ 97 % des
+déclenchements purement abandonnés. Sur un produit qui s'épuise en 12 minutes, ça se
+paie.
+
+C'est la raison d'être du déclencheur côté backend
+([SETUP-DECLENCHEUR-BACKEND.md](SETUP-DECLENCHEUR-BACKEND.md)). Le cron horaire de chaque
+workflow subsiste comme filet, avec cette réserve en tête : sa minute (13, 17, 23 plutôt
+que 0) limite la casse aux heures chargées, sans rien garantir.
 
 **L'IP peut être filtrée.** Les runners GitHub sortent par des plages datacenter connues.
 Le site peut les traiter différemment de votre connexion personnelle. Si le run 7 échoue

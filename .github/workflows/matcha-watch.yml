@@ -7,21 +7,30 @@ name: Veille matcha Marukyu-Koyamaen
 on:
   # GitHub evalue les crons en UTC. Minute 13 volontairement : les jobs planifies
   # a la minute 0 sont massivement retardes (parfois 20 min) par la file d'attente.
-  # Palier gratuit : tout le catalogue par defaut.
+  # Le cron horaire n'est plus qu'un filet de securite : c'est le backend
+  # MatchAlert qui pilote desormais le rythme, par workflow_dispatch
+  # (ScrapperTriggerJob). Il est garde parce qu'il ne depend de rien d'autre que
+  # de GitHub — si le backend est en veille ou en panne, le releve gratuit
+  # continue de tourner et la supervision continue de voir des runs.
   schedule:
     - cron: "13 * * * *"
 
-    # Palier Premium : scan dense, mais uniquement des produits suivis par au
-    # moins un abonne avec un abonnement actif (voir l'etape "Determiner les
-    # produits a surveiller" du workflow partage, qui interroge le backend et
-    # saute purement et simplement ce run si personne de Premium ne suit rien).
-    # Necessite un depot public pour ne pas exploser le quota de minutes prive
-    # (voir SETUP.md, section Quota et cout).
-    - cron: "*/15 * * * *"
+    # Le cron dense du palier Premium (*/15) a ete retire : GitHub declenche les
+    # crons « au mieux » et, mesure sur ce depot, un cron */10 partait en
+    # realite toutes les 2 a 12 heures. Un palier vendu « toutes les 15 min »
+    # ne peut pas reposer dessus. Le scan dense est declenche par le backend,
+    # qui tient l'heure exacte (voir SETUP-DECLENCHEUR-BACKEND.md).
 
   # Bouton "Run workflow" dans l'onglet Actions, pour tester quand vous voulez.
   workflow_dispatch:
     inputs:
+      mode:
+        description: "Palier : gratuit (tout le catalogue) ou premium (produits suivis seulement)"
+        type: choice
+        options:
+          - gratuit
+          - premium
+        default: gratuit
       only:
         description: "Produits a surveiller (vide = tout le catalogue, ou MATCHA_ONLY si defini)"
         required: false
@@ -50,6 +59,9 @@ jobs:
     # workflow partage n'aurait ni identifiants de connexion ni cle d'API.
     secrets: inherit
     with:
+      # Palier du run : c'est le declencheur (backend ou run manuel) qui le
+      # dit, et non plus un cron reconnu a sa minute.
+      dense: ${{ github.event.inputs.mode == 'premium' }}
       shop_name: Marukyu-Koyamaen
       script: matcha_watch.py
       magasin: "1"

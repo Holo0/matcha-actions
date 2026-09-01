@@ -210,6 +210,12 @@ test qui ne doit rien écrire.
 > Rien à installer, aucune machine à laisser allumée. Les recettes ci-dessous
 > ne servent que si vous rapatriez un jour le relevé sur une machine à vous.
 >
+> **[SETUP-DECLENCHEUR-BACKEND.md](SETUP-DECLENCHEUR-BACKEND.md)** — le rythme
+> n'est plus tenu par les crons de GitHub, qui abandonnent environ 97 % de leurs
+> déclenchements sur ce dépôt, mais par le backend MatchAlert via
+> `workflow_dispatch`. Deux variables à poser côté Render, et un moniteur externe
+> sans lequel rien ne part.
+>
 > Voir aussi **[SETUP-KEEP-WARM.md](SETUP-KEEP-WARM.md)** — le ping qui empêche
 > le backend Render de s'endormir, et le quota d'heures d'instance à surveiller
 > avant de le laisser tourner.

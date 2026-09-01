@@ -74,20 +74,38 @@ catalogue à 4 h du matin ; un réveil lent à ce moment-là ne gêne personne. 
 ```
 
 **b. Passer sur un moniteur externe** (§4), qui ne change rien au quota Render
-mais tient un rythme plus régulier — vous pourrez alors espacer sans risquer la
-mise en veille.
+mais tient un rythme réellement régulier — vous pourrez alors espacer sans
+risquer la mise en veille. C'est de toute façon devenu nécessaire depuis que le
+backend pilote les relevés, voir §4.
 
-## 4. La limite de ce montage : les crons GitHub sont approximatifs
+## 4. La limite de ce montage : les crons GitHub ne sont pas approximatifs, ils sont abandonnés
 
-GitHub déclenche les workflows planifiés **au mieux**, et les retarde
-régulièrement de plusieurs minutes aux heures chargées. Le cron est réglé sur
-10 minutes précisément pour garder 5 minutes de marge sous le seuil de 15 — mais
-un retard exceptionnel dépassant cette marge laissera passer une mise en veille,
-donc un réveil lent pour le visiteur suivant.
+GitHub déclenche les workflows planifiés **au mieux**. Ce document a longtemps
+décrit ça comme « quelques minutes de retard aux heures chargées ». La mesure dit
+autre chose. Écarts réels entre deux runs consécutifs de ce workflow, relevés fin
+août 2026 sur un cron qui demande six déclenchements par heure :
 
-**C'est une réduction du problème, pas une suppression.** En pratique la
-proportion de visiteurs tombant sur un service froid passe de « presque tous » à
-« rarement », ce qui est l'essentiel de l'écart.
+```
+112, 125, 138, 139, 155, 175, 211, 212, 220, 259, 289,
+294, 302, 310, 322, 333, 362, 402, 428, 469, 753  (en minutes)
+```
+
+Un ping toutes les 2 à 12 heures au lieu de toutes les 10 minutes : environ
+**97 % des déclenchements sont purement abandonnés**, pas retardés. Le service
+s'endort donc la plupart du temps, et ce workflow seul ne l'empêche pas.
+
+**Conséquence directe depuis que le backend pilote les relevés.** Ce n'est plus
+seulement un visiteur qui attend 50 secondes : l'ordonnanceur du backend
+(`ScrapperTriggerJob`) s'arrête avec l'instance, et un top manqué n'est jamais
+rattrapé. Un backend endormi ne déclenche aucun scan dense. **Un moniteur externe
+n'est donc plus un confort, c'est une condition de bon fonctionnement** — voir
+[SETUP-DECLENCHEUR-BACKEND.md](SETUP-DECLENCHEUR-BACKEND.md), section 4.
+
+Et cela se paie sur le quota Render de la section 3 : maintenir le service
+éveillé 24 h/24 consomme 744 des 750 heures gratuites du mois. Le montage ne tient
+que si `matchalert-backend` est le seul service web gratuit du compte. L'option
+(a) de la section 3 — ping restreint à 06:00–22:59 UTC — reprend de la marge au
+prix des scans denses de la nuit.
 
 Deux autres pièges à connaître :
 
@@ -110,8 +128,10 @@ plus quand le backend est réellement tombé, ce que le workflow ne fait pas.
 4. **Monitoring Interval** : 5 minutes.
 5. Alertes sur votre adresse email.
 
-Si vous l'adoptez, supprimez `keep-warm.yml` ou espacez son cron : les deux
-feraient le même travail en double.
+Si vous l'adoptez, gardez `keep-warm.yml` : son cron part si rarement (§4) qu'il
+ne fait pas vraiment doublon, et il reste le seul filet si le moniteur externe
+tombe. Le doublon coûte quelques secondes de runner sur un dépôt public où les
+minutes sont illimitées.
 
 ## 5. Pourquoi `/api/health` et pas une autre route
 

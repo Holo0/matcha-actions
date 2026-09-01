@@ -6,16 +6,29 @@ name: Veille matcha Nakamura Tokichi
 on:
   # Minute differente de celle du workflow Marukyu (13) pour etaler la charge
   # sur la file de crons GitHub plutot que de la concentrer au meme instant.
-  # Palier gratuit : tout le catalogue.
+  # Le cron horaire n'est plus qu'un filet de securite : c'est le backend
+  # MatchAlert qui pilote desormais le rythme, par workflow_dispatch
+  # (ScrapperTriggerJob). Il est garde parce qu'il ne depend de rien d'autre que
+  # de GitHub — si le backend est en veille ou en panne, le releve gratuit
+  # continue de tourner et la supervision continue de voir des runs.
   schedule:
     - cron: "17 * * * *"
 
-    # Palier Premium : ne releve que les produits Tokichi suivis par au moins
-    # un abonne actif, et saute le run si personne n'en suit.
-    - cron: "*/15 * * * *"
+    # Le cron dense du palier Premium (*/15) a ete retire : GitHub declenche les
+    # crons « au mieux » et, mesure sur ce depot, un cron */10 partait en
+    # realite toutes les 2 a 12 heures. Un palier vendu « toutes les 15 min »
+    # ne peut pas reposer dessus. Le scan dense est declenche par le backend,
+    # qui tient l'heure exacte (voir SETUP-DECLENCHEUR-BACKEND.md).
 
   workflow_dispatch:
     inputs:
+      mode:
+        description: "Palier : gratuit (tout le catalogue) ou premium (produits suivis seulement)"
+        type: choice
+        options:
+          - gratuit
+          - premium
+        default: gratuit
       only:
         description: "Produits a surveiller (vide = tout le catalogue)"
         required: false
@@ -40,6 +53,9 @@ jobs:
     uses: ./.github/workflows/matcha-watch-shared.yml
     secrets: inherit
     with:
+      # Palier du run : c'est le declencheur (backend ou run manuel) qui le
+      # dit, et non plus un cron reconnu a sa minute.
+      dense: ${{ github.event.inputs.mode == 'premium' }}
       shop_name: Nakamura Tokichi
       script: matcha_watch_tokichi.py
       magasin: "2"
