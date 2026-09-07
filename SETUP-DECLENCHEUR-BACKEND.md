@@ -77,7 +77,7 @@ Valeurs par défaut, à ne surcharger qu'en cas de besoin :
 |---|---|---|
 | `SCRAPPER_TRIGGER_ENABLED` | `true` | coupe le déclencheur sans redéployer |
 | `SCRAPPER_TRIGGER_REF` | `main` | branche sur laquelle déclencher |
-| `SCRAPPER_TRIGGER_WORKFLOWS` | `1:matcha-watch.yml,2:matcha-watch-tokichi.yml,3:matcha-watch-lesthes.yml` | magasin → fichier de workflow |
+| `SCRAPPER_TRIGGER_WORKFLOWS` | `1:matcha-watch.yml,2:matcha-watch-tokichi.yml,3:matcha-watch-lesthes.yml,4:matcha-watch-ippodo.yml,5:matcha-watch-rocky.yml,6:matcha-watch-kettl.yml,7:matcha-watch-mizuba.yml,8:matcha-watch-naoki.yml,9:matcha-watch-matchaeologist.yml` | magasin → fichier de workflow |
 | `SCRAPPER_TRIGGER_DENSE_CRON` | `0 0,15,30,45 * * * *` | rythme du scan Premium |
 | `SCRAPPER_TRIGGER_FULL_CRON` | `0 5 * * * *` | rythme du relevé complet |
 

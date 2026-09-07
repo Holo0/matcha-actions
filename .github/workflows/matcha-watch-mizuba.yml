@@ -1,0 +1,71 @@
+name: Veille matcha Mizuba Tea Co.
+
+# Le corps du relevé vit dans matcha-watch-shared.yml, partage par toutes les
+# boutiques. Ce fichier ne porte que ce qui est propre a Mizuba Tea Co..
+#
+# Chez Mizuba le poids vit dans les TAGS, pas dans le titre ni la variante ;
+     # les coffrets sont ecartes par le scraper, leurs variantes nommant une
+     # ceramique et non un conditionnement.
+
+on:
+  # Minute propre a cette boutique, pour etaler la charge sur la file de crons
+  # GitHub plutot que de la concentrer au meme instant : 13 Marukyu, 17 Tokichi,
+  # 23 Les Thes sur Terre, puis 29, 33, 37, 41, 47 et 53 pour les six boutiques
+  # Shopify.
+  #
+  # Le cron horaire n'est qu'un filet de securite : c'est le backend MatchAlert
+  # qui pilote le rythme, par workflow_dispatch (ScrapperTriggerJob). Il est
+  # garde parce qu'il ne depend de rien d'autre que de GitHub — si le backend est
+  # en veille ou en panne, le relevé gratuit continue de tourner et la
+  # supervision continue de voir des runs.
+  schedule:
+    - cron: "41 * * * *"
+
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Palier : gratuit (tout le catalogue) ou premium (produits suivis seulement)"
+        type: choice
+        options:
+          - gratuit
+          - premium
+        default: gratuit
+      only:
+        description: "Produits a surveiller (vide = tout le catalogue)"
+        required: false
+        default: ""
+      verbose:
+        description: "Mode bavard (diagnostic)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: matcha-watch-mizuba
+  cancel-in-progress: false
+
+jobs:
+  releve:
+    # Un workflow reutilisable ne peut que RESTREINDRE les permissions de son
+    # appelant : sans ce bloc, le relevé ne pourrait ni committer son etat ni
+    # ouvrir l'issue de secours. A garder aligne sur le bloc permissions de
+    # matcha-watch-shared.yml.
+    permissions:
+      contents: write # committer l'etat du releve
+      issues: write # ouvrir une issue en cas de restock
+    uses: ./.github/workflows/matcha-watch-shared.yml
+    secrets: inherit
+    with:
+      # Palier du run : c'est le declencheur (backend ou run manuel) qui le dit.
+      dense: ${{ github.event.inputs.mode == 'premium' }}
+      shop_name: Mizuba Tea Co.
+      script: matcha_watch_mizuba.py
+      magasin: "7"
+      state_files: "mizuba_state.json stock_mizuba.csv stock_mizuba.json"
+      csv_file: stock_mizuba.csv
+      json_file: stock_mizuba.json
+      log_file: run_mizuba.log
+      # Pas de beautifulsoup4 : Shopify expose un catalogue JSON public, aucune
+      # page a parser.
+      pip_packages: "requests"
+      only_override: ${{ github.event.inputs.only || '' }}
+      verbose: ${{ github.event.inputs.verbose == 'true' }}

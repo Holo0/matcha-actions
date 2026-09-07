@@ -35,6 +35,7 @@ from __future__ import annotations
 import argparse
 import sys
 from datetime import datetime, timezone
+from decimal import Decimal
 from pathlib import Path
 from typing import Any
 
@@ -120,8 +121,17 @@ def parse_product(raw: dict[str, Any]) -> Product:
         # taille vient alors du titre du produit lui-meme.
         size = variant_title if variant_title and variant_title != "Default Title" else size_from_title
 
+        # PAS de division par cent. products.json rend le montant DANS LA
+        # DEVISE de la boutique, contrairement a /products/<handle>.js qui rend
+        # toujours des centimes. Verifie sur la fiche : products.json donne
+        # 55556 pour Bessei Hatsu-Mukashi, dont la page affiche
+        # og:price:amount = 55,556 — soit bien 55 556 yens. Le /100 present ici
+        # jusqu'alors sous-affichait donc TOUS les prix d'un facteur cent
+        # (« ¥18 » pour un matcha a 1 834 yens). Le yen etant une devise sans
+        # decimale, l'arrondi a l'entier est le format correct, pas une
+        # troncature de commodite.
         price = v.get("price")
-        price_jpy = f"¥{int(price) / 100:,.0f}" if price is not None else None
+        price_jpy = f"¥{Decimal(str(price)):,.0f}" if price not in (None, "") else None
 
         available = v.get("available")
         variants.append(Variant(
@@ -161,6 +171,9 @@ def fetch_catalog(session: requests.Session, *, verbose: bool = False) -> list[P
 # le cas limite "Matcha Starter,100g Bag 2-bag set" (sans espace apres la
 # virgule) et un produit force en rupture (aucun ne l'est en conditions
 # reelles au moment d'ecrire ce script).
+#
+# Les montants sont ceux du catalogue, DANS LA DEVISE de la boutique et non en
+# centimes : c'est ce que rend products.json (voir parse_product).
 FIXTURE_CATALOG = {
     "products": [
         {
@@ -168,7 +181,7 @@ FIXTURE_CATALOG = {
             "title": "Matcha Ukishima-no-Shiro, 30g Can",
             "variants": [
                 {"id": 44231891583228, "title": "Default Title", "sku": "MC1",
-                 "price": 150000, "available": True},
+                 "price": "1834", "available": True},
             ],
         },
         {
@@ -176,7 +189,7 @@ FIXTURE_CATALOG = {
             "title": "Matcha Starter,100g Bag 2-bag set",
             "variants": [
                 {"id": 1, "title": "Matcha Starter 100g Bag 2-bag set", "sku": "AS400",
-                 "price": 1142800, "available": True},
+                 "price": "11428", "available": True},
             ],
         },
         {
@@ -184,7 +197,7 @@ FIXTURE_CATALOG = {
             "title": "Matcha Test-no-Rupture, 30g Can",
             "variants": [
                 {"id": 2, "title": "Default Title", "sku": "MC99",
-                 "price": 200000, "available": False},
+                 "price": "2000", "available": False},
             ],
         },
     ]
@@ -224,7 +237,8 @@ def self_test() -> int:
     check(p1.name == "Matcha Ukishima-no-Shiro" and p1.variants[0].label == "30g Can",
           "nom et taille corrects sur un produit reel", f"{p1.name!r} / {p1.variants[0].label!r}")
     check(p1.variants[0].in_stock is True, "available=true lu comme disponible", "disponibilite incorrecte")
-    check(p1.variants[0].price_jpy == "¥1,500", "prix converti depuis les centimes Shopify",
+    check(p1.variants[0].price_jpy == "¥1,834",
+          "prix en yens repris tel quel, sans division par cent",
           f"prix incorrect : {p1.variants[0].price_jpy!r}")
     check(p1.url == "https://global.tokichi.jp/products/mc1", "URL construite depuis le handle",
           f"URL incorrecte : {p1.url!r}")

@@ -2,12 +2,15 @@
 
 À la fin, le relevé tourne toutes les heures dans le cloud. Vous ne lancez plus rien.
 
-> Ce guide couvre le relevé **Marukyu-Koyamaen** (`matcha_watch.py`), le seul des trois
-> qui exige une connexion. Les deux autres marchands sont nettement plus simples (aucun
+> Ce guide couvre le relevé **Marukyu-Koyamaen** (`matcha_watch.py`), le seul des neuf
+> qui exige une connexion. Les huit autres marchands sont nettement plus simples (aucun
 > identifiant à créer) et réutilisent les secrets configurés ici :
 >
 > - **Nakamura Tokichi** → **[SETUP-TOKICHI.md](SETUP-TOKICHI.md)**
 > - **Les Thés sur Terre** → **[SETUP-LESTHES.md](SETUP-LESTHES.md)**
+> - **Ippodo Tea, Rocky's Matcha, Kettl, Mizuba Tea Co., Naoki Matcha, Matchaeologist**
+>   → **[SETUP-SHOPIFY.md](SETUP-SHOPIFY.md)** (les six d'un coup, elles partagent le
+>   même socle)
 
 ---
 
@@ -42,17 +45,19 @@ il faut créer les fichiers à la main via **Add file → Create new file** en t
 chemin.
 
 > **Organisation des fichiers.** Chaque boutique a son script
-> (`matcha_watch.py`, `matcha_watch_tokichi.py`, `matcha_watch_lesthes.py`) et son
-> workflow (`matcha-watch*.yml`), mais tous les trois s'appuient sur deux fichiers
-> partagés qu'il faut aussi copier :
+> (`matcha_watch.py`, `matcha_watch_tokichi.py`, `matcha_watch_ippodo.py`…) et son
+> workflow (`matcha-watch*.yml`), mais tous s'appuient sur des fichiers partagés
+> qu'il faut aussi copier :
 >
 > | Fichier | Rôle |
 > |---|---|
 > | `matcha_common.py` | modèle, comparaison à l'état précédent, exports, envoi vers le backend, notification |
+> | `matcha_shopify.py` | socle des **six** boutiques Shopify : téléchargement du catalogue, lecture de la disponibilité, invariants de l'auto-test |
 > | `.github/workflows/matcha-watch-shared.yml` | corps du relevé : palier Premium, résumé, issue de restock, commit de l'état |
 >
 > Les workflows par boutique ne portent plus que leurs crons et leurs paramètres,
-> d'où leur brièveté. Un script sans `matcha_common.py` à côté ne démarre pas.
+> d'où leur brièveté. Un script sans `matcha_common.py` à côté ne démarre pas, et
+> les six scripts Shopify exigent en plus `matcha_shopify.py`.
 
 ## 3. Enregistrer les identifiants
 

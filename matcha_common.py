@@ -74,6 +74,11 @@ class Variant:
     in_stock: bool | None          # None = indeterminable
     price_jpy: str | None = None
     price_eur: str | None = None
+    # Cinq des sept marchands vendent en dollars (Kettl, Rocky's, Mizuba,
+    # Naoki, Matchaeologist). Un champ distinct plutot qu'un montant range dans
+    # price_jpy : le prix apparait tel quel dans l'alerte de restock, et une
+    # devise fausse y serait invisible a la relecture.
+    price_usd: str | None = None
     sku: str | None = None
     variation_id: str | None = None
     limit: str | None = None       # ex. "Limit one per person"
@@ -129,6 +134,7 @@ def snapshot(products: Iterable[Product]) -> dict[str, dict[str, Any]]:
                 "in_stock": v.in_stock,
                 "price": v.price_jpy,
                 "price_eur": v.price_eur,
+                "price_usd": v.price_usd,
                 "limit": v.limit,
                 "url": p.url,
             }
@@ -147,7 +153,8 @@ def diff(previous: dict[str, Any], current: dict[str, Any], *,
         if is_:
             if before is None:      # premier run : pas de fausse alerte
                 continue
-            price = " / ".join(x for x in (now.get("price"), now.get("price_eur")) if x)
+            price = " / ".join(x for x in (now.get("price"), now.get("price_eur"),
+                                           now.get("price_usd")) if x)
             events.append(Event("RESTOCK", now["product"], now["variant"],
                                 price or None, now["url"], now.get("limit")))
         elif was is True and report_sold_out:
@@ -192,12 +199,14 @@ def write_csv(path: Path, products: list[Product], stamp: str) -> None:
     with path.open("w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
         w.writerow(["checked_at", "product", "size", "in_stock",
-                    "price_jpy", "price_eur", "purchase_limit", "sku", "url", "note"])
+                    "price_jpy", "price_eur", "price_usd",
+                    "purchase_limit", "sku", "url", "note"])
         for p in products:
             for v in p.variants:
                 w.writerow([stamp, p.name, v.label,
                             "" if v.in_stock is None else ("yes" if v.in_stock else "no"),
-                            v.price_jpy or "", v.price_eur or "", v.limit or "",
+                            v.price_jpy or "", v.price_eur or "", v.price_usd or "",
+                            v.limit or "",
                             v.sku or "", p.url, p.note])
 
 
