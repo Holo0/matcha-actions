@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-07T09:08:24+00:00",
+  "checked_at": "2026-09-07T09:18:14+00:00",
   "products": [
     {
       "name": "Matcha Premium Hatsu-Mukashi “No.1”",
@@ -8,8 +8,9 @@
         {
           "label": "20g Can",
           "in_stock": true,
-          "price_jpy": "¥556",
+          "price_jpy": "¥55,556",
           "price_eur": null,
+          "price_usd": null,
           "sku": "MC17",
           "variation_id": "47270508593404",
           "limit": null
@@ -24,8 +25,9 @@
         {
           "label": "20g Can",
           "in_stock": true,
-          "price_jpy": "¥417",
+          "price_jpy": "¥41,667",
           "price_eur": null,
+          "price_usd": null,
           "sku": "MC18",
           "variation_id": "47270508855548",
           "limit": null
@@ -40,8 +42,9 @@
         {
           "label": "20g Can",
           "in_stock": true,
-          "price_jpy": "¥278",
+          "price_jpy": "¥27,778",
           "price_eur": null,
+          "price_usd": null,
           "sku": "MC19",
           "variation_id": "47270508921084",
           "limit": null
@@ -56,8 +59,9 @@
         {
           "label": "Matcha Starter 100g Bag 2-bag set",
           "in_stock": true,
-          "price_jpy": "¥114",
+          "price_jpy": "¥11,428",
           "price_eur": null,
+          "price_usd": null,
           "sku": "AS400",
           "variation_id": "49131381489916",
           "limit": null
@@ -72,8 +76,9 @@
         {
           "label": "100g Bag",
           "in_stock": true,
-          "price_jpy": "¥220",
+          "price_jpy": "¥22,000",
           "price_eur": null,
+          "price_usd": null,
           "sku": "m100-prm",
           "variation_id": "47148766363900",
           "limit": null
@@ -88,8 +93,9 @@
         {
           "label": "100g Bag",
           "in_stock": true,
-          "price_jpy": "¥128",
+          "price_jpy": "¥12,778",
           "price_eur": null,
+          "price_usd": null,
           "sku": "m100-std",
           "variation_id": "47148766331132",
           "limit": null
@@ -104,8 +110,9 @@
         {
           "label": "100g Bag",
           "in_stock": true,
-          "price_jpy": "¥65",
+          "price_jpy": "¥6,463",
           "price_eur": null,
+          "price_usd": null,
           "sku": "m100-str",
           "variation_id": "47148766298364",
           "limit": null
@@ -120,8 +127,9 @@
         {
           "label": "30g Can",
           "in_stock": true,
-          "price_jpy": "¥23",
+          "price_jpy": "¥2,297",
           "price_eur": null,
+          "price_usd": null,
           "sku": "MC2",
           "variation_id": "44231891747068",
           "limit": null
@@ -136,8 +144,9 @@
         {
           "label": "30g Can",
           "in_stock": true,
-          "price_jpy": "¥18",
+          "price_jpy": "¥1,834",
           "price_eur": null,
+          "price_usd": null,
           "sku": "MC1",
           "variation_id": "44231891583228",
           "limit": null
@@ -152,8 +161,9 @@
         {
           "label": "30g Can",
           "in_stock": true,
-          "price_jpy": "¥37",
+          "price_jpy": "¥3,658",
           "price_eur": null,
+          "price_usd": null,
           "sku": "MC6",
           "variation_id": "44231891878140",
           "limit": null
@@ -168,8 +178,9 @@
         {
           "label": "30g Can",
           "in_stock": true,
-          "price_jpy": "¥31",
+          "price_jpy": "¥3,130",
           "price_eur": null,
+          "price_usd": null,
           "sku": "MC4",
           "variation_id": "44231891812604",
           "limit": null
@@ -184,8 +195,9 @@
         {
           "label": "30g Can",
           "in_stock": true,
-          "price_jpy": "¥31",
+          "price_jpy": "¥3,130",
           "price_eur": null,
+          "price_usd": null,
           "sku": "MC5",
           "variation_id": "44231891845372",
           "limit": null
@@ -200,8 +212,9 @@
         {
           "label": "30g Can",
           "in_stock": true,
-          "price_jpy": "¥31",
+          "price_jpy": "¥3,130",
           "price_eur": null,
+          "price_usd": null,
           "sku": "MC3",
           "variation_id": "44231891779836",
           "limit": null
@@ -216,8 +229,9 @@
         {
           "label": "30g Can",
           "in_stock": true,
-          "price_jpy": "¥90",
+          "price_jpy": "¥9,000",
           "price_eur": null,
+          "price_usd": null,
           "sku": "MC10",
           "variation_id": "44231891615996",
           "limit": null
@@ -232,8 +246,9 @@
         {
           "label": "30g Can",
           "in_stock": true,
-          "price_jpy": "¥65",
+          "price_jpy": "¥6,463",
           "price_eur": null,
+          "price_usd": null,
           "sku": "MC7",
           "variation_id": "44231891910908",
           "limit": null
@@ -248,8 +263,9 @@
         {
           "label": "30g Can",
           "in_stock": true,
-          "price_jpy": "¥65",
+          "price_jpy": "¥6,463",
           "price_eur": null,
+          "price_usd": null,
           "sku": "MC8",
           "variation_id": "44231891943676",
           "limit": null
@@ -264,8 +280,9 @@
         {
           "label": "30g Can",
           "in_stock": true,
-          "price_jpy": "¥65",
+          "price_jpy": "¥6,463",
           "price_eur": null,
+          "price_usd": null,
           "sku": "MC9",
           "variation_id": "44231891976444",
           "limit": null
@@ -280,8 +297,9 @@
         {
           "label": "30g Can",
           "in_stock": true,
-          "price_jpy": "¥65",
+          "price_jpy": "¥6,463",
           "price_eur": null,
+          "price_usd": null,
           "sku": "MC20",
           "variation_id": "46649410224380",
           "limit": null
@@ -296,8 +314,9 @@
         {
           "label": "30g Can",
           "in_stock": true,
-          "price_jpy": "¥128",
+          "price_jpy": "¥12,778",
           "price_eur": null,
+          "price_usd": null,
           "sku": "MC11",
           "variation_id": "44231891681532",
           "limit": null
@@ -312,8 +331,9 @@
         {
           "label": "30g Can",
           "in_stock": true,
-          "price_jpy": "¥162",
+          "price_jpy": "¥16,204",
           "price_eur": null,
+          "price_usd": null,
           "sku": "MC12",
           "variation_id": "44231891714300",
           "limit": null
