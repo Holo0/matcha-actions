@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-07T09:08:10+00:00",
+  "checked_at": "2026-09-07T09:18:19+00:00",
   "products": [
     {
       "name": "Thé Matcha NK 2026- Kagoshima, Japon",
@@ -10,6 +10,7 @@
           "in_stock": false,
           "price_jpy": null,
           "price_eur": "À partir de 38,90 €",
+          "price_usd": null,
           "sku": "thé-matcha-nk-2026-kagoshima-japon",
           "variation_id": null,
           "limit": null
@@ -26,6 +27,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": "À partir de 30,00 €",
+          "price_usd": null,
           "sku": "matcha-premium-latte",
           "variation_id": null,
           "limit": null
@@ -42,6 +44,7 @@
           "in_stock": false,
           "price_jpy": null,
           "price_eur": "34,90 €",
+          "price_usd": null,
           "sku": "matcha-japon-kagoshima",
           "variation_id": null,
           "limit": null
@@ -58,6 +61,7 @@
           "in_stock": false,
           "price_jpy": null,
           "price_eur": "42,50 €",
+          "price_usd": null,
           "sku": "matcha-haut-de-gamme-japonais",
           "variation_id": null,
           "limit": null
@@ -74,6 +78,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": "À partir de 16,90 €",
+          "price_usd": null,
           "sku": "hojicha-en-poudre",
           "variation_id": null,
           "limit": null
@@ -90,6 +95,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": "À partir de 57,90 €",
+          "price_usd": null,
           "sku": "coffret-ceremonie-matcha",
           "variation_id": null,
           "limit": null

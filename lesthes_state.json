@@ -5,6 +5,7 @@
     "in_stock": false,
     "price": null,
     "price_eur": "À partir de 38,90 €",
+    "price_usd": null,
     "limit": null,
     "url": "https://www.lesthes-surterre.com/product-page/thé-matcha-nk-2026-kagoshima-japon"
   },
@@ -14,6 +15,7 @@
     "in_stock": true,
     "price": null,
     "price_eur": "À partir de 30,00 €",
+    "price_usd": null,
     "limit": null,
     "url": "https://www.lesthes-surterre.com/product-page/matcha-premium-latte"
   },
@@ -23,6 +25,7 @@
     "in_stock": false,
     "price": null,
     "price_eur": "34,90 €",
+    "price_usd": null,
     "limit": null,
     "url": "https://www.lesthes-surterre.com/product-page/matcha-japon-kagoshima"
   },
@@ -32,6 +35,7 @@
     "in_stock": false,
     "price": null,
     "price_eur": "42,50 €",
+    "price_usd": null,
     "limit": null,
     "url": "https://www.lesthes-surterre.com/product-page/matcha-haut-de-gamme-japonais"
   },
@@ -41,6 +45,7 @@
     "in_stock": true,
     "price": null,
     "price_eur": "À partir de 16,90 €",
+    "price_usd": null,
     "limit": null,
     "url": "https://www.lesthes-surterre.com/product-page/hojicha-en-poudre"
   },
@@ -50,6 +55,7 @@
     "in_stock": true,
     "price": null,
     "price_eur": "À partir de 57,90 €",
+    "price_usd": null,
     "limit": null,
     "url": "https://www.lesthes-surterre.com/product-page/coffret-ceremonie-matcha"
   }
