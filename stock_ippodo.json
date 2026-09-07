@@ -1,0 +1,243 @@
+{
+  "checked_at": "2026-09-07T09:10:12+00:00",
+  "products": [
+    {
+      "name": "Sayaka-no-mukashi",
+      "url": "https://global.ippodo-tea.co.jp/products/matcha173512",
+      "variants": [
+        {
+          "label": "100g Bag",
+          "in_stock": true,
+          "price_jpy": "¥11,000",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "5017357",
+          "variation_id": "43049706684567",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Ikuyo-no-mukashi",
+      "url": "https://global.ippodo-tea.co.jp/products/matcha175512",
+      "variants": [
+        {
+          "label": "100g Bag",
+          "in_stock": true,
+          "price_jpy": "¥6,000",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "5017557",
+          "variation_id": "43049746202775",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Kanza",
+      "url": "https://global.ippodo-tea.co.jp/products/matcha5038731",
+      "variants": [
+        {
+          "label": "20g Box",
+          "in_stock": true,
+          "price_jpy": "¥10,000",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "5038731",
+          "variation_id": "46939242856599",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Kuon",
+      "url": "https://global.ippodo-tea.co.jp/products/matcha5030631",
+      "variants": [
+        {
+          "label": "20g Box",
+          "in_stock": true,
+          "price_jpy": "¥6,000",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "5030631",
+          "variation_id": "46939243020439",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Ummon-no-mukashi",
+      "url": "https://global.ippodo-tea.co.jp/products/matcha5010131",
+      "variants": [
+        {
+          "label": "20g Box",
+          "in_stock": true,
+          "price_jpy": "¥4,000",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "5010131",
+          "variation_id": "46122391437463",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Shoin-no-mukashi",
+      "url": "https://global.ippodo-tea.co.jp/products/matcha5018231",
+      "variants": [
+        {
+          "label": "20g Box",
+          "in_stock": true,
+          "price_jpy": "¥3,000",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "5018231",
+          "variation_id": "46142288625815",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Sayaka-no-mukashi",
+      "url": "https://global.ippodo-tea.co.jp/products/matcha5010331",
+      "variants": [
+        {
+          "label": "20g Box",
+          "in_stock": true,
+          "price_jpy": "¥2,200",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "5010331",
+          "variation_id": "46122392846487",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Kan-no-shiro",
+      "url": "https://global.ippodo-tea.co.jp/products/matcha5010431",
+      "variants": [
+        {
+          "label": "20g Box",
+          "in_stock": true,
+          "price_jpy": "¥1,600",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "5010431",
+          "variation_id": "46122392977559",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Ikuyo-no-mukashi",
+      "url": "https://global.ippodo-tea.co.jp/products/matcha6105023",
+      "variants": [
+        {
+          "label": "20g Box",
+          "in_stock": true,
+          "price_jpy": "¥1,200",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "6105023",
+          "variation_id": "46142278008983",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Wakaki-shiro",
+      "url": "https://global.ippodo-tea.co.jp/products/matcha5010831",
+      "variants": [
+        {
+          "label": "20g Box",
+          "in_stock": true,
+          "price_jpy": "¥800",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "5010831",
+          "variation_id": "46122393174167",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Hatsu-mukashi",
+      "url": "https://global.ippodo-tea.co.jp/products/matcha5010931",
+      "variants": [
+        {
+          "label": "20g Box",
+          "in_stock": true,
+          "price_jpy": "¥600",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "5010931",
+          "variation_id": "46122393338007",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha To-Go Packets (2g x 10 packets)",
+      "url": "https://global.ippodo-tea.co.jp/products/matcha125510",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": true,
+          "price_jpy": "¥1,500",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "5012551",
+          "variation_id": "40615353548951",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Organic Matcha",
+      "url": "https://global.ippodo-tea.co.jp/products/matcha5014831",
+      "variants": [
+        {
+          "label": "20g Box",
+          "in_stock": true,
+          "price_jpy": "¥1,500",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "5014831",
+          "variation_id": "46939243249815",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Uji-Shimizu",
+      "url": "https://global.ippodo-tea.co.jp/products/matcha5064230",
+      "variants": [
+        {
+          "label": "400g Bag",
+          "in_stock": true,
+          "price_jpy": "¥1,200",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "5064230",
+          "variation_id": "40615360921751",
+          "limit": null
+        }
+      ],
+      "note": ""
+    }
+  ]
+}
