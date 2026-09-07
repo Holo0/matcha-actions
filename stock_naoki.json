@@ -1,0 +1,228 @@
+{
+  "checked_at": "2026-09-07T09:10:20+00:00",
+  "products": [
+    {
+      "name": "Superior Blend Matcha",
+      "url": "https://naokimatcha.com/products/superior-blend-matcha",
+      "variants": [
+        {
+          "label": "1.4 Ounce (Pack of 1)",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$24.99",
+          "sku": "O4-JD03-P0NA",
+          "variation_id": "48560879698223",
+          "limit": null
+        },
+        {
+          "label": "1.75 Ounce (Pack of 1)",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$25.99",
+          "sku": "C6-77Y5-7EEI",
+          "variation_id": "48560879763759",
+          "limit": null
+        },
+        {
+          "label": "3.5 Ounce (Pack of 1)",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$39.99",
+          "sku": "EL-68RD-SPOS",
+          "variation_id": "48560879796527",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Organic First Spring Blend Matcha",
+      "url": "https://naokimatcha.com/products/organic-first-spring-blend-matcha",
+      "variants": [
+        {
+          "label": "1.4 Ounce (Pack of 1)",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$25.99",
+          "sku": "SC-O48D-GXB8",
+          "variation_id": "48590717747503",
+          "limit": null
+        },
+        {
+          "label": "1.75 Ounce (Pack of 1)",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$26.99",
+          "sku": "G5-6IY1-AHOG",
+          "variation_id": "48590717813039",
+          "limit": null
+        },
+        {
+          "label": "3.5 Ounce (Pack of 1)",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$42.99",
+          "sku": "3F-1GSB-YVJD",
+          "variation_id": "48590717845807",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Yame Single-Cultivar Matcha Set (4x20g)",
+      "url": "https://naokimatcha.com/products/yame-single-cultivar-matcha-set",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$85.00",
+          "sku": null,
+          "variation_id": "57996917408047",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Chiran Harvest Matcha",
+      "url": "https://naokimatcha.com/products/chiran-harvest-matcha",
+      "variants": [
+        {
+          "label": "1.4 Ounce (Pack of 1)",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$33.99",
+          "sku": "UZ-MVK5-ZMSS",
+          "variation_id": "48634582991151",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Fragrant Yame Matcha",
+      "url": "https://naokimatcha.com/products/fragrant-yame-matcha",
+      "variants": [
+        {
+          "label": "1.4 Ounce (Pack of 1)",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$26.99",
+          "sku": "LI-9TJ7-3QLX",
+          "variation_id": "48590721745199",
+          "limit": null
+        },
+        {
+          "label": "3.5 Ounce (Pack of 1)",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$43.99",
+          "sku": "KC-LUIU-LI78",
+          "variation_id": "48590721777967",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Ujitawara Special Matcha",
+      "url": "https://naokimatcha.com/products/ujitawara-special",
+      "variants": [
+        {
+          "label": "1.4 Ounce (Pack of 1)",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$42.99",
+          "sku": "AY-IH2O-5GIT",
+          "variation_id": "48681563619631",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Nishio Bloom Matcha",
+      "url": "https://naokimatcha.com/products/nishio-bloom-matcha",
+      "variants": [
+        {
+          "label": "1.4 Ounce (Pack of 1)",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$39.99",
+          "sku": "54-E3ZJ-OD55",
+          "variation_id": "51653811142959",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Barista Pro Blend Matcha",
+      "url": "https://naokimatcha.com/products/barista-pro-blend-matcha",
+      "variants": [
+        {
+          "label": "1.4 Ounce (Pack of 1)",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$29.99",
+          "sku": "E4-DQCX-ZPV4",
+          "variation_id": "54306122760495",
+          "limit": null
+        },
+        {
+          "label": "3.5 Ounce (Pack of 1)",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$59.99",
+          "sku": "JA-PSH2-8LU7",
+          "variation_id": "54306122793263",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Organic All Purpose Culinary Matcha",
+      "url": "https://naokimatcha.com/products/all-purpose-culinary-matcha",
+      "variants": [
+        {
+          "label": "1.4 Ounce (Pack of 1)",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$14.99",
+          "sku": "Y2-G59R-W61F",
+          "variation_id": "48634582663471",
+          "limit": null
+        },
+        {
+          "label": "3.5 Ounce (Pack of 1)",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$24.99",
+          "sku": "NY-HMXF-I04G",
+          "variation_id": "48634582729007",
+          "limit": null
+        }
+      ],
+      "note": ""
+    }
+  ]
+}
