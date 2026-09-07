@@ -1,0 +1,338 @@
+{
+  "checked_at": "2026-09-07T09:10:17+00:00",
+  "products": [
+    {
+      "name": "Yama Matcha Green Tea",
+      "url": "https://mizubatea.com/products/yama-matcha-green-tea",
+      "variants": [
+        {
+          "label": "30g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$33.00",
+          "sku": "864",
+          "variation_id": "51201177944376",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Shirakawa Matcha Green Tea",
+      "url": "https://mizubatea.com/products/shirakawa-matcha",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$55.00",
+          "sku": "576",
+          "variation_id": "47800132993336",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Daily Matcha Green Tea",
+      "url": "https://mizubatea.com/products/daily-matcha",
+      "variants": [
+        {
+          "label": "40g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$25.00",
+          "sku": "001",
+          "variation_id": "464034217",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "House Organic Matcha Green Tea",
+      "url": "https://mizubatea.com/products/house-organic-matcha",
+      "variants": [
+        {
+          "label": "40g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$28.00",
+          "sku": "002",
+          "variation_id": "464042725",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Nagomi Organic Matcha Green Tea",
+      "url": "https://mizubatea.com/products/nagomi-organic-matcha",
+      "variants": [
+        {
+          "label": "40g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$37.50",
+          "sku": "003",
+          "variation_id": "464043049",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Yorokobi Organic Matcha Green Tea",
+      "url": "https://mizubatea.com/products/yorokobi-ceremonial-organic-matcha",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$40.00",
+          "sku": "004",
+          "variation_id": "44446606217",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Tenryu Matcha Green Tea",
+      "url": "https://mizubatea.com/products/tenryu-matcha-green-tea",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$45.00",
+          "sku": "876",
+          "variation_id": "50095949185336",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Yame Signature Matcha",
+      "url": "https://mizubatea.com/products/yame-signature-matcha",
+      "variants": [
+        {
+          "label": "100g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$42.00",
+          "sku": "673",
+          "variation_id": "51472686285112",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Organic Signature Matcha",
+      "url": "https://mizubatea.com/products/culinary-organic-matcha",
+      "variants": [
+        {
+          "label": "100 gram",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$44.00",
+          "sku": "006",
+          "variation_id": "51181094797624",
+          "limit": null
+        },
+        {
+          "label": "50 gram",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$22.00",
+          "sku": "0006",
+          "variation_id": "51181094830392",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Yūgana Matcha Green Tea",
+      "url": "https://mizubatea.com/products/yugana-matcha-green-tea",
+      "variants": [
+        {
+          "label": "40g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$54.00",
+          "sku": "822",
+          "variation_id": "52498741887288",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Asahi Matcha",
+      "url": "https://mizubatea.com/products/asahi-matcha",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$83.00",
+          "sku": "10",
+          "variation_id": "45037843677496",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Hinode Organic Matcha Green Tea",
+      "url": "https://mizubatea.com/products/hinode-organic-matcha",
+      "variants": [
+        {
+          "label": "30g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$45.00",
+          "sku": "904",
+          "variation_id": "51052149637432",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Samidori Matcha",
+      "url": "https://mizubatea.com/products/samidori-matcha",
+      "variants": [
+        {
+          "label": "30g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$77.00",
+          "sku": "107",
+          "variation_id": "39522282668110",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Uji Hikari Matcha",
+      "url": "https://mizubatea.com/products/uji-hikari-matcha",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$79.00",
+          "sku": "012",
+          "variation_id": "31059641860174",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Tsuyuhikari Matcha Green Tea",
+      "url": "https://mizubatea.com/products/tsuyuhikari-organic-matcha-green-tea",
+      "variants": [
+        {
+          "label": "30g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$34.00",
+          "sku": "777",
+          "variation_id": "50095951511864",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Kokoro Ceremonial Matcha Green Tea",
+      "url": "https://mizubatea.com/products/kokoro-matcha",
+      "variants": [
+        {
+          "label": "40g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$56.00",
+          "sku": "005",
+          "variation_id": "464037541",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Koshun Matcha Green Tea",
+      "url": "https://mizubatea.com/products/koshun-matcha-green-tea",
+      "variants": [
+        {
+          "label": "40g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$42.00",
+          "sku": "651",
+          "variation_id": "49655566041400",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Koshun Matcha Green Tea Pouch",
+      "url": "https://mizubatea.com/products/birthday-koshun-matcha-green-tea",
+      "variants": [
+        {
+          "label": "40g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$39.00",
+          "sku": "652",
+          "variation_id": "50995044090168",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Gokou Matcha",
+      "url": "https://mizubatea.com/products/gokou-matcha",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$62.00",
+          "sku": "011",
+          "variation_id": "32797722869838",
+          "limit": null
+        }
+      ],
+      "note": ""
+    }
+  ]
+}
