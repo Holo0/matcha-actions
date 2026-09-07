@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-07T13:28:11+00:00",
+  "checked_at": "2026-09-07T13:38:10+00:00",
   "products": [
     {
       "name": "Kiwami Single Garden Matcha",
@@ -112,7 +112,7 @@
         },
         {
           "label": "1kg",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$600.00",
