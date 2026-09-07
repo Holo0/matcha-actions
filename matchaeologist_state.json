@@ -1,0 +1,122 @@
+{
+  "https://www.matchaeologist.com/products/misaki-ceremonial-matcha#ma-misa20-01": {
+    "product": "Misaki™ Ceremonial Matcha",
+    "variant": "20g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$28.00",
+    "limit": null,
+    "url": "https://www.matchaeologist.com/products/misaki-ceremonial-matcha"
+  },
+  "https://www.matchaeologist.com/products/matsu-ceremonial-matcha#ma-mats20-01": {
+    "product": "Matsu™ Ceremonial Matcha",
+    "variant": "20g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$22.00",
+    "limit": null,
+    "url": "https://www.matchaeologist.com/products/matsu-ceremonial-matcha"
+  },
+  "https://www.matchaeologist.com/products/meiko-ceremonial-matcha#ma-meik20-01": {
+    "product": "Meiko™ Ceremonial Matcha",
+    "variant": "20g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$20.00",
+    "limit": null,
+    "url": "https://www.matchaeologist.com/products/meiko-ceremonial-matcha"
+  },
+  "https://www.matchaeologist.com/products/maya-ceremonial-matcha-20g#ma-maya20-01": {
+    "product": "Maya™ Ceremonial Matcha",
+    "variant": "20g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$18.00",
+    "limit": null,
+    "url": "https://www.matchaeologist.com/products/maya-ceremonial-matcha-20g"
+  },
+  "https://www.matchaeologist.com/products/midori-culinary-matcha#ma-mido20-01": {
+    "product": "Midori™ Culinary Matcha",
+    "variant": "20g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$16.00",
+    "limit": null,
+    "url": "https://www.matchaeologist.com/products/midori-culinary-matcha"
+  },
+  "https://www.matchaeologist.com/products/meiko-ceremonial-matcha-100g#ma-meik100-01": {
+    "product": "Meiko™ Ceremonial Matcha",
+    "variant": "100g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$69.00",
+    "limit": null,
+    "url": "https://www.matchaeologist.com/products/meiko-ceremonial-matcha-100g"
+  },
+  "https://www.matchaeologist.com/products/maya-ceremonial-matcha-100g#ma-maya100-01": {
+    "product": "Maya™ Ceremonial Matcha",
+    "variant": "100g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$59.00",
+    "limit": null,
+    "url": "https://www.matchaeologist.com/products/maya-ceremonial-matcha-100g"
+  },
+  "https://www.matchaeologist.com/products/midori-culinary-matcha-100g#ma-mido100-01": {
+    "product": "Midori™ Culinary Matcha",
+    "variant": "100g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$49.00",
+    "limit": null,
+    "url": "https://www.matchaeologist.com/products/midori-culinary-matcha-100g"
+  },
+  "https://www.matchaeologist.com/products/meiko-ceremonial-matcha-1kg#ma-meik1000-01": {
+    "product": "Meiko™ Ceremonial Matcha",
+    "variant": "1kg",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$550.00",
+    "limit": null,
+    "url": "https://www.matchaeologist.com/products/meiko-ceremonial-matcha-1kg"
+  },
+  "https://www.matchaeologist.com/products/maya-ceremonial-matcha-1kg#ma-maya1000-01": {
+    "product": "Maya™ Ceremonial Matcha",
+    "variant": "1kg",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$330.00",
+    "limit": null,
+    "url": "https://www.matchaeologist.com/products/maya-ceremonial-matcha-1kg"
+  },
+  "https://www.matchaeologist.com/products/midori-culinary-matcha-1kg#ma-mido1000-01": {
+    "product": "Midori™ Culinary Matcha",
+    "variant": "1kg",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$240.00",
+    "limit": null,
+    "url": "https://www.matchaeologist.com/products/midori-culinary-matcha-1kg"
+  },
+  "https://www.matchaeologist.com/products/mirai-culinary-matcha-1kg#ma-mira1000-01": {
+    "product": "Mirai™ Culinary Matcha",
+    "variant": "1kg",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$180.00",
+    "limit": null,
+    "url": "https://www.matchaeologist.com/products/mirai-culinary-matcha-1kg"
+  }
+}

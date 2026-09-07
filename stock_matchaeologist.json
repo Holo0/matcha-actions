@@ -1,0 +1,209 @@
+{
+  "checked_at": "2026-09-07T09:10:22+00:00",
+  "products": [
+    {
+      "name": "Misaki™ Ceremonial Matcha",
+      "url": "https://www.matchaeologist.com/products/misaki-ceremonial-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$28.00",
+          "sku": "MA-MISA20-01",
+          "variation_id": "32182503565",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matsu™ Ceremonial Matcha",
+      "url": "https://www.matchaeologist.com/products/matsu-ceremonial-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$22.00",
+          "sku": "MA-MATS20-01",
+          "variation_id": "32182520717",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Meiko™ Ceremonial Matcha",
+      "url": "https://www.matchaeologist.com/products/meiko-ceremonial-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$20.00",
+          "sku": "MA-MEIK20-01",
+          "variation_id": "32182503373",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Maya™ Ceremonial Matcha",
+      "url": "https://www.matchaeologist.com/products/maya-ceremonial-matcha-20g",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$18.00",
+          "sku": "MA-MAYA20-01",
+          "variation_id": "42406730203254",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Midori™ Culinary Matcha",
+      "url": "https://www.matchaeologist.com/products/midori-culinary-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$16.00",
+          "sku": "MA-MIDO20-01",
+          "variation_id": "1825521860621",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Meiko™ Ceremonial Matcha",
+      "url": "https://www.matchaeologist.com/products/meiko-ceremonial-matcha-100g",
+      "variants": [
+        {
+          "label": "100g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$69.00",
+          "sku": "MA-MEIK100-01",
+          "variation_id": "32182501261",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Maya™ Ceremonial Matcha",
+      "url": "https://www.matchaeologist.com/products/maya-ceremonial-matcha-100g",
+      "variants": [
+        {
+          "label": "100g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$59.00",
+          "sku": "MA-MAYA100-01",
+          "variation_id": "42406786302070",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Midori™ Culinary Matcha",
+      "url": "https://www.matchaeologist.com/products/midori-culinary-matcha-100g",
+      "variants": [
+        {
+          "label": "100g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$49.00",
+          "sku": "MA-MIDO100-01",
+          "variation_id": "32182501453",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Meiko™ Ceremonial Matcha",
+      "url": "https://www.matchaeologist.com/products/meiko-ceremonial-matcha-1kg",
+      "variants": [
+        {
+          "label": "1kg",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$550.00",
+          "sku": "MA-MEIK1000-01",
+          "variation_id": "38167204173",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Maya™ Ceremonial Matcha",
+      "url": "https://www.matchaeologist.com/products/maya-ceremonial-matcha-1kg",
+      "variants": [
+        {
+          "label": "1kg",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$330.00",
+          "sku": "MA-MAYA1000-01",
+          "variation_id": "42406787481718",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Midori™ Culinary Matcha",
+      "url": "https://www.matchaeologist.com/products/midori-culinary-matcha-1kg",
+      "variants": [
+        {
+          "label": "1kg",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$240.00",
+          "sku": "MA-MIDO1000-01",
+          "variation_id": "32182501069",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Mirai™ Culinary Matcha",
+      "url": "https://www.matchaeologist.com/products/mirai-culinary-matcha-1kg",
+      "variants": [
+        {
+          "label": "1kg",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$180.00",
+          "sku": "MA-MIRA1000-01",
+          "variation_id": "39507425296502",
+          "limit": null
+        }
+      ],
+      "note": ""
+    }
+  ]
+}
