@@ -442,7 +442,7 @@
   "https://kettl.co/products/hanaka-matcha#030201333515": {
     "product": "Hanaka Matcha",
     "variant": "20g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$36.00",
@@ -452,7 +452,7 @@
   "https://kettl.co/products/okuju-matcha#022975943748": {
     "product": "Okuju Matcha",
     "variant": "30g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$45.00",
@@ -462,7 +462,7 @@
   "https://kettl.co/products/soukou-matcha#183954238429": {
     "product": "Soukou Matcha",
     "variant": "20g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$26.00",

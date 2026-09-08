@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-08T17:38:11+00:00",
+  "checked_at": "2026-09-08T17:48:12+00:00",
   "products": [
     {
       "name": "Uji Homare Matcha",
@@ -720,7 +720,7 @@
       "variants": [
         {
           "label": "20g",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$36.00",
@@ -737,7 +737,7 @@
       "variants": [
         {
           "label": "30g",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$45.00",
@@ -754,7 +754,7 @@
       "variants": [
         {
           "label": "20g",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$26.00",
