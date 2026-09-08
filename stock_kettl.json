@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-08T20:58:12+00:00",
+  "checked_at": "2026-09-08T21:08:13+00:00",
   "products": [
     {
       "name": "Okuju Matcha",
@@ -68,7 +68,7 @@
         },
         {
           "label": "1kg",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$600.00",
