@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-08T03:06:06+00:00",
+  "checked_at": "2026-09-08T04:05:59+00:00",
   "products": [
     {
       "name": "Wako",
@@ -17,13 +17,13 @@
         },
         {
           "label": "40g can",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": "¥4,520",
           "price_eur": "€25.19",
           "price_usd": null,
           "sku": "1161040C1",
           "variation_id": "16929",
-          "limit": "Limit one per person"
+          "limit": null
         },
         {
           "label": "100g can",
@@ -94,13 +94,13 @@
         },
         {
           "label": "100g bag",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": "¥8,340",
           "price_eur": "€46.47",
           "price_usd": null,
           "sku": "1171100C6",
           "variation_id": "16936",
-          "limit": "Limit one per person"
+          "limit": null
         },
         {
           "label": "200g can",
@@ -110,53 +110,6 @@
           "price_usd": null,
           "sku": "1171200C1",
           "variation_id": "16937",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Aoarashi",
-      "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1",
-      "variants": [
-        {
-          "label": "40g can",
-          "in_stock": true,
-          "price_jpy": "¥2,120",
-          "price_eur": "€11.81",
-          "price_usd": null,
-          "sku": "11A1040C1",
-          "variation_id": "16947",
-          "limit": null
-        },
-        {
-          "label": "100g can",
-          "in_stock": false,
-          "price_jpy": "¥4,650",
-          "price_eur": "€25.91",
-          "price_usd": null,
-          "sku": "11A1100C1",
-          "variation_id": "16948",
-          "limit": null
-        },
-        {
-          "label": "100g bag",
-          "in_stock": false,
-          "price_jpy": "¥4,340",
-          "price_eur": "€24.18",
-          "price_usd": null,
-          "sku": "1F23100C6",
-          "variation_id": "16949",
-          "limit": null
-        },
-        {
-          "label": "200g can",
-          "in_stock": false,
-          "price_jpy": "¥8,700",
-          "price_eur": "€48.48",
-          "price_usd": null,
-          "sku": "1F23200C1",
-          "variation_id": "16950",
           "limit": null
         }
       ],
@@ -204,6 +157,53 @@
           "price_usd": null,
           "sku": "1191200C1",
           "variation_id": "16946",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Aoarashi",
+      "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1",
+      "variants": [
+        {
+          "label": "40g can",
+          "in_stock": false,
+          "price_jpy": "¥2,120",
+          "price_eur": "€11.81",
+          "price_usd": null,
+          "sku": "11A1040C1",
+          "variation_id": "16947",
+          "limit": null
+        },
+        {
+          "label": "100g can",
+          "in_stock": false,
+          "price_jpy": "¥4,650",
+          "price_eur": "€25.91",
+          "price_usd": null,
+          "sku": "11A1100C1",
+          "variation_id": "16948",
+          "limit": null
+        },
+        {
+          "label": "100g bag",
+          "in_stock": false,
+          "price_jpy": "¥4,340",
+          "price_eur": "€24.18",
+          "price_usd": null,
+          "sku": "1F23100C6",
+          "variation_id": "16949",
+          "limit": null
+        },
+        {
+          "label": "200g can",
+          "in_stock": false,
+          "price_jpy": "¥8,700",
+          "price_eur": "€48.48",
+          "price_usd": null,
+          "sku": "1F23200C1",
+          "variation_id": "16950",
           "limit": null
         }
       ],
