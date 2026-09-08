@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-08T16:08:12+00:00",
+  "checked_at": "2026-09-08T16:18:12+00:00",
   "products": [
     {
       "name": "Daily Ceremonial Blend Single Serve Packets",
@@ -81,23 +81,6 @@
           "price_usd": "$20.00",
           "sku": "RM-MATCHA-HOUJICHA-20",
           "variation_id": "47531164631354",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "for Dreamin’ Man Ceremonial Blend Matcha",
-      "url": "https://rockysmatcha.com/products/rocky-s-matcha-for-dreamin-man-matcha-20g",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$36.00",
-          "sku": "RM-MATCHA-DREAMIN-20",
-          "variation_id": "51406008811834",
           "limit": null
         }
       ],
