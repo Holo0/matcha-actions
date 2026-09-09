@@ -22,7 +22,7 @@
   "https://www.lesthes-surterre.com/product-page/matcha-japon-kagoshima#matcha-japon-kagoshima": {
     "product": "Matcha premium - Kagoshima, Japon",
     "variant": "Unique",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": "34,90 €",
     "price_usd": null,
@@ -32,7 +32,7 @@
   "https://www.lesthes-surterre.com/product-page/matcha-haut-de-gamme-japonais#matcha-haut-de-gamme-japonais": {
     "product": "Thé Matcha haut de gamme - Yame, Japon",
     "variant": "Unique",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": "42,50 €",
     "price_usd": null,
