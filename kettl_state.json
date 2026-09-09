@@ -12,7 +12,7 @@
   "https://kettl.co/products/hanaka-matcha#030201333515": {
     "product": "Hanaka Matcha",
     "variant": "20g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$36.00",
