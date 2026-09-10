@@ -292,7 +292,7 @@
   "https://kettl.co/products/satsuma-organic-saemidori-matcha#022971088078": {
     "product": "Satsuma Organic Saemidori Matcha",
     "variant": "20g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$40.00",
