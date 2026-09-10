@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-10T02:48:48+00:00",
+  "checked_at": "2026-09-10T02:58:12+00:00",
   "products": [
     {
       "name": "Thé Matcha NK 2026- Kagoshima, Japon",
@@ -41,7 +41,7 @@
       "variants": [
         {
           "label": "Unique",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": "34,90 €",
           "price_usd": null,
@@ -58,7 +58,7 @@
       "variants": [
         {
           "label": "Unique",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": "42,50 €",
           "price_usd": null,
