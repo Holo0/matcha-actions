@@ -22,7 +22,7 @@
   "https://kettl.co/products/soukou-matcha#183954238429": {
     "product": "Soukou Matcha",
     "variant": "20g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$26.00",
@@ -562,7 +562,7 @@
   "https://kettl.co/products/shiromatsu-matcha#022973719192": {
     "product": "Shiromatsu Matcha",
     "variant": "40g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$45.00",
@@ -572,7 +572,7 @@
   "https://kettl.co/products/shirakawa-asahi-matcha#011065034282": {
     "product": "Shirakawa Asahi Matcha",
     "variant": "20g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$90.00",
