@@ -12,11 +12,11 @@
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1#1161040c1": {
     "product": "Wako",
     "variant": "40g can",
-    "in_stock": true,
+    "in_stock": false,
     "price": "¥4,520",
     "price_eur": "€25.30",
     "price_usd": null,
-    "limit": "Limit one per person",
+    "limit": null,
     "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1"
   },
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1#1161100c1": {
