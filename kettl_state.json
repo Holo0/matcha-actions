@@ -372,7 +372,7 @@
   "https://kettl.co/products/shinme-matcha#183954969736": {
     "product": "Shinme Matcha",
     "variant": "20g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$38.00",
