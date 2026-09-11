@@ -1,18 +1,38 @@
 {
-  "checked_at": "2026-09-11T22:08:10+00:00",
+  "checked_at": "2026-09-11T22:18:09+00:00",
   "products": [
     {
       "name": "Yama Matcha Green Tea",
       "url": "https://mizubatea.com/products/yama-matcha-green-tea",
       "variants": [
         {
-          "label": "1 Tin / 3 Tins / 5 Tins",
+          "label": "1 Tin",
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$33.00",
           "sku": "864",
           "variation_id": "52941980926264",
+          "limit": null
+        },
+        {
+          "label": "3 Tins",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$89.10",
+          "sku": "895",
+          "variation_id": "52941990953272",
+          "limit": null
+        },
+        {
+          "label": "Quantity",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$33.00",
+          "sku": null,
+          "variation_id": "52942000849208",
           "limit": null
         }
       ],
