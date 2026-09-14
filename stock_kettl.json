@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-14T15:18:11+00:00",
+  "checked_at": "2026-09-14T15:28:12+00:00",
   "products": [
     {
       "name": "Okuju Matcha",
@@ -777,33 +777,6 @@
           "price_usd": "$52.00",
           "sku": "183954406163",
           "variation_id": "44827327856890",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Fuuka Houjicha Powder",
-      "url": "https://kettl.co/products/fuuka-houjicha-powder",
-      "variants": [
-        {
-          "label": "100g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$35.00",
-          "sku": "020825844986",
-          "variation_id": "48085048099066",
-          "limit": null
-        },
-        {
-          "label": "1kg",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$225.00",
-          "sku": "010443209069",
-          "variation_id": "48788839104762",
           "limit": null
         }
       ],
