@@ -242,7 +242,7 @@
   "https://kettl.co/products/kasumi-matcha#022978164713": {
     "product": "Kasumi Matcha",
     "variant": "20g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$55.00",
@@ -432,7 +432,7 @@
   "https://kettl.co/products/wakakusa-matcha#022975481950": {
     "product": "Wakakusa Matcha",
     "variant": "20g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$42.00",
@@ -572,7 +572,7 @@
   "https://kettl.co/products/hakusan-matcha#022974639918": {
     "product": "Hakusan Matcha",
     "variant": "40g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$45.00",
