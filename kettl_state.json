@@ -112,7 +112,7 @@
   "https://kettl.co/products/shizuka-matcha#195738245011": {
     "product": "Shizuka Matcha",
     "variant": "20g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$30.00",
