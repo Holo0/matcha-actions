@@ -72,7 +72,7 @@
   "https://kettl.co/products/tsubaki-matcha-2#022974266268": {
     "product": "Tsubaki Matcha",
     "variant": "40g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$45.00",

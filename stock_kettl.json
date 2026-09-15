@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-15T02:58:13+00:00",
+  "checked_at": "2026-09-15T03:08:15+00:00",
   "products": [
     {
       "name": "Okuju Matcha",
@@ -112,7 +112,7 @@
       "variants": [
         {
           "label": "40g",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$45.00",
