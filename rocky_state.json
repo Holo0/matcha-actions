@@ -62,7 +62,7 @@
   "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-koshun-matcha-20g#rm-matcha-koshun-20g": {
     "product": "Single Cultivar Koshun Matcha",
     "variant": "20g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$28.00",
