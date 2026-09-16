@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-16T20:38:10+00:00",
+  "checked_at": "2026-09-16T20:48:10+00:00",
   "products": [
     {
       "name": "Daily Ceremonial Blend Single Serve Packets",
@@ -98,23 +98,6 @@
           "price_usd": "$28.00",
           "sku": "RM-MATCHA-OKUMIDORI-20G",
           "variation_id": "48571566358842",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Single Cultivar Koshun Matcha",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-koshun-matcha-20g",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$28.00",
-          "sku": "RM-MATCHA-KOSHUN-20G",
-          "variation_id": "48571678556474",
           "limit": null
         }
       ],
