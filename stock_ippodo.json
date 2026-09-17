@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-17T06:08:09+00:00",
+  "checked_at": "2026-09-17T06:18:10+00:00",
   "products": [
     {
       "name": "Sayaka-no-mukashi",
@@ -24,7 +24,7 @@
       "variants": [
         {
           "label": "100g Bag",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": "¥6,000",
           "price_eur": null,
           "price_usd": null,
