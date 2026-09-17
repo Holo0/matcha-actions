@@ -32,11 +32,11 @@
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1#1161100c6": {
     "product": "Wako",
     "variant": "100g bag",
-    "in_stock": true,
+    "in_stock": false,
     "price": "¥10,340",
     "price_eur": "€57.72",
     "price_usd": null,
-    "limit": "Limit one per person",
+    "limit": null,
     "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1"
   },
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1#1161200c1": {
@@ -62,11 +62,11 @@
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1#1171040c1": {
     "product": "Yugen",
     "variant": "40g can",
-    "in_stock": true,
+    "in_stock": false,
     "price": "¥3,720",
     "price_eur": "€20.77",
     "price_usd": null,
-    "limit": "quantite figee a 1",
+    "limit": null,
     "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1"
   },
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1#1171100c1": {
