@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-18T19:18:16+00:00",
+  "checked_at": "2026-09-18T19:28:11+00:00",
   "products": [
     {
       "name": "Seion Matcha",
@@ -919,6 +919,23 @@
           "price_usd": "$38.00",
           "sku": "183954969736",
           "variation_id": "31892086358076",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Shinsui Matcha",
+      "url": "https://kettl.co/products/shinsui-matcha",
+      "variants": [
+        {
+          "label": "1kg",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$550.00",
+          "sku": "022979517839",
+          "variation_id": "50460842230010",
           "limit": null
         }
       ],

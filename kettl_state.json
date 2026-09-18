@@ -578,5 +578,15 @@
     "price_usd": "$38.00",
     "limit": null,
     "url": "https://kettl.co/products/shinme-matcha"
+  },
+  "https://kettl.co/products/shinsui-matcha#022979517839": {
+    "product": "Shinsui Matcha",
+    "variant": "1kg",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$550.00",
+    "limit": null,
+    "url": "https://kettl.co/products/shinsui-matcha"
   }
 }
