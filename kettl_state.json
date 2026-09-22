@@ -312,7 +312,7 @@
   "https://kettl.co/products/shunka-matcha#022977507238": {
     "product": "Shunka Matcha",
     "variant": "20g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$68.00",
