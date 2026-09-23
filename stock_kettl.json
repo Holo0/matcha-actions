@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-23T18:18:13+00:00",
+  "checked_at": "2026-09-23T18:28:12+00:00",
   "products": [
     {
       "name": "Uji Homare Matcha",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Tsubaki Matcha",
-      "url": "https://kettl.co/products/tsubaki-matcha-2",
+      "url": "https://kettl.co/products/tsubaki-matcha-3",
       "variants": [
         {
           "label": "40g",
@@ -40,6 +40,16 @@
           "price_usd": "$45.00",
           "sku": "022974266268",
           "variation_id": "47768617484538",
+          "limit": null
+        },
+        {
+          "label": "1kg",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$450.00",
+          "sku": "010447719380",
+          "variation_id": "50563664347386",
           "limit": null
         }
       ],
