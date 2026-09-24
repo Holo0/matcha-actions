@@ -22,11 +22,11 @@
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1#1161100c1": {
     "product": "Wako",
     "variant": "100g can",
-    "in_stock": false,
+    "in_stock": true,
     "price": "¥10,650",
     "price_eur": "€59.10",
     "price_usd": null,
-    "limit": null,
+    "limit": "Limit one per person",
     "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1"
   },
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1#1161100c6": {
@@ -82,11 +82,11 @@
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1#1171100c6": {
     "product": "Yugen",
     "variant": "100g bag",
-    "in_stock": false,
+    "in_stock": true,
     "price": "¥8,340",
     "price_eur": "€46.28",
     "price_usd": null,
-    "limit": null,
+    "limit": "Limit one per person",
     "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1"
   },
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1#1171200c1": {
@@ -122,7 +122,7 @@
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1#1f43100c6": {
     "product": "Isuzu",
     "variant": "100g bag",
-    "in_stock": false,
+    "in_stock": true,
     "price": "¥5,340",
     "price_eur": "€29.63",
     "price_usd": null,
@@ -142,7 +142,7 @@
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1#11a1040c1": {
     "product": "Aoarashi",
     "variant": "40g can",
-    "in_stock": false,
+    "in_stock": true,
     "price": "¥2,120",
     "price_eur": "€11.76",
     "price_usd": null,
