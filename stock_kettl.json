@@ -1,6 +1,50 @@
 {
-  "checked_at": "2026-09-24T16:58:16+00:00",
+  "checked_at": "2026-09-24T17:18:11+00:00",
   "products": [
+    {
+      "name": "Hukuju Matcha",
+      "url": "https://kettl.co/products/hukuju-matcha",
+      "variants": [
+        {
+          "label": "100g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$65.00",
+          "sku": "030203170262",
+          "variation_id": "47783373734138",
+          "limit": null
+        },
+        {
+          "label": "1kg",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$600.00",
+          "sku": "029904092034",
+          "variation_id": "32269339852860",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Okuju Matcha",
+      "url": "https://kettl.co/products/okuju-matcha",
+      "variants": [
+        {
+          "label": "30g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$45.00",
+          "sku": "022975943748",
+          "variation_id": "48550702186746",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
     {
       "name": "Uji Homare Matcha",
       "url": "https://kettl.co/products/uji-homare-matcha",
@@ -23,6 +67,40 @@
           "price_usd": "$600.00",
           "sku": "010444908428",
           "variation_id": "47860895973626",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Hanaka Matcha",
+      "url": "https://kettl.co/products/hanaka-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$36.00",
+          "sku": "030201333515",
+          "variation_id": "32226204942396",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Satsuma Organic Saemidori Matcha",
+      "url": "https://kettl.co/products/satsuma-organic-saemidori-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$40.00",
+          "sku": "022971088078",
+          "variation_id": "47708500361466",
           "limit": null
         }
       ],
@@ -83,23 +161,6 @@
       "note": ""
     },
     {
-      "name": "Satsuma Matcha",
-      "url": "https://kettl.co/products/satsuma-matcha",
-      "variants": [
-        {
-          "label": "1kg",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$425.00",
-          "sku": "010447290520",
-          "variation_id": "46877784211706",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
       "name": "Hakusan Matcha",
       "url": "https://kettl.co/products/hakusan-matcha",
       "variants": [
@@ -148,40 +209,6 @@
           "price_usd": "$225.00",
           "sku": "010444285215",
           "variation_id": "48989581148410",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Seion Matcha",
-      "url": "https://kettl.co/products/seion-matcha",
-      "variants": [
-        {
-          "label": "40g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$55.00",
-          "sku": "022973621372",
-          "variation_id": "47992396120314",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Kiyona Matcha",
-      "url": "https://kettl.co/products/kiyona-matcha",
-      "variants": [
-        {
-          "label": "40g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$45.00",
-          "sku": "010444478259",
-          "variation_id": "47246714994938",
           "limit": null
         }
       ],
@@ -253,23 +280,6 @@
           "price_usd": "$415.00",
           "sku": "010446212837",
           "variation_id": "47874772402426",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Shirakawa Midori Matcha",
-      "url": "https://kettl.co/products/shirakawa-midori-matcha",
-      "variants": [
-        {
-          "label": "40g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$40.00",
-          "sku": "022977775248",
-          "variation_id": "47823947399418",
           "limit": null
         }
       ],
@@ -497,23 +507,6 @@
       "note": ""
     },
     {
-      "name": "Shunka Matcha",
-      "url": "https://kettl.co/products/shunka-matcha",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$68.00",
-          "sku": "022977507238",
-          "variation_id": "47780425695482",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
       "name": "Tenkuu Matcha",
       "url": "https://kettl.co/products/tenkuu-matcha",
       "variants": [
@@ -650,23 +643,6 @@
       "note": ""
     },
     {
-      "name": "Shirakawa Gokou Matcha",
-      "url": "https://kettl.co/products/shirakawa-goukou-matcha",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$72.00",
-          "sku": "031039953210",
-          "variation_id": "31906787983420",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
       "name": "Tsuji Family Blend Matcha",
       "url": "https://kettl.co/products/tsuji-family-blend-matcha",
       "variants": [
@@ -752,33 +728,6 @@
       "note": ""
     },
     {
-      "name": "Hukuju Matcha",
-      "url": "https://kettl.co/products/hukuju-matcha",
-      "variants": [
-        {
-          "label": "100g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$65.00",
-          "sku": "030203170262",
-          "variation_id": "47783373734138",
-          "limit": null
-        },
-        {
-          "label": "1kg",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$600.00",
-          "sku": "029904092034",
-          "variation_id": "32269339852860",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
       "name": "Suiteki Matcha",
       "url": "https://kettl.co/products/suiteki-matcha-100g",
       "variants": [
@@ -850,40 +799,6 @@
       "note": ""
     },
     {
-      "name": "Okuju Matcha",
-      "url": "https://kettl.co/products/okuju-matcha",
-      "variants": [
-        {
-          "label": "30g",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$45.00",
-          "sku": "022975943748",
-          "variation_id": "48550702186746",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Hanaka Matcha",
-      "url": "https://kettl.co/products/hanaka-matcha",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$36.00",
-          "sku": "030201333515",
-          "variation_id": "32226204942396",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
       "name": "Shizuka Matcha",
       "url": "https://kettl.co/products/shizuka-matcha",
       "variants": [
@@ -901,23 +816,6 @@
       "note": ""
     },
     {
-      "name": "Satsuma Organic Saemidori Matcha",
-      "url": "https://kettl.co/products/satsuma-organic-saemidori-matcha",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$40.00",
-          "sku": "022971088078",
-          "variation_id": "47708500361466",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
       "name": "Shinme Matcha",
       "url": "https://kettl.co/products/shinme-matcha",
       "variants": [
@@ -929,6 +827,108 @@
           "price_usd": "$38.00",
           "sku": "183954969736",
           "variation_id": "31892086358076",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Seion Matcha",
+      "url": "https://kettl.co/products/seion-matcha",
+      "variants": [
+        {
+          "label": "40g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$55.00",
+          "sku": "022973621372",
+          "variation_id": "47992396120314",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Shirakawa Midori Matcha",
+      "url": "https://kettl.co/products/shirakawa-midori-matcha",
+      "variants": [
+        {
+          "label": "40g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$40.00",
+          "sku": "022977775248",
+          "variation_id": "47823947399418",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Satsuma Matcha",
+      "url": "https://kettl.co/products/satsuma-matcha",
+      "variants": [
+        {
+          "label": "1kg",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$425.00",
+          "sku": "010447290520",
+          "variation_id": "46877784211706",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Shunka Matcha",
+      "url": "https://kettl.co/products/shunka-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$68.00",
+          "sku": "022977507238",
+          "variation_id": "47780425695482",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Shirakawa Gokou Matcha",
+      "url": "https://kettl.co/products/shirakawa-goukou-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$72.00",
+          "sku": "031039953210",
+          "variation_id": "31906787983420",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Kiyona Matcha",
+      "url": "https://kettl.co/products/kiyona-matcha",
+      "variants": [
+        {
+          "label": "40g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$45.00",
+          "sku": "010444478259",
+          "variation_id": "47246714994938",
           "limit": null
         }
       ],
