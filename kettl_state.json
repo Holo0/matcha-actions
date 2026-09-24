@@ -162,7 +162,7 @@
   "https://kettl.co/products/shirakawa-legacy-matcha-blend#022971435063": {
     "product": "Shirakawa Legacy Matcha Blend",
     "variant": "1KG",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$900.00",
@@ -172,7 +172,7 @@
   "https://kettl.co/products/soukou-matcha#183954238429": {
     "product": "Soukou Matcha",
     "variant": "20g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$26.00",
