@@ -102,7 +102,7 @@
   "https://kettl.co/products/ryokuan-matcha#166168800170": {
     "product": "Ryokuan Matcha",
     "variant": "1kg",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$450.00",
