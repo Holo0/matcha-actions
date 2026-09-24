@@ -42,7 +42,7 @@
   "https://kettl.co/products/uji-homare-matcha#010444908428": {
     "product": "Uji Homare Matcha",
     "variant": "1kg",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$600.00",
