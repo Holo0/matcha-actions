@@ -1,40 +1,6 @@
 {
-  "checked_at": "2026-09-24T01:08:10+00:00",
+  "checked_at": "2026-09-24T01:18:11+00:00",
   "products": [
-    {
-      "name": "Sayaka-no-mukashi",
-      "url": "https://global.ippodo-tea.co.jp/products/matcha173512",
-      "variants": [
-        {
-          "label": "100g Bag",
-          "in_stock": false,
-          "price_jpy": "¥11,000",
-          "price_eur": null,
-          "price_usd": null,
-          "sku": "5017357",
-          "variation_id": "43049706684567",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Ikuyo-no-mukashi",
-      "url": "https://global.ippodo-tea.co.jp/products/matcha175512",
-      "variants": [
-        {
-          "label": "100g Bag",
-          "in_stock": false,
-          "price_jpy": "¥6,000",
-          "price_eur": null,
-          "price_usd": null,
-          "sku": "5017557",
-          "variation_id": "43049746202775",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
     {
       "name": "Kanza",
       "url": "https://global.ippodo-tea.co.jp/products/matcha5038731",
@@ -234,6 +200,40 @@
           "price_usd": null,
           "sku": "5064230",
           "variation_id": "40615360921751",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "[Out of Stock] Ikuyo-no-mukashi",
+      "url": "https://global.ippodo-tea.co.jp/products/matcha175512",
+      "variants": [
+        {
+          "label": "100g Bag",
+          "in_stock": false,
+          "price_jpy": "¥6,000",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "5017557",
+          "variation_id": "43049746202775",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "[Out of Stock] Sayaka-no-mukashi",
+      "url": "https://global.ippodo-tea.co.jp/products/matcha173512",
+      "variants": [
+        {
+          "label": "100g Bag",
+          "in_stock": false,
+          "price_jpy": "¥11,000",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "5017357",
+          "variation_id": "43049706684567",
           "limit": null
         }
       ],

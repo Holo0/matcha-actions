@@ -1,24 +1,4 @@
 {
-  "https://global.ippodo-tea.co.jp/products/matcha173512#5017357": {
-    "product": "Sayaka-no-mukashi",
-    "variant": "100g Bag",
-    "in_stock": false,
-    "price": "¥11,000",
-    "price_eur": null,
-    "price_usd": null,
-    "limit": null,
-    "url": "https://global.ippodo-tea.co.jp/products/matcha173512"
-  },
-  "https://global.ippodo-tea.co.jp/products/matcha175512#5017557": {
-    "product": "Ikuyo-no-mukashi",
-    "variant": "100g Bag",
-    "in_stock": false,
-    "price": "¥6,000",
-    "price_eur": null,
-    "price_usd": null,
-    "limit": null,
-    "url": "https://global.ippodo-tea.co.jp/products/matcha175512"
-  },
   "https://global.ippodo-tea.co.jp/products/matcha5038731#5038731": {
     "product": "Kanza",
     "variant": "20g Box",
@@ -138,5 +118,25 @@
     "price_usd": null,
     "limit": null,
     "url": "https://global.ippodo-tea.co.jp/products/matcha5064230"
+  },
+  "https://global.ippodo-tea.co.jp/products/matcha175512#5017557": {
+    "product": "[Out of Stock] Ikuyo-no-mukashi",
+    "variant": "100g Bag",
+    "in_stock": false,
+    "price": "¥6,000",
+    "price_eur": null,
+    "price_usd": null,
+    "limit": null,
+    "url": "https://global.ippodo-tea.co.jp/products/matcha175512"
+  },
+  "https://global.ippodo-tea.co.jp/products/matcha173512#5017357": {
+    "product": "[Out of Stock] Sayaka-no-mukashi",
+    "variant": "100g Bag",
+    "in_stock": false,
+    "price": "¥11,000",
+    "price_eur": null,
+    "price_usd": null,
+    "limit": null,
+    "url": "https://global.ippodo-tea.co.jp/products/matcha173512"
   }
 }
