@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-25T14:05:58+00:00",
+  "checked_at": "2026-09-25T15:05:56+00:00",
   "products": [
     {
       "name": "Aoarashi",
@@ -33,7 +33,7 @@
           "price_usd": null,
           "sku": "1F23100C6",
           "variation_id": "16949",
-          "limit": null
+          "limit": "quantite figee a 1"
         },
         {
           "label": "200g can",
