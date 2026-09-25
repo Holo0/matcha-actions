@@ -49,16 +49,6 @@
     "limit": null,
     "url": "https://kettl.co/products/uji-homare-matcha"
   },
-  "https://kettl.co/products/hanaka-matcha#030201333515": {
-    "product": "Hanaka Matcha",
-    "variant": "20g",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$36.00",
-    "limit": null,
-    "url": "https://kettl.co/products/hanaka-matcha"
-  },
   "https://kettl.co/products/satsuma-organic-saemidori-matcha#022971088078": {
     "product": "Satsuma Organic Saemidori Matcha",
     "variant": "20g",
@@ -88,26 +78,6 @@
     "price_usd": "$450.00",
     "limit": null,
     "url": "https://kettl.co/products/tsubaki-matcha-2"
-  },
-  "https://kettl.co/products/ryokuan-matcha#022976814030": {
-    "product": "Ryokuan Matcha",
-    "variant": "100g",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$65.00",
-    "limit": null,
-    "url": "https://kettl.co/products/ryokuan-matcha"
-  },
-  "https://kettl.co/products/ryokuan-matcha#166168800170": {
-    "product": "Ryokuan Matcha",
-    "variant": "1kg",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$450.00",
-    "limit": null,
-    "url": "https://kettl.co/products/ryokuan-matcha"
   },
   "https://kettl.co/products/hakusan-matcha#022974639918": {
     "product": "Hakusan Matcha",
@@ -168,16 +138,6 @@
     "price_usd": "$900.00",
     "limit": null,
     "url": "https://kettl.co/products/shirakawa-legacy-matcha-blend"
-  },
-  "https://kettl.co/products/soukou-matcha#183954238429": {
-    "product": "Soukou Matcha",
-    "variant": "20g",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$26.00",
-    "limit": null,
-    "url": "https://kettl.co/products/soukou-matcha"
   },
   "https://kettl.co/products/hinata-matcha#022974804057": {
     "product": "Hinata Matcha",
@@ -588,5 +548,45 @@
     "price_usd": "$45.00",
     "limit": null,
     "url": "https://kettl.co/products/kiyona-matcha"
+  },
+  "https://kettl.co/products/hanaka-matcha#030201333515": {
+    "product": "Hanaka Matcha",
+    "variant": "20g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$36.00",
+    "limit": null,
+    "url": "https://kettl.co/products/hanaka-matcha"
+  },
+  "https://kettl.co/products/ryokuan-matcha#022976814030": {
+    "product": "Ryokuan Matcha",
+    "variant": "100g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$65.00",
+    "limit": null,
+    "url": "https://kettl.co/products/ryokuan-matcha"
+  },
+  "https://kettl.co/products/ryokuan-matcha#166168800170": {
+    "product": "Ryokuan Matcha",
+    "variant": "1kg",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$450.00",
+    "limit": null,
+    "url": "https://kettl.co/products/ryokuan-matcha"
+  },
+  "https://kettl.co/products/soukou-matcha#183954238429": {
+    "product": "Soukou Matcha",
+    "variant": "20g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$26.00",
+    "limit": null,
+    "url": "https://kettl.co/products/soukou-matcha"
   }
 }
