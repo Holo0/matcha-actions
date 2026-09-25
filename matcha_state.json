@@ -62,7 +62,7 @@
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1#1171040c1": {
     "product": "Yugen",
     "variant": "40g can",
-    "in_stock": true,
+    "in_stock": false,
     "price": "¥3,720",
     "price_eur": "€20.59",
     "price_usd": null,
@@ -72,11 +72,11 @@
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1#1171100c1": {
     "product": "Yugen",
     "variant": "100g can",
-    "in_stock": false,
+    "in_stock": true,
     "price": "¥8,650",
     "price_eur": "€47.87",
     "price_usd": null,
-    "limit": null,
+    "limit": "Limit one per person",
     "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1"
   },
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1#1171100c6": {
