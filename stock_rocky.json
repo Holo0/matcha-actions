@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-25T22:39:55+00:00",
+  "checked_at": "2026-09-25T22:48:12+00:00",
   "products": [
     {
       "name": "Daily Ceremonial Blend Single Serve Packets",
@@ -19,23 +19,6 @@
       "note": ""
     },
     {
-      "name": "Single Cultivar Tenryu Okumidori",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-tenryu-okumidori-20g",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$28.00",
-          "sku": "RM-MATCHA-ORGANIC-TENRYU-20",
-          "variation_id": "49233154670906",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
       "name": "Ceremonial Blend Matcha",
       "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-20g",
       "variants": [
@@ -47,6 +30,23 @@
           "price_usd": "$36.00",
           "sku": "RM-MATCHA-CEREMONIAL-20",
           "variation_id": "46722330493242",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Single Cultivar Tenryu Okumidori",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-tenryu-okumidori-20g",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$28.00",
+          "sku": "RM-MATCHA-ORGANIC-TENRYU-20",
+          "variation_id": "49233154670906",
           "limit": null
         }
       ],

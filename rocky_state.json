@@ -9,16 +9,6 @@
     "limit": null,
     "url": "https://rockysmatcha.com/products/rockys-matcha-daily-ceremonial-blend-single-serve-packets"
   },
-  "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-tenryu-okumidori-20g#rm-matcha-organic-tenryu-20": {
-    "product": "Single Cultivar Tenryu Okumidori",
-    "variant": "20g",
-    "in_stock": true,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$28.00",
-    "limit": null,
-    "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-tenryu-okumidori-20g"
-  },
   "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-20g#rm-matcha-ceremonial-20": {
     "product": "Ceremonial Blend Matcha",
     "variant": "20g",
@@ -28,6 +18,16 @@
     "price_usd": "$36.00",
     "limit": null,
     "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-20g"
+  },
+  "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-tenryu-okumidori-20g#rm-matcha-organic-tenryu-20": {
+    "product": "Single Cultivar Tenryu Okumidori",
+    "variant": "20g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$28.00",
+    "limit": null,
+    "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-tenryu-okumidori-20g"
   },
   "https://rockysmatcha.com/products/rockys-matcha-osada-ceremonial-blend-matcha-20g#rm-matcha-osada-ceremonial-20g": {
     "product": "Osada Ceremonial Blend Matcha",
