@@ -112,7 +112,7 @@
   "https://mizubatea.com/products/culinary-organic-matcha#0006": {
     "product": "Organic Signature Matcha",
     "variant": "50 gram",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$22.00",
