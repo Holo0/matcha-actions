@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-25T16:38:11+00:00",
+  "checked_at": "2026-09-25T16:48:12+00:00",
   "products": [
     {
       "name": "Hukuju Matcha",
@@ -868,6 +868,23 @@
           "price_usd": "$45.00",
           "sku": "010444478259",
           "variation_id": "47246714994938",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Asanoka Organic Matcha (pre-order)",
+      "url": "https://kettl.co/products/asanoka-organic-matcha-pre-order",
+      "variants": [
+        {
+          "label": "100g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$75.00",
+          "sku": "022979771224",
+          "variation_id": "50580867940602",
           "limit": null
         }
       ],
