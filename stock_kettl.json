@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-28T15:58:12+00:00",
+  "checked_at": "2026-09-28T16:08:11+00:00",
   "products": [
     {
       "name": "Hukuju Matcha",
@@ -7,7 +7,7 @@
       "variants": [
         {
           "label": "100g",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$65.00",
@@ -638,7 +638,7 @@
       "variants": [
         {
           "label": "20g",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$80.00",
@@ -655,7 +655,7 @@
       "variants": [
         {
           "label": "20g",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$52.00",
@@ -760,7 +760,7 @@
       "variants": [
         {
           "label": "20g",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$38.00",
