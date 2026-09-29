@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-29T04:58:12+00:00",
+  "checked_at": "2026-09-29T05:08:15+00:00",
   "products": [
     {
       "name": "Kanza",
@@ -206,12 +206,12 @@
       "note": ""
     },
     {
-      "name": "[Out of Stock] Ikuyo-no-mukashi",
+      "name": "Ikuyo-no-mukashi",
       "url": "https://global.ippodo-tea.co.jp/products/matcha175512",
       "variants": [
         {
           "label": "100g Bag",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": "¥6,000",
           "price_eur": null,
           "price_usd": null,
@@ -223,12 +223,12 @@
       "note": ""
     },
     {
-      "name": "[Out of Stock] Sayaka-no-mukashi",
+      "name": "Sayaka-no-mukashi",
       "url": "https://global.ippodo-tea.co.jp/products/matcha173512",
       "variants": [
         {
           "label": "100g Bag",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": "¥11,000",
           "price_eur": null,
           "price_usd": null,
