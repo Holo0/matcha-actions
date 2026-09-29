@@ -432,7 +432,7 @@
   "https://kettl.co/products/suiteki-matcha-100g#022971131682": {
     "product": "Suiteki Matcha",
     "variant": "100g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$80.00",
