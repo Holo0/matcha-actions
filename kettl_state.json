@@ -382,7 +382,7 @@
   "https://kettl.co/products/satsuma-organic-tsuyuhikari-matcha#022973302387": {
     "product": "Satsuma Organic Tsuyuhikari Matcha",
     "variant": "20g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$38.00",
@@ -582,7 +582,7 @@
   "https://kettl.co/products/ryokuan-matcha#166168800170": {
     "product": "Ryokuan Matcha",
     "variant": "1kg",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$450.00",
