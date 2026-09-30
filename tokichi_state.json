@@ -112,7 +112,7 @@
   "https://global.tokichi.jp/products/mc5#mc5": {
     "product": "Matcha Seikan-no-Shiro",
     "variant": "30g Can",
-    "in_stock": true,
+    "in_stock": false,
     "price": "¥3,130",
     "price_eur": null,
     "price_usd": null,

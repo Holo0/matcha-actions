@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-30T07:18:10+00:00",
+  "checked_at": "2026-09-30T07:28:10+00:00",
   "products": [
     {
       "name": "Matcha Premium Hatsu-Mukashi “No.1”",
@@ -194,7 +194,7 @@
       "variants": [
         {
           "label": "30g Can",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": "¥3,130",
           "price_eur": null,
           "price_usd": null,
