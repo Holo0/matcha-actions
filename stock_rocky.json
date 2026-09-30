@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-30T18:48:17+00:00",
+  "checked_at": "2026-09-30T18:58:17+00:00",
   "products": [
     {
       "name": "Daily Ceremonial Blend Single Serve Packets",
@@ -228,7 +228,7 @@
       "variants": [
         {
           "label": "100g",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$108.00",
