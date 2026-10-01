@@ -42,7 +42,7 @@
   "https://kettl.co/products/uji-homare-matcha#010444908428": {
     "product": "Uji Homare Matcha",
     "variant": "1kg",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$600.00",
@@ -82,7 +82,7 @@
   "https://kettl.co/products/hakusan-matcha#022974639918": {
     "product": "Hakusan Matcha",
     "variant": "40g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$45.00",
@@ -92,7 +92,7 @@
   "https://kettl.co/products/hakusan-matcha#010447617747": {
     "product": "Hakusan Matcha",
     "variant": "1kg",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$465.00",
@@ -492,7 +492,7 @@
   "https://kettl.co/products/seion-matcha#022973621372": {
     "product": "Seion Matcha",
     "variant": "40g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$55.00",
