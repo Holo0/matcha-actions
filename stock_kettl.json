@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-02T21:58:10+00:00",
+  "checked_at": "2026-10-02T22:08:11+00:00",
   "products": [
     {
       "name": "Ryogochi Okuyutaka Matcha",
@@ -112,7 +112,7 @@
         },
         {
           "label": "1kg",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$450.00",

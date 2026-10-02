@@ -72,7 +72,7 @@
   "https://kettl.co/products/tsubaki-matcha-2#010447719380": {
     "product": "Tsubaki Matcha",
     "variant": "1kg",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$450.00",
