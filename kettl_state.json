@@ -299,6 +299,16 @@
     "limit": null,
     "url": "https://kettl.co/products/tenkuu-matcha"
   },
+  "https://kettl.co/products/ryogochi-okuyutaka-matcha#022971923713": {
+    "product": "Ryogochi Okuyutaka Matcha",
+    "variant": "20g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$40.00",
+    "limit": null,
+    "url": "https://kettl.co/products/ryogochi-okuyutaka-matcha"
+  },
   "https://kettl.co/products/fuujun-matcha#022971075603": {
     "product": "Fuujun Matcha",
     "variant": "20g",
@@ -598,5 +608,15 @@
     "price_usd": "$26.00",
     "limit": null,
     "url": "https://kettl.co/products/soukou-matcha"
+  },
+  "https://kettl.co/products/ryogochi-okumidori-matcha#022974931739": {
+    "product": "Ryogochi Okumidori Matcha",
+    "variant": "20g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$40.00",
+    "limit": null,
+    "url": "https://kettl.co/products/ryogochi-okumidori-matcha"
   }
 }
