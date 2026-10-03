@@ -132,7 +132,7 @@
   "https://rockysmatcha.com/products/rockys-matcha-horii-shichimeien-ceremonial-blend-matcha-100g#rm-matcha-horii-ceremonial-100": {
     "product": "Horii Shichimeien Ceremonial Blend Matcha",
     "variant": "100g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$108.00",
