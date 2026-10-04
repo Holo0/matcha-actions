@@ -132,7 +132,7 @@
   "https://mizubatea.com/products/asahi-matcha#10": {
     "product": "Asahi Matcha",
     "variant": "Unique",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$83.00",
