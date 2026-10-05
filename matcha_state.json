@@ -56,7 +56,7 @@
     "price": "¥2,120",
     "price_eur": "€11.92",
     "price_usd": null,
-    "limit": null,
+    "limit": "quantite figee a 1",
     "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1"
   },
   "https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1#11a1100c1": {

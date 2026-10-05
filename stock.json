@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-05T09:06:01+00:00",
+  "checked_at": "2026-10-05T10:06:14+00:00",
   "products": [
     {
       "name": "Wako",
@@ -70,7 +70,7 @@
           "price_usd": null,
           "sku": "11A1040C1",
           "variation_id": "16947",
-          "limit": null
+          "limit": "quantite figee a 1"
         },
         {
           "label": "100g can",
