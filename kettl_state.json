@@ -1,23 +1,13 @@
 {
-  "https://kettl.co/products/ryogochi-okuyutaka-matcha#022971923713": {
-    "product": "Ryogochi Okuyutaka Matcha",
+  "https://kettl.co/products/hanaka-matcha#030201333515": {
+    "product": "Hanaka Matcha",
     "variant": "20g",
     "in_stock": true,
     "price": null,
     "price_eur": null,
-    "price_usd": "$40.00",
+    "price_usd": "$36.00",
     "limit": null,
-    "url": "https://kettl.co/products/ryogochi-okuyutaka-matcha"
-  },
-  "https://kettl.co/products/ryogochi-okumidori-matcha#022974931739": {
-    "product": "Ryogochi Okumidori Matcha",
-    "variant": "20g",
-    "in_stock": true,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$40.00",
-    "limit": null,
-    "url": "https://kettl.co/products/ryogochi-okumidori-matcha"
+    "url": "https://kettl.co/products/hanaka-matcha"
   },
   "https://kettl.co/products/okuju-matcha#022975943748": {
     "product": "Okuju Matcha",
@@ -48,6 +38,36 @@
     "price_usd": "$600.00",
     "limit": null,
     "url": "https://kettl.co/products/uji-homare-matcha"
+  },
+  "https://kettl.co/products/shinme-matcha#183954969736": {
+    "product": "Shinme Matcha",
+    "variant": "20g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$38.00",
+    "limit": null,
+    "url": "https://kettl.co/products/shinme-matcha"
+  },
+  "https://kettl.co/products/ryogochi-okuyutaka-matcha#022971923713": {
+    "product": "Ryogochi Okuyutaka Matcha",
+    "variant": "20g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$40.00",
+    "limit": null,
+    "url": "https://kettl.co/products/ryogochi-okuyutaka-matcha"
+  },
+  "https://kettl.co/products/ryogochi-okumidori-matcha#022974931739": {
+    "product": "Ryogochi Okumidori Matcha",
+    "variant": "20g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$40.00",
+    "limit": null,
+    "url": "https://kettl.co/products/ryogochi-okumidori-matcha"
   },
   "https://kettl.co/products/satsuma-organic-saemidori-matcha#022971088078": {
     "product": "Satsuma Organic Saemidori Matcha",
@@ -409,36 +429,6 @@
     "limit": null,
     "url": "https://kettl.co/products/suiteki-matcha-100g"
   },
-  "https://kettl.co/products/shizuka-matcha#195738245011": {
-    "product": "Shizuka Matcha",
-    "variant": "20g",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$30.00",
-    "limit": null,
-    "url": "https://kettl.co/products/shizuka-matcha"
-  },
-  "https://kettl.co/products/shinme-matcha#183954969736": {
-    "product": "Shinme Matcha",
-    "variant": "20g",
-    "in_stock": true,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$38.00",
-    "limit": null,
-    "url": "https://kettl.co/products/shinme-matcha"
-  },
-  "https://kettl.co/products/seion-matcha#022973621372": {
-    "product": "Seion Matcha",
-    "variant": "40g",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$55.00",
-    "limit": null,
-    "url": "https://kettl.co/products/seion-matcha"
-  },
   "https://kettl.co/products/shirakawa-midori-matcha#022977775248": {
     "product": "Shirakawa Midori Matcha",
     "variant": "40g",
@@ -609,14 +599,24 @@
     "limit": null,
     "url": "https://kettl.co/products/kiyona-matcha"
   },
-  "https://kettl.co/products/hanaka-matcha#030201333515": {
-    "product": "Hanaka Matcha",
+  "https://kettl.co/products/shizuka-matcha#195738245011": {
+    "product": "Shizuka Matcha",
     "variant": "20g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
-    "price_usd": "$36.00",
+    "price_usd": "$30.00",
     "limit": null,
-    "url": "https://kettl.co/products/hanaka-matcha"
+    "url": "https://kettl.co/products/shizuka-matcha"
+  },
+  "https://kettl.co/products/seion-matcha#022973621372": {
+    "product": "Seion Matcha",
+    "variant": "40g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$55.00",
+    "limit": null,
+    "url": "https://kettl.co/products/seion-matcha"
   }
 }
