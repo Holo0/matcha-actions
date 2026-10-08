@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-08T19:48:11+00:00",
+  "checked_at": "2026-10-08T19:58:13+00:00",
   "products": [
     {
       "name": "Yama Matcha Green Tea",
@@ -349,23 +349,6 @@
           "price_usd": "$62.00",
           "sku": "011",
           "variation_id": "32797722869838",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Daily Hojicha & Miso Caramel Duo",
-      "url": "https://mizubatea.com/products/daily-hojicha-and-salted-caramel-duo",
-      "variants": [
-        {
-          "label": "Unique",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$38.50",
-          "sku": "968",
-          "variation_id": "52942109901112",
           "limit": null
         }
       ],
