@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-08T01:54:17+00:00",
+  "checked_at": "2026-10-08T02:06:43+00:00",
   "products": [
     {
       "name": "Yugen",
@@ -23,7 +23,7 @@
           "price_usd": null,
           "sku": "1171040C1",
           "variation_id": "16934",
-          "limit": null
+          "limit": "quantite figee a 1"
         },
         {
           "label": "100g can",
