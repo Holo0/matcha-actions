@@ -1,63 +1,6 @@
 {
-  "checked_at": "2026-10-08T02:06:43+00:00",
+  "checked_at": "2026-10-08T03:06:07+00:00",
   "products": [
-    {
-      "name": "Yugen",
-      "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1",
-      "variants": [
-        {
-          "label": "20g can",
-          "in_stock": false,
-          "price_jpy": "¥2,000",
-          "price_eur": "€11.30",
-          "price_usd": null,
-          "sku": "1171020C1",
-          "variation_id": "16933",
-          "limit": null
-        },
-        {
-          "label": "40g can",
-          "in_stock": true,
-          "price_jpy": "¥3,720",
-          "price_eur": "€21.02",
-          "price_usd": null,
-          "sku": "1171040C1",
-          "variation_id": "16934",
-          "limit": "quantite figee a 1"
-        },
-        {
-          "label": "100g can",
-          "in_stock": false,
-          "price_jpy": "¥8,650",
-          "price_eur": "€48.87",
-          "price_usd": null,
-          "sku": "1171100C1",
-          "variation_id": "16935",
-          "limit": null
-        },
-        {
-          "label": "100g bag",
-          "in_stock": false,
-          "price_jpy": "¥8,340",
-          "price_eur": "€47.12",
-          "price_usd": null,
-          "sku": "1171100C6",
-          "variation_id": "16936",
-          "limit": null
-        },
-        {
-          "label": "200g can",
-          "in_stock": false,
-          "price_jpy": "¥16,700",
-          "price_eur": "€94.35",
-          "price_usd": null,
-          "sku": "1171200C1",
-          "variation_id": "16937",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
     {
       "name": "Isuzu",
       "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1",
@@ -131,7 +74,7 @@
         },
         {
           "label": "100g bag",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": "¥4,340",
           "price_eur": "€24.52",
           "price_usd": null,
@@ -204,6 +147,63 @@
           "price_usd": null,
           "sku": "1161200C1",
           "variation_id": "16932",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Yugen",
+      "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1",
+      "variants": [
+        {
+          "label": "20g can",
+          "in_stock": false,
+          "price_jpy": "¥2,000",
+          "price_eur": "€11.30",
+          "price_usd": null,
+          "sku": "1171020C1",
+          "variation_id": "16933",
+          "limit": null
+        },
+        {
+          "label": "40g can",
+          "in_stock": false,
+          "price_jpy": "¥3,720",
+          "price_eur": "€21.02",
+          "price_usd": null,
+          "sku": "1171040C1",
+          "variation_id": "16934",
+          "limit": null
+        },
+        {
+          "label": "100g can",
+          "in_stock": false,
+          "price_jpy": "¥8,650",
+          "price_eur": "€48.87",
+          "price_usd": null,
+          "sku": "1171100C1",
+          "variation_id": "16935",
+          "limit": null
+        },
+        {
+          "label": "100g bag",
+          "in_stock": false,
+          "price_jpy": "¥8,340",
+          "price_eur": "€47.12",
+          "price_usd": null,
+          "sku": "1171100C6",
+          "variation_id": "16936",
+          "limit": null
+        },
+        {
+          "label": "200g can",
+          "in_stock": false,
+          "price_jpy": "¥16,700",
+          "price_eur": "€94.35",
+          "price_usd": null,
+          "sku": "1171200C1",
+          "variation_id": "16937",
           "limit": null
         }
       ],
