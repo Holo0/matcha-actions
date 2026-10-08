@@ -218,5 +218,15 @@
     "price_usd": "$62.00",
     "limit": null,
     "url": "https://mizubatea.com/products/gokou-matcha"
+  },
+  "https://mizubatea.com/products/daily-hojicha-and-salted-caramel-duo#968": {
+    "product": "Daily Hojicha & Miso Caramel Duo",
+    "variant": "Unique",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$38.50",
+    "limit": null,
+    "url": "https://mizubatea.com/products/daily-hojicha-and-salted-caramel-duo"
   }
 }
