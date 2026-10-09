@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-09T01:06:05+00:00",
+  "checked_at": "2026-10-09T02:06:02+00:00",
   "products": [
     {
       "name": "Wako",
@@ -49,7 +49,7 @@
           "label": "200g can",
           "in_stock": false,
           "price_jpy": "¥20,700",
-          "price_eur": "€116.95",
+          "price_eur": "€116.96",
           "price_usd": null,
           "sku": "1161200C1",
           "variation_id": "16932",
@@ -106,7 +106,7 @@
           "label": "200g can",
           "in_stock": false,
           "price_jpy": "¥16,700",
-          "price_eur": "€94.35",
+          "price_eur": "€94.36",
           "price_usd": null,
           "sku": "1171200C1",
           "variation_id": "16937",
@@ -153,7 +153,7 @@
           "label": "200g can",
           "in_stock": false,
           "price_jpy": "¥10,700",
-          "price_eur": "€60.45",
+          "price_eur": "€60.46",
           "price_usd": null,
           "sku": "1191200C1",
           "variation_id": "16946",
@@ -200,7 +200,7 @@
           "label": "200g can",
           "in_stock": false,
           "price_jpy": "¥8,700",
-          "price_eur": "€49.15",
+          "price_eur": "€49.16",
           "price_usd": null,
           "sku": "1F23200C1",
           "variation_id": "16950",
