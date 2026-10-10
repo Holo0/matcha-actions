@@ -42,7 +42,7 @@
   "https://rockysmatcha.com/products/rockys-matcha-horii-shichimeien-ceremonial-blend-20g#rm-matcha-horii-ceremonial-20": {
     "product": "Horii Shichimeien Ceremonial Blend",
     "variant": "20g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$28.00",
@@ -82,7 +82,7 @@
   "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-bundle-set#rm-matcha-bundle-cb": {
     "product": "Ceremonial Blend Bundle",
     "variant": "Unique",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$78.00",
