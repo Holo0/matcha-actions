@@ -1,23 +1,6 @@
 {
-  "checked_at": "2026-10-12T14:48:11+00:00",
+  "checked_at": "2026-10-12T14:58:11+00:00",
   "products": [
-    {
-      "name": "Daily Ceremonial Blend Single Serve Packets",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-daily-ceremonial-blend-single-serve-packets",
-      "variants": [
-        {
-          "label": "Unique",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$32.00",
-          "sku": "RM-MATCHA-STICK-DAILY-CEREMONIAL-30",
-          "variation_id": "53499309130042",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
     {
       "name": "Ceremonial Blend Matcha",
       "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-20g",
@@ -36,17 +19,17 @@
       "note": ""
     },
     {
-      "name": "Single Cultivar Tenryu Okumidori",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-tenryu-okumidori-20g",
+      "name": "Daily Ceremonial Blend Single Serve Packets",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-daily-ceremonial-blend-single-serve-packets",
       "variants": [
         {
-          "label": "20g",
+          "label": "Unique",
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$28.00",
-          "sku": "RM-MATCHA-ORGANIC-TENRYU-20",
-          "variation_id": "49233154670906",
+          "price_usd": "$32.00",
+          "sku": "RM-MATCHA-STICK-DAILY-CEREMONIAL-30",
+          "variation_id": "53499309130042",
           "limit": null
         }
       ],
@@ -132,6 +115,23 @@
           "price_usd": "$88.00",
           "sku": "RM-MATCHA-NARINO-20G",
           "variation_id": "50469817450810",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Single Cultivar Tenryu Okumidori",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-tenryu-okumidori-20g",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$28.00",
+          "sku": "RM-MATCHA-ORGANIC-TENRYU-20",
+          "variation_id": "49233154670906",
           "limit": null
         }
       ],
