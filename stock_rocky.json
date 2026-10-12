@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-12T14:58:11+00:00",
+  "checked_at": "2026-10-12T15:08:16+00:00",
   "products": [
     {
       "name": "Ceremonial Blend Matcha",
@@ -47,23 +47,6 @@
           "price_usd": "$20.00",
           "sku": "RM-MATCHA-OSADA-CEREMONIAL-20G",
           "variation_id": "52103797604666",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Horii Shichimeien Ceremonial Blend",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-horii-shichimeien-ceremonial-blend-20g",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$28.00",
-          "sku": "RM-MATCHA-HORII-CEREMONIAL-20",
-          "variation_id": "52078620999994",
           "limit": null
         }
       ],
@@ -132,23 +115,6 @@
           "price_usd": "$28.00",
           "sku": "RM-MATCHA-ORGANIC-TENRYU-20",
           "variation_id": "49233154670906",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Ceremonial Blend Bundle",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-bundle-set",
-      "variants": [
-        {
-          "label": "Unique",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$78.00",
-          "sku": "RM-MATCHA-BUNDLE-CB",
-          "variation_id": "53814518186298",
           "limit": null
         }
       ],
@@ -302,6 +268,40 @@
           "price_usd": "$38.00",
           "sku": "RM-MATCHA-SAIE-20",
           "variation_id": "51158011216186",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Horii Shichimeien Ceremonial Blend",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-horii-shichimeien-ceremonial-blend-20g",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$28.00",
+          "sku": "RM-MATCHA-HORII-CEREMONIAL-20",
+          "variation_id": "52078620999994",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Ceremonial Blend Bundle",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-bundle-set",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$78.00",
+          "sku": "RM-MATCHA-BUNDLE-CB",
+          "variation_id": "53814518186298",
           "limit": null
         }
       ],

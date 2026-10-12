@@ -29,16 +29,6 @@
     "limit": null,
     "url": "https://rockysmatcha.com/products/rockys-matcha-osada-ceremonial-blend-matcha-20g"
   },
-  "https://rockysmatcha.com/products/rockys-matcha-horii-shichimeien-ceremonial-blend-20g#rm-matcha-horii-ceremonial-20": {
-    "product": "Horii Shichimeien Ceremonial Blend",
-    "variant": "20g",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$28.00",
-    "limit": null,
-    "url": "https://rockysmatcha.com/products/rockys-matcha-horii-shichimeien-ceremonial-blend-20g"
-  },
   "https://rockysmatcha.com/products/rockys-matcha-houjicha-20g#rm-matcha-houjicha-20": {
     "product": "Houjicha",
     "variant": "20g",
@@ -78,16 +68,6 @@
     "price_usd": "$28.00",
     "limit": null,
     "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-tenryu-okumidori-20g"
-  },
-  "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-bundle-set#rm-matcha-bundle-cb": {
-    "product": "Ceremonial Blend Bundle",
-    "variant": "Unique",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$78.00",
-    "limit": null,
-    "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-bundle-set"
   },
   "https://rockysmatcha.com/products/rockys-matcha-discovery-bundle#rm-matcha-bundle-discovery": {
     "product": "Discovery Bundle",
@@ -178,6 +158,26 @@
     "price_usd": "$38.00",
     "limit": null,
     "url": "https://rockysmatcha.com/products/rocky-s-matcha-for-saie-ceremonial-blend-matcha-20g"
+  },
+  "https://rockysmatcha.com/products/rockys-matcha-horii-shichimeien-ceremonial-blend-20g#rm-matcha-horii-ceremonial-20": {
+    "product": "Horii Shichimeien Ceremonial Blend",
+    "variant": "20g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$28.00",
+    "limit": null,
+    "url": "https://rockysmatcha.com/products/rockys-matcha-horii-shichimeien-ceremonial-blend-20g"
+  },
+  "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-bundle-set#rm-matcha-bundle-cb": {
+    "product": "Ceremonial Blend Bundle",
+    "variant": "Unique",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$78.00",
+    "limit": null,
+    "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-bundle-set"
   },
   "https://rockysmatcha.com/products/rockys-matcha-for-community-goods-ceremonial-blend-20g#rm-matcha-community-goods-20": {
     "product": "for Community Goods Ceremonial Blend",
