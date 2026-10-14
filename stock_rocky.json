@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-14T19:28:10+00:00",
+  "checked_at": "2026-10-14T19:48:14+00:00",
   "products": [
     {
       "name": "Ceremonial Blend Matcha",
@@ -194,7 +194,7 @@
       "variants": [
         {
           "label": "100g",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$108.00",
@@ -279,7 +279,7 @@
       "variants": [
         {
           "label": "20g",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$28.00",
@@ -296,7 +296,7 @@
       "variants": [
         {
           "label": "Unique",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$78.00",
