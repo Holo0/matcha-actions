@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-14T08:08:10+00:00",
+  "checked_at": "2026-10-14T08:18:11+00:00",
   "products": [
     {
       "name": "Superior Blend Matcha",
@@ -70,6 +70,23 @@
           "price_usd": "$42.99",
           "sku": "3F-1GSB-YVJD",
           "variation_id": "48590717845807",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Uji Harmony Matcha",
+      "url": "https://naokimatcha.com/products/uji-harmony-matcha",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$32.00",
+          "sku": "JP-MGMU-2XFT",
+          "variation_id": "58283252023599",
           "limit": null
         }
       ],
