@@ -1,6 +1,40 @@
 {
-  "checked_at": "2026-10-15T14:48:13+00:00",
+  "checked_at": "2026-10-15T15:08:14+00:00",
   "products": [
+    {
+      "name": "Uji Premium Blend Matcha",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-uji-premium-blend-matcha-20g",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$28.00",
+          "sku": "RM-MATCHA-UJIPREMIUM-20",
+          "variation_id": "67640947900730",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Single Cultivar Okumidori Matcha",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-okumidori-matcha-100g",
+      "variants": [
+        {
+          "label": "100g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$108.00",
+          "sku": "RM-MATCHA-OKUMIDORI-100",
+          "variation_id": "67640953471290",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
     {
       "name": "Ceremonial Blend Matcha",
       "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-20g",
@@ -30,6 +64,23 @@
           "price_usd": "$32.00",
           "sku": "RM-MATCHA-STICK-DAILY-CEREMONIAL-30",
           "variation_id": "53499309130042",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Horii Shichimeien Ceremonial Blend",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-horii-shichimeien-ceremonial-blend-20g",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$28.00",
+          "sku": "RM-MATCHA-HORII-CEREMONIAL-20",
+          "variation_id": "52078620999994",
           "limit": null
         }
       ],
@@ -121,6 +172,23 @@
       "note": ""
     },
     {
+      "name": "Ceremonial Blend Bundle",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-bundle-set",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$78.00",
+          "sku": "RM-MATCHA-BUNDLE-CB",
+          "variation_id": "53814518186298",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
       "name": "Discovery Bundle",
       "url": "https://rockysmatcha.com/products/rockys-matcha-discovery-bundle",
       "variants": [
@@ -172,17 +240,17 @@
       "note": ""
     },
     {
-      "name": "Ceremonial Blend Matcha",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-100g",
+      "name": "Uji Premium Blend Matcha",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-uji-premium-blend-matcha-100g",
       "variants": [
         {
           "label": "100g",
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$168.00",
-          "sku": "RM-MATCHA-CEREMONIAL-100",
-          "variation_id": "47831138992442",
+          "price_usd": "$108.00",
+          "sku": "RM-MATCHA-UJIPREMIUM-100",
+          "variation_id": "50713628606778",
           "limit": null
         }
       ],
@@ -200,6 +268,23 @@
           "price_usd": "$108.00",
           "sku": "RM-MATCHA-HORII-CEREMONIAL-100",
           "variation_id": "52079414378810",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Ceremonial Blend Matcha",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-100g",
+      "variants": [
+        {
+          "label": "100g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$168.00",
+          "sku": "RM-MATCHA-CEREMONIAL-100",
+          "variation_id": "47831138992442",
           "limit": null
         }
       ],
@@ -240,23 +325,6 @@
       "note": ""
     },
     {
-      "name": "Uji Premium Blend Matcha",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-uji-premium-blend-matcha-100g",
-      "variants": [
-        {
-          "label": "100g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$108.00",
-          "sku": "RM-MATCHA-UJIPREMIUM-100",
-          "variation_id": "50713628606778",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
       "name": "for Saie Ceremonial Blend Matcha",
       "url": "https://rockysmatcha.com/products/rocky-s-matcha-for-saie-ceremonial-blend-matcha-20g",
       "variants": [
@@ -268,40 +336,6 @@
           "price_usd": "$38.00",
           "sku": "RM-MATCHA-SAIE-20",
           "variation_id": "51158011216186",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Horii Shichimeien Ceremonial Blend",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-horii-shichimeien-ceremonial-blend-20g",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$28.00",
-          "sku": "RM-MATCHA-HORII-CEREMONIAL-20",
-          "variation_id": "52078620999994",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Ceremonial Blend Bundle",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-bundle-set",
-      "variants": [
-        {
-          "label": "Unique",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$78.00",
-          "sku": "RM-MATCHA-BUNDLE-CB",
-          "variation_id": "53814518186298",
           "limit": null
         }
       ],
