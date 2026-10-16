@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-16T20:08:10+00:00",
+  "checked_at": "2026-10-16T20:18:09+00:00",
   "products": [
     {
       "name": "Hanaka Matcha",
@@ -614,7 +614,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$85.00",
+          "price_usd": "$70.00",
           "sku": "022978294922",
           "variation_id": "42431535317242",
           "limit": null
@@ -780,7 +780,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$115.00",
+          "price_usd": "$90.00",
           "sku": "183957081978",
           "variation_id": "31890720882748",
           "limit": null
