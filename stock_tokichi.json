@@ -1,23 +1,6 @@
 {
-  "checked_at": "2026-10-17T05:08:08+00:00",
+  "checked_at": "2026-10-17T05:18:10+00:00",
   "products": [
-    {
-      "name": "Matcha Premium Hatsu-Mukashi “No.1”",
-      "url": "https://global.tokichi.jp/products/bessei-hatsumukashi-matcha-uji-yi",
-      "variants": [
-        {
-          "label": "20g Can",
-          "in_stock": false,
-          "price_jpy": "¥55,556",
-          "price_eur": null,
-          "price_usd": null,
-          "sku": "MC17",
-          "variation_id": "47270508593404",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
     {
       "name": "Matcha Premium Hatsu-Mukashi “No.2”",
       "url": "https://global.tokichi.jp/products/bessei-hatsumukashi-matcha-uji-er",
@@ -336,6 +319,23 @@
           "price_usd": null,
           "sku": "MC12",
           "variation_id": "44231891714300",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Premium Hatsu-Mukashi “No.1”",
+      "url": "https://global.tokichi.jp/products/bessei-hatsumukashi-matcha-uji-yi",
+      "variants": [
+        {
+          "label": "20g Can",
+          "in_stock": false,
+          "price_jpy": "¥55,556",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "MC17",
+          "variation_id": "47270508593404",
           "limit": null
         }
       ],
