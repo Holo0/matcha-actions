@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-18T17:08:10+00:00",
+  "checked_at": "2026-10-18T17:18:11+00:00",
   "products": [
     {
       "name": "Uji Premium Blend Matcha",
@@ -279,7 +279,7 @@
       "variants": [
         {
           "label": "100g",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$168.00",
