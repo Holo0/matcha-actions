@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-18T14:08:10+00:00",
+  "checked_at": "2026-10-18T14:18:09+00:00",
   "products": [
     {
       "name": "Hanaka Matcha",
@@ -261,7 +261,7 @@
       "variants": [
         {
           "label": "40g",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$38.00",
