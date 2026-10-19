@@ -572,7 +572,7 @@
   "https://kettl.co/products/hukuju-matcha#030203170262": {
     "product": "Hukuju Matcha",
     "variant": "100g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$65.00",
