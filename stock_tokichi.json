@@ -1,6 +1,74 @@
 {
-  "checked_at": "2026-10-19T02:18:11+00:00",
+  "checked_at": "2026-10-19T02:28:11+00:00",
   "products": [
+    {
+      "name": "Matcha Starter",
+      "url": "https://global.tokichi.jp/products/as400",
+      "variants": [
+        {
+          "label": "(100g x 2)",
+          "in_stock": true,
+          "price_jpy": "¥11,428",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "AS400",
+          "variation_id": "49131381489916",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Starter",
+      "url": "https://global.tokichi.jp/products/m100-str",
+      "variants": [
+        {
+          "label": "100g Bag",
+          "in_stock": true,
+          "price_jpy": "¥6,463",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "m100-str",
+          "variation_id": "47148766298364",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Standard",
+      "url": "https://global.tokichi.jp/products/m100-std",
+      "variants": [
+        {
+          "label": "100g Bag",
+          "in_stock": true,
+          "price_jpy": "¥12,778",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "m100-std",
+          "variation_id": "47148766331132",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Premium",
+      "url": "https://global.tokichi.jp/products/m100-prm",
+      "variants": [
+        {
+          "label": "100g Bag",
+          "in_stock": true,
+          "price_jpy": "¥22,000",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "m100-prm",
+          "variation_id": "47148766363900",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
     {
       "name": "Matcha Premium Hatsu-Mukashi “No.2”",
       "url": "https://global.tokichi.jp/products/bessei-hatsumukashi-matcha-uji-er",
@@ -30,74 +98,6 @@
           "price_usd": null,
           "sku": "MC19",
           "variation_id": "47270508921084",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Matcha Starter",
-      "url": "https://global.tokichi.jp/products/as400",
-      "variants": [
-        {
-          "label": "(100g x 2)",
-          "in_stock": true,
-          "price_jpy": "¥11,428",
-          "price_eur": null,
-          "price_usd": null,
-          "sku": "AS400",
-          "variation_id": "49131381489916",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Matcha Premium",
-      "url": "https://global.tokichi.jp/products/m100-prm",
-      "variants": [
-        {
-          "label": "100g Bag",
-          "in_stock": true,
-          "price_jpy": "¥22,000",
-          "price_eur": null,
-          "price_usd": null,
-          "sku": "m100-prm",
-          "variation_id": "47148766363900",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Matcha Standard",
-      "url": "https://global.tokichi.jp/products/m100-std",
-      "variants": [
-        {
-          "label": "100g Bag",
-          "in_stock": true,
-          "price_jpy": "¥12,778",
-          "price_eur": null,
-          "price_usd": null,
-          "sku": "m100-std",
-          "variation_id": "47148766331132",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Matcha Starter",
-      "url": "https://global.tokichi.jp/products/m100-str",
-      "variants": [
-        {
-          "label": "100g Bag",
-          "in_stock": true,
-          "price_jpy": "¥6,463",
-          "price_eur": null,
-          "price_usd": null,
-          "sku": "m100-str",
-          "variation_id": "47148766298364",
           "limit": null
         }
       ],
