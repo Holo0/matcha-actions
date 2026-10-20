@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-20T19:28:15+00:00",
+  "checked_at": "2026-10-20T19:38:11+00:00",
   "products": [
     {
       "name": "Uji Premium Blend Matcha",
@@ -353,6 +353,23 @@
           "price_usd": "$36.00",
           "sku": "RM-MATCHA-COMMUNITY-GOODS-20",
           "variation_id": "53214658330938",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Daily Ceremonial Blend Single Serve Packets. TIKTOK",
+      "url": "https://rockysmatcha.com/products/rocky-s-matcha-daily-ceremonial-blend-single-serve-packets-tiktok",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$32.00",
+          "sku": "RM-MATCHA-STICK-DAILY-CEREMONIAL-30-TT",
+          "variation_id": "67744471155002",
           "limit": null
         }
       ],
