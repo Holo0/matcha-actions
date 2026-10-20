@@ -479,6 +479,16 @@
     "limit": null,
     "url": "https://kettl.co/products/ryokuan-matcha"
   },
+  "https://kettl.co/products/seion-matcha#022973621372": {
+    "product": "Seion Matcha",
+    "variant": "40g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$55.00",
+    "limit": null,
+    "url": "https://kettl.co/products/seion-matcha"
+  },
   "https://kettl.co/products/shuichiro-sakamoto-organic-saemidori-matcha#022972318792": {
     "product": "Shuichiro Sakamoto Organic Saemidori Matcha",
     "variant": "20g",
@@ -548,16 +558,6 @@
     "price_usd": "$30.00",
     "limit": null,
     "url": "https://kettl.co/products/shizuka-matcha"
-  },
-  "https://kettl.co/products/seion-matcha#022973621372": {
-    "product": "Seion Matcha",
-    "variant": "40g",
-    "in_stock": true,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$55.00",
-    "limit": null,
-    "url": "https://kettl.co/products/seion-matcha"
   },
   "https://kettl.co/products/soukou-matcha#183954238429": {
     "product": "Soukou Matcha",
