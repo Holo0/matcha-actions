@@ -1,4 +1,24 @@
 {
+  "https://kettl.co/products/hukuju-matcha#030203170262": {
+    "product": "Hukuju Matcha",
+    "variant": "100g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$65.00",
+    "limit": null,
+    "url": "https://kettl.co/products/hukuju-matcha"
+  },
+  "https://kettl.co/products/hukuju-matcha#029904092034": {
+    "product": "Hukuju Matcha",
+    "variant": "1kg",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$600.00",
+    "limit": null,
+    "url": "https://kettl.co/products/hukuju-matcha"
+  },
   "https://kettl.co/products/hanaka-matcha#030201333515": {
     "product": "Hanaka Matcha",
     "variant": "20g",
@@ -442,7 +462,7 @@
   "https://kettl.co/products/shirakawa-midori-matcha#022977775248": {
     "product": "Shirakawa Midori Matcha",
     "variant": "40g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$40.00",
@@ -568,26 +588,6 @@
     "price_usd": "$26.00",
     "limit": null,
     "url": "https://kettl.co/products/soukou-matcha"
-  },
-  "https://kettl.co/products/hukuju-matcha#030203170262": {
-    "product": "Hukuju Matcha",
-    "variant": "100g",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$65.00",
-    "limit": null,
-    "url": "https://kettl.co/products/hukuju-matcha"
-  },
-  "https://kettl.co/products/hukuju-matcha#029904092034": {
-    "product": "Hukuju Matcha",
-    "variant": "1kg",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$600.00",
-    "limit": null,
-    "url": "https://kettl.co/products/hukuju-matcha"
   },
   "https://kettl.co/products/tsuji-family-blend-matcha#022977430840": {
     "product": "Tsuji Family Blend Matcha",
