@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-21T02:18:11+00:00",
+  "checked_at": "2026-10-21T02:38:10+00:00",
   "products": [
     {
       "name": "Matcha Starter",
@@ -13,6 +13,16 @@
           "price_usd": null,
           "sku": "AS400",
           "variation_id": "49131381489916",
+          "limit": null
+        },
+        {
+          "label": "2個セット",
+          "in_stock": true,
+          "price_jpy": "¥11,428",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": null,
+          "variation_id": "67825711513852",
           "limit": null
         }
       ],
