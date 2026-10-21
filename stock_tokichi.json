@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-21T04:38:11+00:00",
+  "checked_at": "2026-10-21T04:48:11+00:00",
   "products": [
     {
       "name": "Matcha Starter",
@@ -155,23 +155,6 @@
       "note": ""
     },
     {
-      "name": "Matcha Hiroha-no-Shiro",
-      "url": "https://global.tokichi.jp/products/mc4",
-      "variants": [
-        {
-          "label": "30g Can",
-          "in_stock": true,
-          "price_jpy": "¥3,130",
-          "price_eur": null,
-          "price_usd": null,
-          "sku": "MC4",
-          "variation_id": "44231891812604",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
       "name": "Matcha Seikan-no-Shiro",
       "url": "https://global.tokichi.jp/products/mc5",
       "variants": [
@@ -183,6 +166,23 @@
           "price_usd": null,
           "sku": "MC5",
           "variation_id": "44231891845372",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Matcha Hiroha-no-Shiro",
+      "url": "https://global.tokichi.jp/products/mc4",
+      "variants": [
+        {
+          "label": "30g Can",
+          "in_stock": true,
+          "price_jpy": "¥3,130",
+          "price_eur": null,
+          "price_usd": null,
+          "sku": "MC4",
+          "variation_id": "44231891812604",
           "limit": null
         }
       ],

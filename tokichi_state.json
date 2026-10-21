@@ -89,16 +89,6 @@
     "limit": null,
     "url": "https://global.tokichi.jp/products/mc6"
   },
-  "https://global.tokichi.jp/products/mc4#mc4": {
-    "product": "Matcha Hiroha-no-Shiro",
-    "variant": "30g Can",
-    "in_stock": true,
-    "price": "¥3,130",
-    "price_eur": null,
-    "price_usd": null,
-    "limit": null,
-    "url": "https://global.tokichi.jp/products/mc4"
-  },
   "https://global.tokichi.jp/products/mc5#mc5": {
     "product": "Matcha Seikan-no-Shiro",
     "variant": "30g Can",
@@ -108,6 +98,16 @@
     "price_usd": null,
     "limit": null,
     "url": "https://global.tokichi.jp/products/mc5"
+  },
+  "https://global.tokichi.jp/products/mc4#mc4": {
+    "product": "Matcha Hiroha-no-Shiro",
+    "variant": "30g Can",
+    "in_stock": true,
+    "price": "¥3,130",
+    "price_eur": null,
+    "price_usd": null,
+    "limit": null,
+    "url": "https://global.tokichi.jp/products/mc4"
   },
   "https://global.tokichi.jp/products/mc3#mc3": {
     "product": "Matcha Senun-no-Shiro",
