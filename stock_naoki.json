@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-21T13:58:10+00:00",
+  "checked_at": "2026-10-21T14:08:12+00:00",
   "products": [
     {
       "name": "Superior Blend Matcha",
@@ -203,7 +203,7 @@
         },
         {
           "label": "3.5 Ounce (Pack of 1)",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$59.99",
