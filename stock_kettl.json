@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-22T16:28:12+00:00",
+  "checked_at": "2026-10-22T16:38:10+00:00",
   "products": [
     {
       "name": "Hukuju Matcha",
@@ -721,23 +721,6 @@
       "note": ""
     },
     {
-      "name": "Shirakawa Midori Matcha",
-      "url": "https://kettl.co/products/shirakawa-midori-matcha",
-      "variants": [
-        {
-          "label": "40g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$40.00",
-          "sku": "022977775248",
-          "variation_id": "47823947399418",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
       "name": "Asanoka Organic Matcha",
       "url": "https://kettl.co/products/asanoka-organic-matcha",
       "variants": [
@@ -980,6 +963,23 @@
           "price_usd": "$80.00",
           "sku": "183954372093",
           "variation_id": "44827350696186",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Shirakawa Midori Matcha",
+      "url": "https://kettl.co/products/shirakawa-midori-matcha",
+      "variants": [
+        {
+          "label": "40g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$40.00",
+          "sku": "022977775248",
+          "variation_id": "47823947399418",
           "limit": null
         }
       ],
