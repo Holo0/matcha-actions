@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-22T06:58:09+00:00",
+  "checked_at": "2026-10-22T07:08:11+00:00",
   "products": [
     {
       "name": "Tsukikage Special Autumn Matcha",
@@ -87,12 +87,12 @@
       "note": ""
     },
     {
-      "name": "[Out of Stock] Sayaka-no-mukashi",
+      "name": "Sayaka-no-mukashi",
       "url": "https://global.ippodo-tea.co.jp/products/matcha5010331",
       "variants": [
         {
           "label": "20g Box",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": "¥2,800",
           "price_eur": null,
           "price_usd": null,
