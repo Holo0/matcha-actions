@@ -532,7 +532,7 @@
   "https://kettl.co/products/satsuma-matcha#010447290520": {
     "product": "Satsuma Matcha",
     "variant": "1kg",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$425.00",
@@ -542,7 +542,7 @@
   "https://kettl.co/products/shunka-matcha#022977507238": {
     "product": "Shunka Matcha",
     "variant": "20g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$68.00",
