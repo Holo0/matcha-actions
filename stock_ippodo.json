@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-22T13:48:15+00:00",
+  "checked_at": "2026-10-22T14:08:10+00:00",
   "products": [
     {
       "name": "Tsukikage Special Autumn Matcha",
@@ -109,7 +109,7 @@
       "variants": [
         {
           "label": "20g Box",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": "¥2,000",
           "price_eur": null,
           "price_usd": null,
