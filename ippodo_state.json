@@ -52,7 +52,7 @@
   "https://global.ippodo-tea.co.jp/products/matcha5010331#5010331": {
     "product": "Sayaka-no-mukashi",
     "variant": "20g Box",
-    "in_stock": false,
+    "in_stock": true,
     "price": "¥2,800",
     "price_eur": null,
     "price_usd": null,
@@ -62,7 +62,7 @@
   "https://global.ippodo-tea.co.jp/products/matcha5010431#5010431": {
     "product": "Kan-no-shiro",
     "variant": "20g Box",
-    "in_stock": false,
+    "in_stock": true,
     "price": "¥2,000",
     "price_eur": null,
     "price_usd": null,
