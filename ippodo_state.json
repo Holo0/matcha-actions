@@ -62,7 +62,7 @@
   "https://global.ippodo-tea.co.jp/products/matcha5010431#5010431": {
     "product": "Kan-no-shiro",
     "variant": "20g Box",
-    "in_stock": true,
+    "in_stock": false,
     "price": "¥2,000",
     "price_eur": null,
     "price_usd": null,
