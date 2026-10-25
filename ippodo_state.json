@@ -42,7 +42,7 @@
   "https://global.ippodo-tea.co.jp/products/matcha5018231#5018231": {
     "product": "Shoin-no-mukashi",
     "variant": "20g Box",
-    "in_stock": true,
+    "in_stock": false,
     "price": "¥4,000",
     "price_eur": null,
     "price_usd": null,
@@ -142,7 +142,7 @@
   "https://global.ippodo-tea.co.jp/products/matcha173512#5017357": {
     "product": "Sayaka-no-mukashi",
     "variant": "100g Bag",
-    "in_stock": true,
+    "in_stock": false,
     "price": "¥14,000",
     "price_eur": null,
     "price_usd": null,
