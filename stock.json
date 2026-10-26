@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-26T08:06:09+00:00",
+  "checked_at": "2026-10-26T09:05:59+00:00",
   "products": [
     {
       "name": "Wako",
@@ -188,7 +188,7 @@
         },
         {
           "label": "100g bag",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": "¥4,340",
           "price_eur": "€24.69",
           "price_usd": null,
