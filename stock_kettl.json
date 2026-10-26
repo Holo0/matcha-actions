@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-26T20:48:13+00:00",
+  "checked_at": "2026-10-26T20:58:12+00:00",
   "products": [
     {
       "name": "Soukou Matcha",
@@ -176,33 +176,6 @@
           "price_usd": "$40.00",
           "sku": "022971088078",
           "variation_id": "47708500361466",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Tsubaki Matcha",
-      "url": "https://kettl.co/products/tsubaki-matcha-2",
-      "variants": [
-        {
-          "label": "40g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$45.00",
-          "sku": "022974266268",
-          "variation_id": "47768617484538",
-          "limit": null
-        },
-        {
-          "label": "1kg",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$450.00",
-          "sku": "010447719380",
-          "variation_id": "50563664347386",
           "limit": null
         }
       ],
@@ -532,23 +505,6 @@
           "price_usd": "$60.00",
           "sku": "022975381427",
           "variation_id": "48084557594874",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Fuujun Matcha",
-      "url": "https://kettl.co/products/fuujun-matcha",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$105.00",
-          "sku": "022971075603",
-          "variation_id": "46505915678970",
           "limit": null
         }
       ],
@@ -980,6 +936,50 @@
           "price_usd": "$40.00",
           "sku": "022974931739",
           "variation_id": "67619462119674",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Tsubaki Matcha",
+      "url": "https://kettl.co/products/tsubaki-matcha-2",
+      "variants": [
+        {
+          "label": "40g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$45.00",
+          "sku": "022974266268",
+          "variation_id": "47768617484538",
+          "limit": null
+        },
+        {
+          "label": "1kg",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$450.00",
+          "sku": "010447719380",
+          "variation_id": "50563664347386",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Fuujun Matcha",
+      "url": "https://kettl.co/products/fuujun-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$105.00",
+          "sku": "022971075603",
+          "variation_id": "46505915678970",
           "limit": null
         }
       ],
