@@ -52,7 +52,7 @@
   "https://kettl.co/products/seisho-matcha#022976278962": {
     "product": "Seisho Matcha",
     "variant": "20g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$32.00",
@@ -82,7 +82,7 @@
   "https://kettl.co/products/fuujun-matcha#022971075603": {
     "product": "Fuujun Matcha",
     "variant": "20g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$105.00",
@@ -452,7 +452,7 @@
   "https://kettl.co/products/ryokuan-matcha#022976814030": {
     "product": "Ryokuan Matcha",
     "variant": "100g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$65.00",

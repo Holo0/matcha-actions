@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-26T21:08:10+00:00",
+  "checked_at": "2026-10-26T21:18:10+00:00",
   "products": [
     {
       "name": "Soukou Matcha",
@@ -92,7 +92,7 @@
       "variants": [
         {
           "label": "20g",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$32.00",
@@ -136,7 +136,7 @@
       "variants": [
         {
           "label": "20g",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$105.00",
@@ -723,7 +723,7 @@
       "variants": [
         {
           "label": "100g",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$65.00",
