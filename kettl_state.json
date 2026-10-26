@@ -49,6 +49,16 @@
     "limit": null,
     "url": "https://kettl.co/products/okuju-matcha"
   },
+  "https://kettl.co/products/seisho-matcha#022976278962": {
+    "product": "Seisho Matcha",
+    "variant": "20g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$32.00",
+    "limit": null,
+    "url": "https://kettl.co/products/seisho-matcha"
+  },
   "https://kettl.co/products/uji-homare-matcha#022975933954": {
     "product": "Uji Homare Matcha",
     "variant": "100g",
@@ -69,6 +79,16 @@
     "limit": null,
     "url": "https://kettl.co/products/uji-homare-matcha"
   },
+  "https://kettl.co/products/fuujun-matcha#022971075603": {
+    "product": "Fuujun Matcha",
+    "variant": "20g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$105.00",
+    "limit": null,
+    "url": "https://kettl.co/products/fuujun-matcha"
+  },
   "https://kettl.co/products/kiyona-matcha#010444478259": {
     "product": "Kiyona Matcha",
     "variant": "40g",
@@ -78,6 +98,36 @@
     "price_usd": "$45.00",
     "limit": null,
     "url": "https://kettl.co/products/kiyona-matcha"
+  },
+  "https://kettl.co/products/suiteki-matcha-100g#022976953593": {
+    "product": "Suiteki Matcha",
+    "variant": "40g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$45.00",
+    "limit": null,
+    "url": "https://kettl.co/products/suiteki-matcha-100g"
+  },
+  "https://kettl.co/products/suiteki-matcha-100g#022971131682": {
+    "product": "Suiteki Matcha",
+    "variant": "100g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$80.00",
+    "limit": null,
+    "url": "https://kettl.co/products/suiteki-matcha-100g"
+  },
+  "https://kettl.co/products/suiteki-matcha-100g#010441364012": {
+    "product": "Suiteki Matcha",
+    "variant": "1kg",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$650.00",
+    "limit": null,
+    "url": "https://kettl.co/products/suiteki-matcha-100g"
   },
   "https://kettl.co/products/shinme-matcha#183954969736": {
     "product": "Shinme Matcha",
@@ -389,36 +439,6 @@
     "limit": null,
     "url": "https://kettl.co/products/satsuma-organic-tsuyuhikari-matcha"
   },
-  "https://kettl.co/products/suiteki-matcha-100g#022976953593": {
-    "product": "Suiteki Matcha",
-    "variant": "40g",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$45.00",
-    "limit": null,
-    "url": "https://kettl.co/products/suiteki-matcha-100g"
-  },
-  "https://kettl.co/products/suiteki-matcha-100g#022971131682": {
-    "product": "Suiteki Matcha",
-    "variant": "100g",
-    "in_stock": true,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$80.00",
-    "limit": null,
-    "url": "https://kettl.co/products/suiteki-matcha-100g"
-  },
-  "https://kettl.co/products/suiteki-matcha-100g#010441364012": {
-    "product": "Suiteki Matcha",
-    "variant": "1kg",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$650.00",
-    "limit": null,
-    "url": "https://kettl.co/products/suiteki-matcha-100g"
-  },
   "https://kettl.co/products/asanoka-organic-matcha#022979771224": {
     "product": "Asanoka Organic Matcha",
     "variant": "100g",
@@ -529,16 +549,6 @@
     "limit": null,
     "url": "https://kettl.co/products/tsuji-family-blend-matcha"
   },
-  "https://kettl.co/products/seisho-matcha#022976278962": {
-    "product": "Seisho Matcha",
-    "variant": "20g",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$32.00",
-    "limit": null,
-    "url": "https://kettl.co/products/seisho-matcha"
-  },
   "https://kettl.co/products/shirakawa-midori-matcha#022977775248": {
     "product": "Shirakawa Midori Matcha",
     "variant": "40g",
@@ -608,15 +618,5 @@
     "price_usd": "$450.00",
     "limit": null,
     "url": "https://kettl.co/products/tsubaki-matcha-2"
-  },
-  "https://kettl.co/products/fuujun-matcha#022971075603": {
-    "product": "Fuujun Matcha",
-    "variant": "20g",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$105.00",
-    "limit": null,
-    "url": "https://kettl.co/products/fuujun-matcha"
   }
 }
