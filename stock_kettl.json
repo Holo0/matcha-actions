@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-28T16:48:11+00:00",
+  "checked_at": "2026-10-28T16:58:11+00:00",
   "products": [
     {
       "name": "Soukou Matcha",
@@ -13,23 +13,6 @@
           "price_usd": "$26.00",
           "sku": "183954238429",
           "variation_id": "21580247203900",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Kiwami Matcha",
-      "url": "https://kettl.co/products/kiwami-matcha",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$80.00",
-          "sku": "183954372093",
-          "variation_id": "44827350696186",
           "limit": null
         }
       ],
@@ -980,6 +963,23 @@
           "price_usd": "$450.00",
           "sku": "010447719380",
           "variation_id": "50563664347386",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Kiwami Matcha",
+      "url": "https://kettl.co/products/kiwami-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$80.00",
+          "sku": "183954372093",
+          "variation_id": "44827350696186",
           "limit": null
         }
       ],
