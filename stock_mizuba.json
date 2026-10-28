@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-28T21:08:10+00:00",
+  "checked_at": "2026-10-28T21:18:11+00:00",
   "products": [
     {
       "name": "Yama Matcha Green Tea",
@@ -95,7 +95,7 @@
       "variants": [
         {
           "label": "40g",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$28.00",
