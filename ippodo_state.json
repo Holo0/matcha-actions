@@ -102,7 +102,7 @@
   "https://global.ippodo-tea.co.jp/products/matcha125510#5012551": {
     "product": "Matcha To-Go Packets (2g x 10 packets)",
     "variant": "Unique",
-    "in_stock": true,
+    "in_stock": false,
     "price": "¥1,800",
     "price_eur": null,
     "price_usd": null,
