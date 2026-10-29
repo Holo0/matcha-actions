@@ -252,7 +252,7 @@
   "https://kettl.co/products/shirakawa-asahi-matcha#011065034282": {
     "product": "Shirakawa Asahi Matcha",
     "variant": "20g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$65.00",
