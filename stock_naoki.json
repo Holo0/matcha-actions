@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-30T20:18:15+00:00",
+  "checked_at": "2026-10-30T20:28:10+00:00",
   "products": [
     {
       "name": "Superior Blend Matcha",
@@ -81,7 +81,7 @@
       "variants": [
         {
           "label": "Unique",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$32.00",
