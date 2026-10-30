@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-30T13:30:00+00:00",
+  "checked_at": "2026-10-30T13:38:11+00:00",
   "products": [
     {
       "name": "Soukou Matcha",
@@ -881,8 +881,8 @@
       "note": ""
     },
     {
-      "name": "Hukuju Matcha",
-      "url": "https://kettl.co/products/hukuju-matcha",
+      "name": "Hukuju Matcha (pre-order)",
+      "url": "https://kettl.co/products/hukuju-matcha-pre-order",
       "variants": [
         {
           "label": "100g",
