@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-30T16:48:11+00:00",
+  "checked_at": "2026-10-30T16:58:10+00:00",
   "products": [
     {
       "name": "Hukuju Matcha (pre-order)",
@@ -382,23 +382,6 @@
           "price_usd": "$38.00",
           "sku": "022977185337",
           "variation_id": "47738538524922",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Shirakawa Asahi Matcha",
-      "url": "https://kettl.co/products/shirakawa-asahi-matcha",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$65.00",
-          "sku": "011065034282",
-          "variation_id": "31892086489148",
           "limit": null
         }
       ],
@@ -980,6 +963,23 @@
           "price_usd": "$26.00",
           "sku": "183954238429",
           "variation_id": "21580247203900",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Shirakawa Asahi Matcha",
+      "url": "https://kettl.co/products/shirakawa-asahi-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$65.00",
+          "sku": "011065034282",
+          "variation_id": "31892086489148",
           "limit": null
         }
       ],
