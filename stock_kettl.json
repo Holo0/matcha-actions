@@ -1,18 +1,28 @@
 {
-  "checked_at": "2026-10-30T15:38:11+00:00",
+  "checked_at": "2026-10-30T15:48:12+00:00",
   "products": [
     {
-      "name": "Soukou Matcha",
-      "url": "https://kettl.co/products/soukou-matcha",
+      "name": "Hukuju Matcha (pre-order)",
+      "url": "https://kettl.co/products/hukuju-matcha-pre-order",
       "variants": [
         {
-          "label": "20g",
+          "label": "100g",
           "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$26.00",
-          "sku": "183954238429",
-          "variation_id": "21580247203900",
+          "price_usd": "$65.00",
+          "sku": "030203170262",
+          "variation_id": "47783373734138",
+          "limit": null
+        },
+        {
+          "label": "1kg",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$600.00",
+          "sku": "029904092034",
+          "variation_id": "32269339852860",
           "limit": null
         }
       ],
@@ -881,33 +891,6 @@
       "note": ""
     },
     {
-      "name": "Hukuju Matcha (pre-order)",
-      "url": "https://kettl.co/products/hukuju-matcha-pre-order",
-      "variants": [
-        {
-          "label": "100g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$65.00",
-          "sku": "030203170262",
-          "variation_id": "47783373734138",
-          "limit": null
-        },
-        {
-          "label": "1kg",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$600.00",
-          "sku": "029904092034",
-          "variation_id": "32269339852860",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
       "name": "Tsuchiyama Matcha",
       "url": "https://kettl.co/products/tsuchiyama-matcha",
       "variants": [
@@ -980,6 +963,23 @@
           "price_usd": "$80.00",
           "sku": "183954372093",
           "variation_id": "44827350696186",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Soukou Matcha",
+      "url": "https://kettl.co/products/soukou-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$26.00",
+          "sku": "183954238429",
+          "variation_id": "21580247203900",
           "limit": null
         }
       ],
