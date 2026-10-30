@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-30T04:58:11+00:00",
+  "checked_at": "2026-10-30T05:08:10+00:00",
   "products": [
     {
       "name": "Tsukikage Special Autumn Matcha",
@@ -75,7 +75,7 @@
       "variants": [
         {
           "label": "20g Box",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": "¥4,000",
           "price_eur": null,
           "price_usd": null,
@@ -92,7 +92,7 @@
       "variants": [
         {
           "label": "20g Box",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": "¥2,800",
           "price_eur": null,
           "price_usd": null,
@@ -109,7 +109,7 @@
       "variants": [
         {
           "label": "20g Box",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": "¥2,000",
           "price_eur": null,
           "price_usd": null,
@@ -126,7 +126,7 @@
       "variants": [
         {
           "label": "20g Box",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": "¥1,400",
           "price_eur": null,
           "price_usd": null,
@@ -177,7 +177,7 @@
       "variants": [
         {
           "label": "Unique",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": "¥1,800",
           "price_eur": null,
           "price_usd": null,
@@ -228,7 +228,7 @@
       "variants": [
         {
           "label": "100g Bag",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": "¥7,000",
           "price_eur": null,
           "price_usd": null,
@@ -245,7 +245,7 @@
       "variants": [
         {
           "label": "100g Bag",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": "¥14,000",
           "price_eur": null,
           "price_usd": null,
