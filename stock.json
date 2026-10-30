@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-30T03:06:07+00:00",
+  "checked_at": "2026-10-30T04:05:59+00:00",
   "products": [
     {
       "name": "Isuzu",
@@ -27,7 +27,7 @@
         },
         {
           "label": "100g bag",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": "¥5,340",
           "price_eur": "€30.29",
           "price_usd": null,
