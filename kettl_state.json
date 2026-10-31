@@ -252,7 +252,7 @@
   "https://kettl.co/products/shibushi-organic-tokujou-matcha#022977185337": {
     "product": "Shibushi Organic Tokujou Matcha",
     "variant": "20g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$38.00",
