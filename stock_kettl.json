@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-02T17:48:11+00:00",
+  "checked_at": "2026-11-02T17:58:10+00:00",
   "products": [
     {
       "name": "Hukuju Matcha (pre-order)",
@@ -365,23 +365,6 @@
           "price_usd": "$45.00",
           "sku": "022973719192",
           "variation_id": "47823948480762",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Shibushi Organic Tokujou Matcha",
-      "url": "https://kettl.co/products/shibushi-organic-tokujou-matcha",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$38.00",
-          "sku": "022977185337",
-          "variation_id": "47738538524922",
           "limit": null
         }
       ],
@@ -980,6 +963,23 @@
           "price_usd": "$65.00",
           "sku": "011065034282",
           "variation_id": "31892086489148",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Shibushi Organic Tokujou Matcha",
+      "url": "https://kettl.co/products/shibushi-organic-tokujou-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$38.00",
+          "sku": "022977185337",
+          "variation_id": "47738538524922",
           "limit": null
         }
       ],
