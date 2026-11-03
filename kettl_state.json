@@ -39,26 +39,6 @@
     "limit": null,
     "url": "https://kettl.co/products/hanaka-matcha"
   },
-  "https://kettl.co/products/okuju-matcha#022975943748": {
-    "product": "Okuju Matcha",
-    "variant": "30g",
-    "in_stock": true,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$45.00",
-    "limit": null,
-    "url": "https://kettl.co/products/okuju-matcha"
-  },
-  "https://kettl.co/products/seisho-matcha#022976278962": {
-    "product": "Seisho Matcha",
-    "variant": "20g",
-    "in_stock": true,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$32.00",
-    "limit": null,
-    "url": "https://kettl.co/products/seisho-matcha"
-  },
   "https://kettl.co/products/uji-homare-matcha#022975933954": {
     "product": "Uji Homare Matcha",
     "variant": "100g",
@@ -78,6 +58,56 @@
     "price_usd": "$600.00",
     "limit": null,
     "url": "https://kettl.co/products/uji-homare-matcha"
+  },
+  "https://kettl.co/products/okuju-matcha#022975943748": {
+    "product": "Okuju Matcha",
+    "variant": "30g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$45.00",
+    "limit": null,
+    "url": "https://kettl.co/products/okuju-matcha"
+  },
+  "https://kettl.co/products/tsuchiyama-matcha#022978866303": {
+    "product": "Tsuchiyama Matcha",
+    "variant": "20g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$38.00",
+    "limit": null,
+    "url": "https://kettl.co/products/tsuchiyama-matcha"
+  },
+  "https://kettl.co/products/seisho-matcha#022976278962": {
+    "product": "Seisho Matcha",
+    "variant": "20g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$32.00",
+    "limit": null,
+    "url": "https://kettl.co/products/seisho-matcha"
+  },
+  "https://kettl.co/products/tsubaki-matcha-2#022974266268": {
+    "product": "Tsubaki Matcha",
+    "variant": "40g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$45.00",
+    "limit": null,
+    "url": "https://kettl.co/products/tsubaki-matcha-2"
+  },
+  "https://kettl.co/products/tsubaki-matcha-2#010447719380": {
+    "product": "Tsubaki Matcha",
+    "variant": "1kg",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$450.00",
+    "limit": null,
+    "url": "https://kettl.co/products/tsubaki-matcha-2"
   },
   "https://kettl.co/products/fuujun-matcha#022971075603": {
     "product": "Fuujun Matcha",
@@ -539,46 +569,6 @@
     "limit": null,
     "url": "https://kettl.co/products/shirakawa-midori-matcha"
   },
-  "https://kettl.co/products/tsuchiyama-matcha#022978866303": {
-    "product": "Tsuchiyama Matcha",
-    "variant": "20g",
-    "in_stock": true,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$38.00",
-    "limit": null,
-    "url": "https://kettl.co/products/tsuchiyama-matcha"
-  },
-  "https://kettl.co/products/ryogochi-okumidori-matcha#022974931739": {
-    "product": "Ryogochi Okumidori Matcha",
-    "variant": "20g",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$40.00",
-    "limit": null,
-    "url": "https://kettl.co/products/ryogochi-okumidori-matcha"
-  },
-  "https://kettl.co/products/tsubaki-matcha-2#022974266268": {
-    "product": "Tsubaki Matcha",
-    "variant": "40g",
-    "in_stock": true,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$45.00",
-    "limit": null,
-    "url": "https://kettl.co/products/tsubaki-matcha-2"
-  },
-  "https://kettl.co/products/tsubaki-matcha-2#010447719380": {
-    "product": "Tsubaki Matcha",
-    "variant": "1kg",
-    "in_stock": true,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$450.00",
-    "limit": null,
-    "url": "https://kettl.co/products/tsubaki-matcha-2"
-  },
   "https://kettl.co/products/kiwami-matcha#183954372093": {
     "product": "Kiwami Matcha",
     "variant": "20g",
@@ -618,5 +608,15 @@
     "price_usd": "$38.00",
     "limit": null,
     "url": "https://kettl.co/products/shibushi-organic-tokujou-matcha"
+  },
+  "https://kettl.co/products/ryogochi-okumidori-matcha#022974931739": {
+    "product": "Ryogochi Okumidori Matcha",
+    "variant": "20g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$40.00",
+    "limit": null,
+    "url": "https://kettl.co/products/ryogochi-okumidori-matcha"
   }
 }
