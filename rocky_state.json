@@ -9,16 +9,6 @@
     "limit": null,
     "url": "https://rockysmatcha.com/products/rockys-matcha-uji-premium-blend-matcha-20g"
   },
-  "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-okumidori-matcha-100g#rm-matcha-okumidori-100": {
-    "product": "Single Cultivar Okumidori Matcha",
-    "variant": "100g",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$108.00",
-    "limit": null,
-    "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-okumidori-matcha-100g"
-  },
   "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-20g#rm-matcha-ceremonial-20": {
     "product": "Ceremonial Blend Matcha",
     "variant": "20g",
@@ -139,6 +129,26 @@
     "limit": null,
     "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-100g"
   },
+  "https://rockysmatcha.com/products/rockys-matcha-osada-ceremonial-blend-matcha-20g#rm-matcha-osada-ceremonial-20g": {
+    "product": "Osada Ceremonial Blend Matcha",
+    "variant": "20g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$20.00",
+    "limit": null,
+    "url": "https://rockysmatcha.com/products/rockys-matcha-osada-ceremonial-blend-matcha-20g"
+  },
+  "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-okumidori-matcha-100g#rm-matcha-okumidori-100": {
+    "product": "Single Cultivar Okumidori Matcha",
+    "variant": "100g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$108.00",
+    "limit": null,
+    "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-okumidori-matcha-100g"
+  },
   "https://rockysmatcha.com/products/rockys-matcha-tsujiki-blend-matcha-20g#rm-matcha-tsujiki-blend-20": {
     "product": "Tsujiki Ceremonial Blend Matcha",
     "variant": "20g",
@@ -168,16 +178,6 @@
     "price_usd": "$38.00",
     "limit": null,
     "url": "https://rockysmatcha.com/products/rocky-s-matcha-for-saie-ceremonial-blend-matcha-20g"
-  },
-  "https://rockysmatcha.com/products/rockys-matcha-osada-ceremonial-blend-matcha-20g#rm-matcha-osada-ceremonial-20g": {
-    "product": "Osada Ceremonial Blend Matcha",
-    "variant": "20g",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$20.00",
-    "limit": null,
-    "url": "https://rockysmatcha.com/products/rockys-matcha-osada-ceremonial-blend-matcha-20g"
   },
   "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-bundle-set#rm-matcha-bundle-cb": {
     "product": "Ceremonial Blend Bundle",
