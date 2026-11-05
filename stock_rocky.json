@@ -1,23 +1,6 @@
 {
-  "checked_at": "2026-11-05T15:28:14+00:00",
+  "checked_at": "2026-11-05T15:38:10+00:00",
   "products": [
-    {
-      "name": "Uji Premium Blend Matcha",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-uji-premium-blend-matcha-20g",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$28.00",
-          "sku": "RM-MATCHA-UJIPREMIUM-20",
-          "variation_id": "67640947900730",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
     {
       "name": "Ceremonial Blend Matcha",
       "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-20g",
@@ -30,6 +13,23 @@
           "price_usd": "$36.00",
           "sku": "RM-MATCHA-CEREMONIAL-20",
           "variation_id": "46722330493242",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Uji Premium Blend Matcha",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-uji-premium-blend-matcha-20g",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$28.00",
+          "sku": "RM-MATCHA-UJIPREMIUM-20",
+          "variation_id": "67640947900730",
           "limit": null
         }
       ],
@@ -155,6 +155,23 @@
       "note": ""
     },
     {
+      "name": "Ceremonial Blend Matcha",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-100g",
+      "variants": [
+        {
+          "label": "100g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$168.00",
+          "sku": "RM-MATCHA-CEREMONIAL-100",
+          "variation_id": "47831138992442",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
       "name": "Uji Premium Blend Matcha",
       "url": "https://rockysmatcha.com/products/rockys-matcha-uji-premium-blend-matcha-100g",
       "variants": [
@@ -183,23 +200,6 @@
           "price_usd": "$108.00",
           "sku": "RM-MATCHA-HORII-CEREMONIAL-100",
           "variation_id": "52079414378810",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Ceremonial Blend Matcha",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-100g",
-      "variants": [
-        {
-          "label": "100g",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$168.00",
-          "sku": "RM-MATCHA-CEREMONIAL-100",
-          "variation_id": "47831138992442",
           "limit": null
         }
       ],
