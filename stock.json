@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-05T02:21:56+00:00",
+  "checked_at": "2026-11-05T03:05:50+00:00",
   "products": [
     {
       "name": "Wako",
@@ -74,7 +74,7 @@
         },
         {
           "label": "40g can",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": "¥3,720",
           "price_eur": "€20.91",
           "price_usd": null,
