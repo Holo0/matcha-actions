@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-05T00:18:10+00:00",
+  "checked_at": "2026-11-05T00:38:11+00:00",
   "products": [
     {
       "name": "Uji Premium Blend Matcha",
@@ -149,23 +149,6 @@
           "price_usd": "$48.00",
           "sku": "RM-MATCHA-HOUJICHA-100",
           "variation_id": "51444453998906",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Osada Ceremonial Blend Matcha",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-osada-ceremonial-blend-matcha-100g",
-      "variants": [
-        {
-          "label": "100g",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$78.00",
-          "sku": "RM-MATCHA-OSADA-CEREMONIAL-100",
-          "variation_id": "52079418016058",
           "limit": null
         }
       ],
