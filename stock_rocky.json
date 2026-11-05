@@ -1,18 +1,35 @@
 {
-  "checked_at": "2026-11-05T15:58:10+00:00",
+  "checked_at": "2026-11-05T16:08:13+00:00",
   "products": [
     {
-      "name": "Ceremonial Blend Matcha",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-20g",
+      "name": "Single Cultivar Saemidori",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-saemidori-20g",
       "variants": [
         {
           "label": "20g",
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$36.00",
-          "sku": "RM-MATCHA-CEREMONIAL-20",
-          "variation_id": "46722330493242",
+          "price_usd": "$20.00",
+          "sku": "RM-MATCHA-SAEMIDORI-20",
+          "variation_id": "67715260088634",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Miyabi Ceremonial Blend",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-miyabi-ceremonial-blend-20g",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$28.00",
+          "sku": "RM-MATCHA-MIYABI-20",
+          "variation_id": "67715200942394",
           "limit": null
         }
       ],
@@ -36,23 +53,6 @@
       "note": ""
     },
     {
-      "name": "Daily Ceremonial Blend Single Serve Packets",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-daily-ceremonial-blend-single-serve-packets",
-      "variants": [
-        {
-          "label": "Unique",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$32.00",
-          "sku": "RM-MATCHA-STICK-DAILY-CEREMONIAL-30",
-          "variation_id": "53499309130042",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
       "name": "Horii Shichimeien Ceremonial Blend",
       "url": "https://rockysmatcha.com/products/rockys-matcha-horii-shichimeien-ceremonial-blend-20g",
       "variants": [
@@ -70,6 +70,40 @@
       "note": ""
     },
     {
+      "name": "Daily Ceremonial Blend Single Serve Packets",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-daily-ceremonial-blend-single-serve-packets",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$32.00",
+          "sku": "RM-MATCHA-STICK-DAILY-CEREMONIAL-30",
+          "variation_id": "53499309130042",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Ceremonial Blend Matcha",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-20g",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$36.00",
+          "sku": "RM-MATCHA-CEREMONIAL-20",
+          "variation_id": "46722330493242",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
       "name": "Houjicha",
       "url": "https://rockysmatcha.com/products/rockys-matcha-houjicha-20g",
       "variants": [
@@ -81,6 +115,23 @@
           "price_usd": "$20.00",
           "sku": "RM-MATCHA-HOUJICHA-20",
           "variation_id": "47531164631354",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Single Cultivar Tenryu Okumidori",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-tenryu-okumidori-20g",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$28.00",
+          "sku": "RM-MATCHA-ORGANIC-TENRYU-20",
+          "variation_id": "49233154670906",
           "limit": null
         }
       ],
@@ -121,17 +172,17 @@
       "note": ""
     },
     {
-      "name": "Single Cultivar Tenryu Okumidori",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-tenryu-okumidori-20g",
+      "name": "Single Cultivar Saemidori",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-saemidori-100g",
       "variants": [
         {
-          "label": "20g",
+          "label": "100g",
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$28.00",
-          "sku": "RM-MATCHA-ORGANIC-TENRYU-20",
-          "variation_id": "49233154670906",
+          "price_usd": "$78.00",
+          "sku": "RM-MATCHA-SAEMIDORI-100",
+          "variation_id": "67893459157306",
           "limit": null
         }
       ],
@@ -149,6 +200,23 @@
           "price_usd": "$48.00",
           "sku": "RM-MATCHA-HOUJICHA-100",
           "variation_id": "51444453998906",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Miyabi Ceremonial Blend",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-miyabi-ceremonial-blend-100g",
+      "variants": [
+        {
+          "label": "100g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$108.00",
+          "sku": "RM-MATCHA-MIYABI-100",
+          "variation_id": "67893421670714",
           "limit": null
         }
       ],
