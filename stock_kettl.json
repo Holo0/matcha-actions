@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-06T18:38:10+00:00",
+  "checked_at": "2026-11-06T18:48:10+00:00",
   "products": [
     {
       "name": "Hukuju Matcha",
@@ -17,7 +17,7 @@
         },
         {
           "label": "1kg",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$600.00",
