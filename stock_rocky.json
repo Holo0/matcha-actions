@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-06T22:28:11+00:00",
+  "checked_at": "2026-11-06T22:38:09+00:00",
   "products": [
     {
       "name": "Single Cultivar Saemidori",
@@ -279,7 +279,7 @@
       "variants": [
         {
           "label": "20g",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$20.00",
@@ -364,7 +364,7 @@
       "variants": [
         {
           "label": "Unique",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$78.00",
@@ -381,7 +381,7 @@
       "variants": [
         {
           "label": "Unique",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$58.00",
