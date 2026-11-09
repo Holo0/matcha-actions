@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-09T22:58:12+00:00",
+  "checked_at": "2026-11-09T23:08:12+00:00",
   "products": [
     {
       "name": "Single Cultivar Saemidori",
@@ -47,6 +47,23 @@
           "price_usd": "$28.00",
           "sku": "RM-MATCHA-UJIPREMIUM-20",
           "variation_id": "67640947900730",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Osada Ceremonial Blend Matcha",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-osada-ceremonial-blend-matcha-20g",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$20.00",
+          "sku": "RM-MATCHA-OSADA-CEREMONIAL-20G",
+          "variation_id": "52103797604666",
           "limit": null
         }
       ],
@@ -172,6 +189,40 @@
       "note": ""
     },
     {
+      "name": "Ceremonial Blend Bundle",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-bundle-set",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$78.00",
+          "sku": "RM-MATCHA-BUNDLE-CB",
+          "variation_id": "53814518186298",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Discovery Bundle",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-discovery-bundle",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$58.00",
+          "sku": "RM-MATCHA-BUNDLE-DISCOVERY",
+          "variation_id": "53419244912954",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
       "name": "Single Cultivar Saemidori",
       "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-saemidori-100g",
       "variants": [
@@ -274,23 +325,6 @@
       "note": ""
     },
     {
-      "name": "Osada Ceremonial Blend Matcha",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-osada-ceremonial-blend-matcha-20g",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$20.00",
-          "sku": "RM-MATCHA-OSADA-CEREMONIAL-20G",
-          "variation_id": "52103797604666",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
       "name": "Single Cultivar Okumidori Matcha",
       "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-okumidori-matcha-100g",
       "variants": [
@@ -353,40 +387,6 @@
           "price_usd": "$38.00",
           "sku": "RM-MATCHA-SAIE-20",
           "variation_id": "51158011216186",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Ceremonial Blend Bundle",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-bundle-set",
-      "variants": [
-        {
-          "label": "Unique",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$78.00",
-          "sku": "RM-MATCHA-BUNDLE-CB",
-          "variation_id": "53814518186298",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Discovery Bundle",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-discovery-bundle",
-      "variants": [
-        {
-          "label": "Unique",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$58.00",
-          "sku": "RM-MATCHA-BUNDLE-DISCOVERY",
-          "variation_id": "53419244912954",
           "limit": null
         }
       ],
