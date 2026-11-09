@@ -552,7 +552,7 @@
   "https://kettl.co/products/soukou-matcha#183954238429": {
     "product": "Soukou Matcha",
     "variant": "20g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$26.00",
