@@ -149,16 +149,6 @@
     "limit": null,
     "url": "https://kettl.co/products/shinme-matcha"
   },
-  "https://kettl.co/products/ryogochi-okuyutaka-matcha#022971923713": {
-    "product": "Ryogochi Okuyutaka Matcha",
-    "variant": "20g",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$40.00",
-    "limit": null,
-    "url": "https://kettl.co/products/ryogochi-okuyutaka-matcha"
-  },
   "https://kettl.co/products/satsuma-organic-saemidori-matcha#022971088078": {
     "product": "Satsuma Organic Saemidori Matcha",
     "variant": "20g",
@@ -618,5 +608,15 @@
     "price_usd": "$650.00",
     "limit": null,
     "url": "https://kettl.co/products/suiteki-matcha-100g"
+  },
+  "https://kettl.co/products/ryogochi-okuyutaka-matcha#022971923713": {
+    "product": "Ryogochi Okuyutaka Matcha",
+    "variant": "20g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$40.00",
+    "limit": null,
+    "url": "https://kettl.co/products/ryogochi-okuyutaka-matcha"
   }
 }

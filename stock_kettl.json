@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-10T17:28:12+00:00",
+  "checked_at": "2026-11-10T17:38:10+00:00",
   "products": [
     {
       "name": "Soukou Matcha",
@@ -230,23 +230,6 @@
           "price_usd": "$38.00",
           "sku": "183954969736",
           "variation_id": "31892086358076",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Ryogochi Okuyutaka Matcha",
-      "url": "https://kettl.co/products/ryogochi-okuyutaka-matcha",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$40.00",
-          "sku": "022971923713",
-          "variation_id": "48084660650234",
           "limit": null
         }
       ],
@@ -980,6 +963,23 @@
           "price_usd": "$650.00",
           "sku": "010441364012",
           "variation_id": "47849638166778",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Ryogochi Okuyutaka Matcha",
+      "url": "https://kettl.co/products/ryogochi-okuyutaka-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$40.00",
+          "sku": "022971923713",
+          "variation_id": "48084660650234",
           "limit": null
         }
       ],
