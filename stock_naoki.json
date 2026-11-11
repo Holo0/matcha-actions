@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-11T04:28:14+00:00",
+  "checked_at": "2026-11-11T04:38:13+00:00",
   "products": [
     {
       "name": "Superior Blend Matcha",
@@ -7,7 +7,7 @@
       "variants": [
         {
           "label": "1.4 Ounce (Pack of 1)",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$24.99",
@@ -17,7 +17,7 @@
         },
         {
           "label": "1.75 Ounce (Pack of 1)",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$25.99",
@@ -27,7 +27,7 @@
         },
         {
           "label": "3.5 Ounce (Pack of 1)",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$39.99",
@@ -54,7 +54,7 @@
         },
         {
           "label": "1.75 Ounce (Pack of 1)",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$26.99",
@@ -64,7 +64,7 @@
         },
         {
           "label": "3.5 Ounce (Pack of 1)",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$42.99",
@@ -81,7 +81,7 @@
       "variants": [
         {
           "label": "Unique",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$32.00",
@@ -132,7 +132,7 @@
       "variants": [
         {
           "label": "1.4 Ounce (Pack of 1)",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$26.99",
@@ -193,7 +193,7 @@
       "variants": [
         {
           "label": "1.4 Ounce (Pack of 1)",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$29.99",
@@ -203,7 +203,7 @@
         },
         {
           "label": "3.5 Ounce (Pack of 1)",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$59.99",
@@ -220,7 +220,7 @@
       "variants": [
         {
           "label": "1.4 Ounce (Pack of 1)",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$14.99",
@@ -230,7 +230,7 @@
         },
         {
           "label": "3.5 Ounce (Pack of 1)",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$24.99",
