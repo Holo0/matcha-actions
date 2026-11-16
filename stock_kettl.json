@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-16T15:38:13+00:00",
+  "checked_at": "2026-11-16T15:48:09+00:00",
   "products": [
     {
       "name": "Soukou Matcha",
@@ -173,7 +173,7 @@
         },
         {
           "label": "1kg",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$450.00",
