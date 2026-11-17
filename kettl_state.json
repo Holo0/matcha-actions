@@ -522,7 +522,7 @@
   "https://kettl.co/products/satsuma-matcha#010447290520": {
     "product": "Satsuma Matcha",
     "variant": "1kg",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$425.00",
