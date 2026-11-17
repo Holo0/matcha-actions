@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-17T16:58:21+00:00",
+  "checked_at": "2026-11-17T17:08:11+00:00",
   "products": [
     {
       "name": "for Saie Ceremonial Blend Matcha",
@@ -7,7 +7,7 @@
       "variants": [
         {
           "label": "20g",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$38.00",
