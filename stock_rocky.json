@@ -1,6 +1,40 @@
 {
-  "checked_at": "2026-11-17T04:18:09+00:00",
+  "checked_at": "2026-11-17T04:28:11+00:00",
   "products": [
+    {
+      "name": "for Saie Ceremonial Blend Matcha",
+      "url": "https://rockysmatcha.com/products/rocky-s-matcha-for-saie-ceremonial-blend-matcha-20g",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$38.00",
+          "sku": "RM-MATCHA-SAIE-20",
+          "variation_id": "51158011216186",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Daily Ceremonial Blend Single Serve Packets",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-daily-ceremonial-blend-single-serve-packets",
+      "variants": [
+        {
+          "label": "Unique",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$32.00",
+          "sku": "RM-MATCHA-STICK-DAILY-CEREMONIAL-30",
+          "variation_id": "53499309130042",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
     {
       "name": "Single Cultivar Saemidori",
       "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-saemidori-20g",
@@ -81,23 +115,6 @@
           "price_usd": "$28.00",
           "sku": "RM-MATCHA-HORII-CEREMONIAL-20",
           "variation_id": "52078620999994",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Daily Ceremonial Blend Single Serve Packets",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-daily-ceremonial-blend-single-serve-packets",
-      "variants": [
-        {
-          "label": "Unique",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$32.00",
-          "sku": "RM-MATCHA-STICK-DAILY-CEREMONIAL-30",
-          "variation_id": "53499309130042",
           "limit": null
         }
       ],
@@ -370,23 +387,6 @@
           "price_usd": "$168.00",
           "sku": "RM-MATCHA-TSUJIKI-BLEND-100",
           "variation_id": "52079462547770",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "for Saie Ceremonial Blend Matcha",
-      "url": "https://rockysmatcha.com/products/rocky-s-matcha-for-saie-ceremonial-blend-matcha-20g",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$38.00",
-          "sku": "RM-MATCHA-SAIE-20",
-          "variation_id": "51158011216186",
           "limit": null
         }
       ],
