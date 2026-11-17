@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-17T18:58:09+00:00",
+  "checked_at": "2026-11-17T19:18:12+00:00",
   "products": [
     {
       "name": "Hukuju Matcha",
@@ -267,23 +267,6 @@
           "price_usd": "$45.00",
           "sku": "010444478259",
           "variation_id": "47246714994938",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Shinme Matcha",
-      "url": "https://kettl.co/products/shinme-matcha",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$38.00",
-          "sku": "183954969736",
-          "variation_id": "31892086358076",
           "limit": null
         }
       ],
@@ -850,23 +833,6 @@
       "note": ""
     },
     {
-      "name": "Shizuka Matcha",
-      "url": "https://kettl.co/products/shizuka-matcha",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$30.00",
-          "sku": "195738245011",
-          "variation_id": "47824030171386",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
       "name": "Shirakawa Midori Matcha",
       "url": "https://kettl.co/products/shirakawa-midori-matcha",
       "variants": [
@@ -980,6 +946,40 @@
           "price_usd": "$52.00",
           "sku": "022977430840",
           "variation_id": "47801993855226",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Shinme Matcha",
+      "url": "https://kettl.co/products/shinme-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$38.00",
+          "sku": "183954969736",
+          "variation_id": "31892086358076",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Shizuka Matcha",
+      "url": "https://kettl.co/products/shizuka-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$30.00",
+          "sku": "195738245011",
+          "variation_id": "47824030171386",
           "limit": null
         }
       ],
