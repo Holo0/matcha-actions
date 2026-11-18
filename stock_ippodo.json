@@ -1,23 +1,6 @@
 {
-  "checked_at": "2026-11-18T08:28:11+00:00",
+  "checked_at": "2026-11-18T08:38:11+00:00",
   "products": [
-    {
-      "name": "Tsukikage Special Autumn Matcha",
-      "url": "https://global.ippodo-tea.co.jp/products/matcha399061",
-      "variants": [
-        {
-          "label": "20g Box",
-          "in_stock": true,
-          "price_jpy": "¥2,300",
-          "price_eur": null,
-          "price_usd": null,
-          "sku": "5039961",
-          "variation_id": "40801083031703",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
     {
       "name": "Kanza",
       "url": "https://global.ippodo-tea.co.jp/products/matcha5038731",
