@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T08:08:12+00:00",
+  "checked_at": "2026-11-19T08:18:15+00:00",
   "products": [
     {
       "name": "for Saie Ceremonial Blend Matcha",
@@ -214,7 +214,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$78.00",
+          "price_usd": "$63.00",
           "sku": "RM-MATCHA-BUNDLE-CB",
           "variation_id": "53814518186298",
           "limit": null
@@ -231,7 +231,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$58.00",
+          "price_usd": "$52.00",
           "sku": "RM-MATCHA-BUNDLE-DISCOVERY",
           "variation_id": "53419244912954",
           "limit": null
