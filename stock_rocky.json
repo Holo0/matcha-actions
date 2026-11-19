@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T23:08:10+00:00",
+  "checked_at": "2026-11-19T23:18:11+00:00",
   "products": [
     {
       "name": "for Saie Ceremonial Blend Matcha",
@@ -53,6 +53,23 @@
       "note": ""
     },
     {
+      "name": "Osada Ceremonial Blend Matcha",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-osada-ceremonial-blend-matcha-20g",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$20.00",
+          "sku": "RM-MATCHA-OSADA-CEREMONIAL-20G",
+          "variation_id": "52103797604666",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
       "name": "Miyabi Ceremonial Blend",
       "url": "https://rockysmatcha.com/products/rockys-matcha-miyabi-ceremonial-blend-20g",
       "variants": [
@@ -81,23 +98,6 @@
           "price_usd": "$28.00",
           "sku": "RM-MATCHA-UJIPREMIUM-20",
           "variation_id": "67640947900730",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Osada Ceremonial Blend Matcha",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-osada-ceremonial-blend-matcha-20g",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$20.00",
-          "sku": "RM-MATCHA-OSADA-CEREMONIAL-20G",
-          "variation_id": "52103797604666",
           "limit": null
         }
       ],
@@ -291,23 +291,6 @@
       "note": ""
     },
     {
-      "name": "Ceremonial Blend Matcha",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-100g",
-      "variants": [
-        {
-          "label": "100g",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$168.00",
-          "sku": "RM-MATCHA-CEREMONIAL-100",
-          "variation_id": "47831138992442",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
       "name": "Miyabi Ceremonial Blend",
       "url": "https://rockysmatcha.com/products/rockys-matcha-miyabi-ceremonial-blend-100g",
       "variants": [
@@ -353,6 +336,23 @@
           "price_usd": "$108.00",
           "sku": "RM-MATCHA-HORII-CEREMONIAL-100",
           "variation_id": "52079414378810",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Ceremonial Blend Matcha",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-100g",
+      "variants": [
+        {
+          "label": "100g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$168.00",
+          "sku": "RM-MATCHA-CEREMONIAL-100",
+          "variation_id": "47831138992442",
           "limit": null
         }
       ],
