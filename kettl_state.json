@@ -502,7 +502,7 @@
   "https://kettl.co/products/uji-hikari-matcha#183957081978": {
     "product": "Gokasho Organic Uji Hikari Matcha",
     "variant": "20g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$90.00",
