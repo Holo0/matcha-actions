@@ -262,7 +262,7 @@
   "https://kettl.co/products/hinata-matcha#010446212837": {
     "product": "Hinata Matcha",
     "variant": "1kg",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$415.00",
