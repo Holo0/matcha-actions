@@ -69,16 +69,6 @@
     "limit": null,
     "url": "https://rockysmatcha.com/products/rockys-matcha-horii-shichimeien-ceremonial-blend-20g"
   },
-  "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-20g#rm-matcha-ceremonial-20": {
-    "product": "Ceremonial Blend Matcha",
-    "variant": "20g",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$36.00",
-    "limit": null,
-    "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-20g"
-  },
   "https://rockysmatcha.com/products/rockys-matcha-houjicha-20g#rm-matcha-houjicha-20": {
     "product": "Houjicha",
     "variant": "20g",
@@ -189,15 +179,15 @@
     "limit": null,
     "url": "https://rockysmatcha.com/products/rockys-matcha-horii-shichimeien-ceremonial-blend-matcha-100g"
   },
-  "https://rockysmatcha.com/products/rockys-matcha-uji-premium-blend-matcha-100g#rm-matcha-ujipremium-100": {
-    "product": "Uji Premium Blend Matcha",
-    "variant": "100g",
+  "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-20g#rm-matcha-ceremonial-20": {
+    "product": "Ceremonial Blend Matcha",
+    "variant": "20g",
     "in_stock": false,
     "price": null,
     "price_eur": null,
-    "price_usd": "$108.00",
+    "price_usd": "$36.00",
     "limit": null,
-    "url": "https://rockysmatcha.com/products/rockys-matcha-uji-premium-blend-matcha-100g"
+    "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-20g"
   },
   "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-100g#rm-matcha-ceremonial-100": {
     "product": "Ceremonial Blend Matcha",
@@ -208,6 +198,16 @@
     "price_usd": "$168.00",
     "limit": null,
     "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-100g"
+  },
+  "https://rockysmatcha.com/products/rockys-matcha-uji-premium-blend-matcha-100g#rm-matcha-ujipremium-100": {
+    "product": "Uji Premium Blend Matcha",
+    "variant": "100g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$108.00",
+    "limit": null,
+    "url": "https://rockysmatcha.com/products/rockys-matcha-uji-premium-blend-matcha-100g"
   },
   "https://rockysmatcha.com/products/rockys-matcha-tsujiki-blend-matcha-20g#rm-matcha-tsujiki-blend-20": {
     "product": "Tsujiki Ceremonial Blend Matcha",
