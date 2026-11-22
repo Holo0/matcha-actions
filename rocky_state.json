@@ -109,16 +109,6 @@
     "limit": null,
     "url": "https://rockysmatcha.com/products/rockys-matcha-discovery-bundle"
   },
-  "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-saemidori-100g#rm-matcha-saemidori-100": {
-    "product": "Single Cultivar Saemidori",
-    "variant": "100g",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$78.00",
-    "limit": null,
-    "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-saemidori-100g"
-  },
   "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-okumidori-matcha-100g#rm-matcha-okumidori-100": {
     "product": "Single Cultivar Okumidori Matcha",
     "variant": "100g",
@@ -208,6 +198,16 @@
     "price_usd": "$108.00",
     "limit": null,
     "url": "https://rockysmatcha.com/products/rockys-matcha-uji-premium-blend-matcha-100g"
+  },
+  "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-saemidori-100g#rm-matcha-saemidori-100": {
+    "product": "Single Cultivar Saemidori",
+    "variant": "100g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$78.00",
+    "limit": null,
+    "url": "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-saemidori-100g"
   },
   "https://rockysmatcha.com/products/rockys-matcha-tsujiki-blend-matcha-20g#rm-matcha-tsujiki-blend-20": {
     "product": "Tsujiki Ceremonial Blend Matcha",
