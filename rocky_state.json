@@ -202,7 +202,7 @@
   "https://rockysmatcha.com/products/rockys-matcha-single-cultivar-saemidori-100g#rm-matcha-saemidori-100": {
     "product": "Single Cultivar Saemidori",
     "variant": "100g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$58.50",
