@@ -422,7 +422,7 @@
   "https://kettl.co/products/shirakawa-midori-matcha#022977775248": {
     "product": "Shirakawa Midori Matcha",
     "variant": "40g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$40.00",
@@ -442,7 +442,7 @@
   "https://kettl.co/products/shibushi-organic-tokujou-matcha#022977185337": {
     "product": "Shibushi Organic Tokujou Matcha",
     "variant": "20g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$38.00",
@@ -512,7 +512,7 @@
   "https://kettl.co/products/hukuju-matcha#029904092034": {
     "product": "Hukuju Matcha",
     "variant": "1kg",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$600.00",
@@ -532,7 +532,7 @@
   "https://kettl.co/products/hinata-matcha#022974804057": {
     "product": "Hinata Matcha",
     "variant": "40g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$38.00",
