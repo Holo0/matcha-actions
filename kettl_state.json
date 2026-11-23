@@ -302,7 +302,7 @@
   "https://kettl.co/products/saemidori-matcha-saemidorimo-cha#031033732415": {
     "product": "Gokasho Organic Saemidori Matcha",
     "variant": "20g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$85.00",
