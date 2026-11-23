@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-23T07:58:11+00:00",
+  "checked_at": "2026-11-23T08:08:13+00:00",
   "products": [
     {
       "name": "for Saie Ceremonial Blend Matcha",
@@ -27,7 +27,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$32.00",
+          "price_usd": "$24.00",
           "sku": "RM-MATCHA-STICK-DAILY-CEREMONIAL-30",
           "variation_id": "53499309130042",
           "limit": null
@@ -44,7 +44,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$20.00",
+          "price_usd": "$15.00",
           "sku": "RM-MATCHA-SAEMIDORI-20",
           "variation_id": "67715260088634",
           "limit": null
@@ -61,7 +61,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$36.00",
+          "price_usd": "$27.00",
           "sku": "RM-MATCHA-CEREMONIAL-20",
           "variation_id": "46722330493242",
           "limit": null
@@ -78,7 +78,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$20.00",
+          "price_usd": "$15.00",
           "sku": "RM-MATCHA-OSADA-CEREMONIAL-20G",
           "variation_id": "52103797604666",
           "limit": null
@@ -95,7 +95,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$28.00",
+          "price_usd": "$21.00",
           "sku": "RM-MATCHA-HORII-CEREMONIAL-20",
           "variation_id": "52078620999994",
           "limit": null
@@ -112,7 +112,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$20.00",
+          "price_usd": "$15.00",
           "sku": "RM-MATCHA-HOUJICHA-20",
           "variation_id": "47531164631354",
           "limit": null
@@ -129,7 +129,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$28.00",
+          "price_usd": "$21.00",
           "sku": "RM-MATCHA-ORGANIC-TENRYU-20",
           "variation_id": "49233154670906",
           "limit": null
@@ -146,7 +146,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$28.00",
+          "price_usd": "$21.00",
           "sku": "RM-MATCHA-OKUMIDORI-20G",
           "variation_id": "48571566358842",
           "limit": null
@@ -163,7 +163,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$88.00",
+          "price_usd": "$66.00",
           "sku": "RM-MATCHA-NARINO-20G",
           "variation_id": "50469817450810",
           "limit": null
@@ -197,7 +197,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$48.00",
+          "price_usd": "$36.00",
           "sku": "RM-MATCHA-HOUJICHA-100",
           "variation_id": "51444453998906",
           "limit": null
@@ -214,7 +214,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$108.00",
+          "price_usd": "$81.00",
           "sku": "RM-MATCHA-HORII-CEREMONIAL-100",
           "variation_id": "52079414378810",
           "limit": null
@@ -231,7 +231,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$108.00",
+          "price_usd": "$81.00",
           "sku": "RM-MATCHA-MIYABI-100",
           "variation_id": "67893421670714",
           "limit": null
@@ -248,7 +248,7 @@
           "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$108.00",
+          "price_usd": "$81.00",
           "sku": "RM-MATCHA-OKUMIDORI-100",
           "variation_id": "67640953471290",
           "limit": null
@@ -265,7 +265,7 @@
           "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$168.00",
+          "price_usd": "$126.00",
           "sku": "RM-MATCHA-CEREMONIAL-100",
           "variation_id": "47831138992442",
           "limit": null
@@ -282,7 +282,7 @@
           "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$28.00",
+          "price_usd": "$21.00",
           "sku": "RM-MATCHA-MIYABI-20",
           "variation_id": "67715200942394",
           "limit": null
@@ -316,7 +316,7 @@
           "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$28.00",
+          "price_usd": "$21.00",
           "sku": "RM-MATCHA-UJIPREMIUM-20",
           "variation_id": "67640947900730",
           "limit": null
@@ -333,7 +333,7 @@
           "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$108.00",
+          "price_usd": "$81.00",
           "sku": "RM-MATCHA-UJIPREMIUM-100",
           "variation_id": "50713628606778",
           "limit": null
@@ -350,7 +350,7 @@
           "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$78.00",
+          "price_usd": "$58.50",
           "sku": "RM-MATCHA-SAEMIDORI-100",
           "variation_id": "67893459157306",
           "limit": null
@@ -367,7 +367,7 @@
           "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$36.00",
+          "price_usd": "$27.00",
           "sku": "RM-MATCHA-TSUJIKI-BLEND-20",
           "variation_id": "49114926448954",
           "limit": null
@@ -384,7 +384,7 @@
           "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
-          "price_usd": "$168.00",
+          "price_usd": "$126.00",
           "sku": "RM-MATCHA-TSUJIKI-BLEND-100",
           "variation_id": "52079462547770",
           "limit": null
