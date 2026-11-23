@@ -162,7 +162,7 @@
   "https://rockysmatcha.com/products/rockys-matcha-miyabi-ceremonial-blend-20g#rm-matcha-miyabi-20": {
     "product": "Miyabi Ceremonial Blend",
     "variant": "20g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$21.00",
