@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-24T15:48:14+00:00",
+  "checked_at": "2026-11-24T15:58:20+00:00",
   "products": [
     {
       "name": "Hukuju Matcha",
@@ -422,6 +422,23 @@
       "note": ""
     },
     {
+      "name": "Kogetsu Matcha",
+      "url": "https://kettl.co/products/kogetsu-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": true,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$29.00",
+          "sku": "022975015582",
+          "variation_id": "47807810830586",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
       "name": "Wakakusa Matcha",
       "url": "https://kettl.co/products/wakakusa-matcha",
       "variants": [
@@ -569,23 +586,6 @@
           "price_usd": "$70.00",
           "sku": "011064523039",
           "variation_id": "31062173745212",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Gokasho Organic Samidori Matcha",
-      "url": "https://kettl.co/products/organic-samidori-matcha-20g-有機さみどり",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$70.00",
-          "sku": "022978294922",
-          "variation_id": "42431535317242",
           "limit": null
         }
       ],
@@ -918,23 +918,6 @@
       "note": ""
     },
     {
-      "name": "Kogetsu Matcha",
-      "url": "https://kettl.co/products/kogetsu-matcha",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": true,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$29.00",
-          "sku": "022975015582",
-          "variation_id": "47807810830586",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
       "name": "Ryokka Matcha",
       "url": "https://kettl.co/products/ryokka-matcha",
       "variants": [
@@ -980,6 +963,23 @@
           "price_usd": "$85.00",
           "sku": "031033732415",
           "variation_id": "31062166437948",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Gokasho Organic Samidori Matcha",
+      "url": "https://kettl.co/products/organic-samidori-matcha-20g-有機さみどり",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$70.00",
+          "sku": "022978294922",
+          "variation_id": "42431535317242",
           "limit": null
         }
       ],

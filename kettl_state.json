@@ -279,6 +279,16 @@
     "limit": null,
     "url": "https://kettl.co/products/shuichiro-sakamoto-organic-seimei-matcha"
   },
+  "https://kettl.co/products/kogetsu-matcha#022975015582": {
+    "product": "Kogetsu Matcha",
+    "variant": "20g",
+    "in_stock": true,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$29.00",
+    "limit": null,
+    "url": "https://kettl.co/products/kogetsu-matcha"
+  },
   "https://kettl.co/products/wakakusa-matcha#022975481950": {
     "product": "Wakakusa Matcha",
     "variant": "20g",
@@ -368,16 +378,6 @@
     "price_usd": "$70.00",
     "limit": null,
     "url": "https://kettl.co/products/shirakawa-samidori-matcha-samidorimo-cha"
-  },
-  "https://kettl.co/products/organic-samidori-matcha-20g-有機さみどり#022978294922": {
-    "product": "Gokasho Organic Samidori Matcha",
-    "variant": "20g",
-    "in_stock": false,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$70.00",
-    "limit": null,
-    "url": "https://kettl.co/products/organic-samidori-matcha-20g-有機さみどり"
   },
   "https://kettl.co/products/satsuma-organic-tsuyuhikari-matcha#022973302387": {
     "product": "Satsuma Organic Tsuyuhikari Matcha",
@@ -579,16 +579,6 @@
     "limit": null,
     "url": "https://kettl.co/products/fuyou-matcha"
   },
-  "https://kettl.co/products/kogetsu-matcha#022975015582": {
-    "product": "Kogetsu Matcha",
-    "variant": "20g",
-    "in_stock": true,
-    "price": null,
-    "price_eur": null,
-    "price_usd": "$29.00",
-    "limit": null,
-    "url": "https://kettl.co/products/kogetsu-matcha"
-  },
   "https://kettl.co/products/ryokka-matcha#022975378762": {
     "product": "Ryokka Matcha",
     "variant": "20g",
@@ -618,5 +608,15 @@
     "price_usd": "$85.00",
     "limit": null,
     "url": "https://kettl.co/products/saemidori-matcha-saemidorimo-cha"
+  },
+  "https://kettl.co/products/organic-samidori-matcha-20g-有機さみどり#022978294922": {
+    "product": "Gokasho Organic Samidori Matcha",
+    "variant": "20g",
+    "in_stock": false,
+    "price": null,
+    "price_eur": null,
+    "price_usd": "$70.00",
+    "limit": null,
+    "url": "https://kettl.co/products/organic-samidori-matcha-20g-有機さみどり"
   }
 }
