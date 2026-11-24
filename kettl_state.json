@@ -212,7 +212,7 @@
   "https://kettl.co/products/shirakawa-houjicha-powder#010448026234": {
     "product": "Shirakawa Houjicha Powder",
     "variant": "100g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$35.00",
