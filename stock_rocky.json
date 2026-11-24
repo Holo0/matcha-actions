@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-24T03:48:09+00:00",
+  "checked_at": "2026-11-24T03:58:21+00:00",
   "products": [
     {
       "name": "for Saie Ceremonial Blend Matcha",
@@ -115,23 +115,6 @@
           "price_usd": "$15.00",
           "sku": "RM-MATCHA-SAEMIDORI-20",
           "variation_id": "67715260088634",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Ceremonial Blend Matcha",
-      "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-20g",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$27.00",
-          "sku": "RM-MATCHA-CEREMONIAL-20",
-          "variation_id": "46722330493242",
           "limit": null
         }
       ],
@@ -268,6 +251,23 @@
           "price_usd": "$126.00",
           "sku": "RM-MATCHA-CEREMONIAL-100",
           "variation_id": "47831138992442",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Ceremonial Blend Matcha",
+      "url": "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-20g",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$27.00",
+          "sku": "RM-MATCHA-CEREMONIAL-20",
+          "variation_id": "46722330493242",
           "limit": null
         }
       ],
