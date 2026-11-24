@@ -282,7 +282,7 @@
   "https://kettl.co/products/kogetsu-matcha#022975015582": {
     "product": "Kogetsu Matcha",
     "variant": "20g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$29.00",
