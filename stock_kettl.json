@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-25T19:48:09+00:00",
+  "checked_at": "2026-11-25T19:58:08+00:00",
   "products": [
     {
       "name": "Suiteki Matcha",
@@ -27,7 +27,7 @@
         },
         {
           "label": "1kg",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$650.00",
@@ -71,7 +71,7 @@
         },
         {
           "label": "1kg",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$415.00",
@@ -587,7 +587,7 @@
       "variants": [
         {
           "label": "100g",
-          "in_stock": false,
+          "in_stock": true,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$65.00",

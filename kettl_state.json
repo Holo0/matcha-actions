@@ -22,7 +22,7 @@
   "https://kettl.co/products/suiteki-matcha-100g#010441364012": {
     "product": "Suiteki Matcha",
     "variant": "1kg",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$650.00",
@@ -52,7 +52,7 @@
   "https://kettl.co/products/hinata-matcha#010446212837": {
     "product": "Hinata Matcha",
     "variant": "1kg",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$415.00",
@@ -372,7 +372,7 @@
   "https://kettl.co/products/ryokuan-matcha#022976814030": {
     "product": "Ryokuan Matcha",
     "variant": "100g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$65.00",
