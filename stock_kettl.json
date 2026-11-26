@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-26T21:58:12+00:00",
+  "checked_at": "2026-11-26T22:08:10+00:00",
   "products": [
     {
       "name": "Suiteki Matcha",
@@ -44,7 +44,7 @@
       "variants": [
         {
           "label": "20g",
-          "in_stock": true,
+          "in_stock": false,
           "price_jpy": null,
           "price_eur": null,
           "price_usd": "$52.00",
