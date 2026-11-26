@@ -52,7 +52,7 @@
   "https://rockysmatcha.com/products/rockys-matcha-osada-ceremonial-blend-matcha-20g#rm-matcha-osada-ceremonial-20g": {
     "product": "Osada Ceremonial Blend Matcha",
     "variant": "20g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$15.00",
@@ -122,7 +122,7 @@
   "https://rockysmatcha.com/products/rockys-matcha-discovery-bundle#rm-matcha-bundle-discovery": {
     "product": "Discovery Bundle",
     "variant": "Unique",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$52.00",
