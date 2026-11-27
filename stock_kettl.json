@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-27T20:28:19+00:00",
+  "checked_at": "2026-11-27T20:38:14+00:00",
   "products": [
     {
       "name": "Suiteki Matcha",
@@ -33,23 +33,6 @@
           "price_usd": "$650.00",
           "sku": "010441364012",
           "variation_id": "47849638166778",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Hibiki Matcha",
-      "url": "https://kettl.co/products/hibiki-matcha",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$52.00",
-          "sku": "183954406163",
-          "variation_id": "44827327856890",
           "limit": null
         }
       ],
@@ -246,23 +229,6 @@
       "note": ""
     },
     {
-      "name": "Satsuma Organic Saemidori Matcha",
-      "url": "https://kettl.co/products/satsuma-organic-saemidori-matcha",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$40.00",
-          "sku": "022971088078",
-          "variation_id": "47708500361466",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
       "name": "Hakusan Matcha",
       "url": "https://kettl.co/products/hakusan-matcha",
       "variants": [
@@ -372,23 +338,6 @@
           "price_usd": "$45.00",
           "sku": "022977059782",
           "variation_id": "47875068985594",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Shuichiro Sakamoto Organic Seimei Matcha",
-      "url": "https://kettl.co/products/shuichiro-sakamoto-organic-seimei-matcha",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$45.00",
-          "sku": "022974208534",
-          "variation_id": "47768655331578",
           "limit": null
         }
       ],
@@ -620,23 +569,6 @@
           "price_usd": "$55.00",
           "sku": "022973621372",
           "variation_id": "47992396120314",
-          "limit": null
-        }
-      ],
-      "note": ""
-    },
-    {
-      "name": "Shuichiro Sakamoto Organic Saemidori Matcha",
-      "url": "https://kettl.co/products/shuichiro-sakamoto-organic-saemidori-matcha",
-      "variants": [
-        {
-          "label": "20g",
-          "in_stock": false,
-          "price_jpy": null,
-          "price_eur": null,
-          "price_usd": "$38.00",
-          "sku": "022972318792",
-          "variation_id": "47768658772218",
           "limit": null
         }
       ],
@@ -980,6 +912,74 @@
           "price_usd": "$29.00",
           "sku": "022975015582",
           "variation_id": "47807810830586",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Hibiki Matcha",
+      "url": "https://kettl.co/products/hibiki-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$52.00",
+          "sku": "183954406163",
+          "variation_id": "44827327856890",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Satsuma Organic Saemidori Matcha",
+      "url": "https://kettl.co/products/satsuma-organic-saemidori-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$40.00",
+          "sku": "022971088078",
+          "variation_id": "47708500361466",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Shuichiro Sakamoto Organic Seimei Matcha",
+      "url": "https://kettl.co/products/shuichiro-sakamoto-organic-seimei-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$45.00",
+          "sku": "022974208534",
+          "variation_id": "47768655331578",
+          "limit": null
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Shuichiro Sakamoto Organic Saemidori Matcha",
+      "url": "https://kettl.co/products/shuichiro-sakamoto-organic-saemidori-matcha",
+      "variants": [
+        {
+          "label": "20g",
+          "in_stock": false,
+          "price_jpy": null,
+          "price_eur": null,
+          "price_usd": "$38.00",
+          "sku": "022972318792",
+          "variation_id": "47768658772218",
           "limit": null
         }
       ],
