@@ -102,7 +102,7 @@
   "https://rockysmatcha.com/products/rockys-matcha-ceremonial-blend-matcha-20g#rm-matcha-ceremonial-20": {
     "product": "Ceremonial Blend Matcha",
     "variant": "20g",
-    "in_stock": false,
+    "in_stock": true,
     "price": null,
     "price_eur": null,
     "price_usd": "$27.00",
