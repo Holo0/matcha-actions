@@ -122,7 +122,7 @@
   "https://rockysmatcha.com/products/rockys-matcha-uji-premium-blend-matcha-20g#rm-matcha-ujipremium-20": {
     "product": "Uji Premium Blend Matcha",
     "variant": "20g",
-    "in_stock": true,
+    "in_stock": false,
     "price": null,
     "price_eur": null,
     "price_usd": "$21.00",
